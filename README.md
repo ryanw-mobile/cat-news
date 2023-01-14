@@ -71,7 +71,7 @@ for applying some later techs and keep the tech stack updated.
 
 ## Requirements
 
-* Android Studio Dolphin | 2021.3.1 Patch 1
+* Android Studio Electric Eel | 2022.1.1
 * Android device or simulator running Android 8.0+ (API 26)
 
 ## Setting up the Keystore
