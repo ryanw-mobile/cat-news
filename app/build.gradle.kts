@@ -201,7 +201,7 @@ dependencies {
 configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
     android.set(true)
     ignoreFailures.set(true)
-    disabledRules.set(setOf("max-line-length"))
+    disabledRules.set(setOf("max-line-length", "trailing-comma-on-call-site"))
     reporters {
         reporter(ReporterType.PLAIN)
         reporter(ReporterType.CHECKSTYLE)
