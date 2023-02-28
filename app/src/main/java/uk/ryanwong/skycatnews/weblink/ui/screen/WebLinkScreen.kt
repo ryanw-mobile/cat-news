@@ -20,14 +20,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.google.accompanist.web.WebView
 import com.google.accompanist.web.rememberWebViewState
 import uk.ryanwong.skycatnews.R
 import uk.ryanwong.skycatnews.weblink.ui.viewmodel.WebLinkViewModel
 
-@OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
 fun WebLinkScreen(
     modifier: Modifier = Modifier,

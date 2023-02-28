@@ -44,7 +44,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -60,7 +59,6 @@ import uk.ryanwong.skycatnews.storydetail.ui.previewparameter.StoryProvider
 import uk.ryanwong.skycatnews.storydetail.ui.viewmodel.StoryDetailViewModel
 import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.app.ui.theme.getDimension
 
-@OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
 fun StoryDetailScreen(
     modifier: Modifier = Modifier,
@@ -157,6 +155,7 @@ private fun StoryDetailScreenLayout(
                                 .padding(all = dimension.grid_2)
                         )
                     }
+
                     is Content.Image -> {
                         AsyncImage(
                             model = ImageRequest
