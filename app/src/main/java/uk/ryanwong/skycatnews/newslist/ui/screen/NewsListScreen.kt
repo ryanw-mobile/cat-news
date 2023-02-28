@@ -32,7 +32,6 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.ryanwong.skycatnews.R
 import uk.ryanwong.skycatnews.app.ui.component.NoDataScreen
@@ -46,7 +45,6 @@ import uk.ryanwong.skycatnews.newslist.ui.screen.previewparameter.NewsListProvid
 import uk.ryanwong.skycatnews.newslist.ui.viewmodel.NewsListViewModel
 import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.app.ui.theme.getDimension
 
-@OptIn(ExperimentalLifecycleComposeApi::class)
 @Composable
 fun NewsListScreen(
     modifier: Modifier = Modifier,
@@ -130,6 +128,7 @@ fun NewsListScreenLayout(
                             onItemClicked = { onStoryItemClicked(firstItem.newsId) },
                         )
                     }
+
                     is NewsItem.WebLink -> {
                         LargeWebLinkHeadline(
                             webLink = firstItem,
@@ -148,6 +147,7 @@ fun NewsListScreenLayout(
                             onItemClicked = { onStoryItemClicked(newsItem.newsId) },
                         )
                     }
+
                     is NewsItem.WebLink -> {
                         RegularWebLinkHeadline(
                             webLink = newsItem,
