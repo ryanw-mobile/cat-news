@@ -30,6 +30,8 @@ room = "2.5.0"
 test-rules = "1.5.0"
 test-ext = "1.1.5"
 timber = "5.0.1"
+# ksp is linked to Kotlin version https://github.com/google/ksp/releases
+devtoolsksp = "1.7.20-1.0.8"
 
 [libraries]
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx" }
@@ -37,7 +39,7 @@ androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-ru
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation-compose" }
 
-androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" } # kapt
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" } # use with ksp
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "room" }
@@ -104,7 +106,7 @@ android-application = { id = "com.android.application", version.ref = "gradleplu
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hilt-android-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlinx-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "gradleplugin" }
 gradle-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "devtoolsksp" }
