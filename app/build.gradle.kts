@@ -1,9 +1,9 @@
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 import java.io.FileInputStream
 import java.io.InputStreamReader
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Properties
-import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -11,9 +11,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.hilt.android.plugin)
     alias(libs.plugins.kotlinx.kover)
-    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.gradle.ktlint)
+    alias(libs.plugins.devtools.ksp)
 }
 
 android {
@@ -58,12 +58,6 @@ android {
         // Bundle output filename
         val timestamp = SimpleDateFormat("yyyyMMdd-HHmmss").format(Date())
         setProperty("archivesBaseName", "skycatnews-$versionName-$timestamp")
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments["room.schemaLocation"] = "$projectDir/schemas"
-            }
-        }
     }
 
     buildTypes {
@@ -177,9 +171,9 @@ dependencies {
 
     // Dagger-Hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
-    kaptAndroidTest(libs.hilt.android.compiler)
+    kspAndroidTest(libs.hilt.android.compiler)
     androidTestImplementation(libs.hilt.android.testing)
 
     // Ktor
@@ -189,13 +183,17 @@ dependencies {
 
     // RoomDB
     implementation(libs.bundles.room)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
     testImplementation(libs.androidx.room.testing)
 
     // Mockk
     testImplementation(libs.mockk)
     testImplementation(libs.mockk.agent.jvm)
     androidTestImplementation(libs.mockk.android)
+}
+
+ksp {
+    arg(RoomSchemaArgProvider(File(projectDir, "schemas")))
 }
 
 configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
