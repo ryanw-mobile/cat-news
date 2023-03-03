@@ -1,9 +1,9 @@
-import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 import java.io.FileInputStream
 import java.io.InputStreamReader
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Properties
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -193,7 +193,7 @@ dependencies {
 }
 
 ksp {
-    arg(RoomSchemaArgProvider(File(projectDir, "schemas")))
+    arg("room.schemaLocation", "$projectDir/schemas")
 }
 
 configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
