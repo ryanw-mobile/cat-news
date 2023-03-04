@@ -14,6 +14,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.gradle.ktlint)
     alias(libs.plugins.devtools.ksp)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -170,8 +171,9 @@ dependencies {
     androidTestImplementation(libs.kotest.assertions.core)
 
     // Dagger-Hilt
+    // Hilt does not support ksp yet https://issuetracker.google.com/issues/179057202?pli=1
     implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
     kspAndroidTest(libs.hilt.android.compiler)
     androidTestImplementation(libs.hilt.android.testing)
