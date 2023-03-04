@@ -214,6 +214,10 @@ configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
     }
 }
 
+kotlin {
+    jvmToolchain(11)
+}
+
 tasks.named("preBuild") {
     dependsOn(tasks.named("ktlintFormat"))
 }
