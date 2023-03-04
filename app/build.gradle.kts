@@ -137,6 +137,11 @@ android {
             isIncludeAndroidResources = true
         }
     }
+    // https://kotlinlang.org/docs/gradle-configure-project.html#gradle-java-toolchains-support
+    compileOptions {
+        sourceCompatibility(11)
+        targetCompatibility(11)
+    }
 }
 
 dependencies {
