@@ -161,7 +161,7 @@ fun RegularHeadline(
     showBackground = true,
 )
 @Composable
-fun RegularStoryHeadlinePreview() {
+private fun RegularStoryHeadlinePreview() {
     SkyCatNewsTheme {
         RegularStoryHeadline(
             story = NewsItem.Story(
@@ -183,7 +183,7 @@ fun RegularStoryHeadlinePreview() {
     showBackground = true,
 )
 @Composable
-fun RegularWebLinkHeadlinePreview() {
+private fun RegularWebLinkHeadlinePreview() {
     SkyCatNewsTheme {
         RegularWebLinkHeadline(
             webLink = NewsItem.WebLink(

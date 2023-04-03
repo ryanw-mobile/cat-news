@@ -156,7 +156,7 @@ fun LargeHeadline(
     heightDp = 320,
 )
 @Composable
-fun LargeStoryHeadlinePreview() {
+private fun LargeStoryHeadlinePreview() {
     SkyCatNewsTheme {
         LargeStoryHeadline(
             story = NewsItem.Story(
@@ -179,7 +179,7 @@ fun LargeStoryHeadlinePreview() {
     heightDp = 320,
 )
 @Composable
-fun LargeWebLinkHeadlinePreview() {
+private fun LargeWebLinkHeadlinePreview() {
     SkyCatNewsTheme {
         LargeWebLinkHeadline(
             webLink = NewsItem.WebLink(
