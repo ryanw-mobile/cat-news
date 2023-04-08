@@ -5,7 +5,10 @@
 package uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.app.ui
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -14,6 +17,7 @@ import androidx.navigation.navArgument
 import uk.ryanwong.skycatnews.newslist.ui.screen.NewsListScreen
 import uk.ryanwong.skycatnews.storydetail.ui.screen.StoryDetailScreen
 import uk.ryanwong.skycatnews.weblink.ui.screen.WebLinkScreen
+import uk.ryanwong.skycatnews.weblink.ui.viewmodel.WebLinkViewModel
 
 @Composable
 fun SkyCatNewsApp(
@@ -48,7 +52,14 @@ fun SkyCatNewsApp(
                 }
             )
         ) {
-            WebLinkScreen(modifier = modifier)
+            val webLinkViewModel: WebLinkViewModel = hiltViewModel()
+            val uiState by webLinkViewModel.uiState.collectAsStateWithLifecycle()
+
+            WebLinkScreen(
+                modifier = modifier,
+                uiState = uiState,
+                onErrorShown = { errorId -> (webLinkViewModel::errorShown)(errorId) }
+            )
         }
     }
 }
