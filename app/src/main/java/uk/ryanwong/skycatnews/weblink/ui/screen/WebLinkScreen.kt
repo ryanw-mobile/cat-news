@@ -12,26 +12,23 @@ import androidx.compose.material.SnackbarHost
 import androidx.compose.material.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.google.accompanist.web.WebView
 import com.google.accompanist.web.rememberWebViewState
 import uk.ryanwong.skycatnews.R
-import uk.ryanwong.skycatnews.weblink.ui.viewmodel.WebLinkViewModel
+import uk.ryanwong.skycatnews.weblink.ui.viewmodel.WebLinkUIState
 
 @Composable
 fun WebLinkScreen(
     modifier: Modifier = Modifier,
-    webLinkViewModel: WebLinkViewModel = hiltViewModel(),
+    uiState: WebLinkUIState,
+    onErrorShown: (errorId: Long) -> Unit,
 ) {
-    val uiState by webLinkViewModel.uiState.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
 
     Box(modifier = modifier.fillMaxSize()) {
@@ -62,7 +59,7 @@ fun WebLinkScreen(
                 message = errorMessageText,
                 actionLabel = actionLabel
             )
-            webLinkViewModel.errorShown(errorId = errorMessage.id)
+            onErrorShown(errorMessage.id)
         }
     }
 }
