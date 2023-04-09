@@ -19,6 +19,7 @@ import kotlinx.coroutines.test.runTest
 import uk.ryanwong.skycatnews.R
 import uk.ryanwong.skycatnews.app.exception.StoryNotFoundException
 import uk.ryanwong.skycatnews.storydetail.data.repository.MockStoryDetailRepository
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIState
 
 @OptIn(ExperimentalCoroutinesApi::class)
 internal class StoryDetailViewModelTest : FreeSpec() {

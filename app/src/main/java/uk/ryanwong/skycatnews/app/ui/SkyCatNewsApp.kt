@@ -16,6 +16,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import uk.ryanwong.skycatnews.newslist.ui.screen.NewsListScreen
 import uk.ryanwong.skycatnews.storydetail.ui.screen.StoryDetailScreen
+import uk.ryanwong.skycatnews.storydetail.ui.viewmodel.StoryDetailViewModel
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIEvent
 import uk.ryanwong.skycatnews.weblink.ui.screen.WebLinkScreen
 import uk.ryanwong.skycatnews.weblink.ui.viewmodel.WebLinkViewModel
 
@@ -24,7 +26,6 @@ fun SkyCatNewsApp(
     modifier: Modifier = Modifier,
     navController: NavHostController,
 ) {
-
     NavHost(navController = navController, startDestination = "newslist") {
         composable(route = "newslist") {
             NewsListScreen(
@@ -41,7 +42,17 @@ fun SkyCatNewsApp(
                 }
             )
         ) {
-            StoryDetailScreen(modifier = modifier)
+            val storyDetailViewModel: StoryDetailViewModel = hiltViewModel()
+            val uiState by storyDetailViewModel.uiState.collectAsStateWithLifecycle()
+
+            StoryDetailScreen(
+                modifier = modifier,
+                uiState = uiState,
+                uiEvent = StoryDetailUIEvent(
+                    onRefresh = { storyDetailViewModel.refreshStory() },
+                    onErrorShown = { errorId -> storyDetailViewModel.errorShown(errorId = errorId) }
+                )
+            )
         }
 
         composable(

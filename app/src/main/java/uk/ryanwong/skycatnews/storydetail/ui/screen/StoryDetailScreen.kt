@@ -27,7 +27,6 @@ import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,8 +42,6 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import uk.ryanwong.skycatnews.R
@@ -56,22 +53,24 @@ import uk.ryanwong.skycatnews.app.ui.theme.SkyCatNewsTheme
 import uk.ryanwong.skycatnews.storydetail.domain.model.Content
 import uk.ryanwong.skycatnews.storydetail.domain.model.Story
 import uk.ryanwong.skycatnews.storydetail.ui.previewparameter.StoryProvider
-import uk.ryanwong.skycatnews.storydetail.ui.viewmodel.StoryDetailViewModel
 import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.app.ui.theme.getDimension
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIEvent
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIState
 
 @Composable
 fun StoryDetailScreen(
     modifier: Modifier = Modifier,
-    storyDetailViewModel: StoryDetailViewModel = hiltViewModel(),
+    uiState: StoryDetailUIState,
+    uiEvent: StoryDetailUIEvent,
 ) {
-    val uiState by storyDetailViewModel.uiState.collectAsStateWithLifecycle()
+
     val snackbarHostState = remember { SnackbarHostState() }
 
     Box(modifier = modifier.fillMaxSize()) {
         StoryDetailScreenLayout(
             story = uiState.story,
             isLoading = uiState.isLoading,
-            onRefresh = { storyDetailViewModel.refreshStory() }
+            onRefresh = uiEvent.onRefresh,
         )
 
         SnackbarHost(
@@ -90,7 +89,7 @@ fun StoryDetailScreen(
                 message = errorMessageText,
                 actionLabel = actionLabel
             )
-            storyDetailViewModel.errorShown(errorId = errorMessage.id)
+            uiEvent.onErrorShown(errorMessage.id)
         }
     }
 }
