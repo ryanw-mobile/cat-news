@@ -18,6 +18,7 @@ import uk.ryanwong.skycatnews.newslist.ui.screen.NewsListScreen
 import uk.ryanwong.skycatnews.storydetail.ui.screen.StoryDetailScreen
 import uk.ryanwong.skycatnews.storydetail.ui.viewmodel.StoryDetailViewModel
 import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIEvent
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.weblink.ui.WebLinkUIEvent
 import uk.ryanwong.skycatnews.weblink.ui.screen.WebLinkScreen
 import uk.ryanwong.skycatnews.weblink.ui.viewmodel.WebLinkViewModel
 
@@ -69,7 +70,9 @@ fun SkyCatNewsApp(
             WebLinkScreen(
                 modifier = modifier,
                 uiState = uiState,
-                onErrorShown = { errorId -> (webLinkViewModel::errorShown)(errorId) }
+                uiEvent = WebLinkUIEvent(
+                    onErrorShown = { errorId -> (webLinkViewModel::errorShown)(errorId) }
+                )
             )
         }
     }
