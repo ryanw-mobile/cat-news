@@ -15,8 +15,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import uk.ryanwong.skycatnews.newslist.ui.screen.NewsListScreen
+import uk.ryanwong.skycatnews.newslist.ui.viewmodel.NewsListViewModel
 import uk.ryanwong.skycatnews.storydetail.ui.screen.StoryDetailScreen
 import uk.ryanwong.skycatnews.storydetail.ui.viewmodel.StoryDetailViewModel
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.ui.NewsListUIEvent
 import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIEvent
 import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.weblink.ui.WebLinkUIEvent
 import uk.ryanwong.skycatnews.weblink.ui.screen.WebLinkScreen
@@ -29,10 +31,18 @@ fun SkyCatNewsApp(
 ) {
     NavHost(navController = navController, startDestination = "newslist") {
         composable(route = "newslist") {
+            val newsListViewModel: NewsListViewModel = hiltViewModel()
+            val uiState by newsListViewModel.uiState.collectAsStateWithLifecycle()
+
             NewsListScreen(
                 modifier = modifier,
-                onStoryItemClicked = { listId -> navController.navigate("newslist/story/$listId") },
-                onWebLinkItemClicked = { listId -> navController.navigate("newslist/weblink/$listId") },
+                uiState = uiState,
+                uiEvent = NewsListUIEvent(
+                    onRefresh = { newsListViewModel.refreshNewsList() },
+                    onStoryItemClicked = { listId -> navController.navigate("newslist/story/$listId") },
+                    onWebLinkItemClicked = { listId -> navController.navigate("newslist/weblink/$listId") },
+                    onErrorShown = { errorId -> (newsListViewModel::errorShown)(errorId) }
+                )
             )
         }
         composable(
@@ -51,7 +61,7 @@ fun SkyCatNewsApp(
                 uiState = uiState,
                 uiEvent = StoryDetailUIEvent(
                     onRefresh = { storyDetailViewModel.refreshStory() },
-                    onErrorShown = { errorId -> storyDetailViewModel.errorShown(errorId = errorId) }
+                    onErrorShown = { errorId -> (storyDetailViewModel::errorShown)(errorId) }
                 )
             )
         }
