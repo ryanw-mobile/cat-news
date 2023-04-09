@@ -121,7 +121,17 @@ android {
     }
     packagingOptions {
         resources {
-            excludes.add("/META-INF/*")
+            excludes.addAll(
+                listOf(
+                    "META-INF/proguard/*",
+                    "META-INF/*.kotlin_module",
+                    "META-INF/DEPENDENCIES",
+                    "META-INF/AL2.0",
+                    "META-INF/LGPL2.1",
+                    "META-INF/*.properties",
+                    "/*.properties",
+                ),
+            )
         }
     }
     buildFeatures {
