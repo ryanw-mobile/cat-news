@@ -250,53 +250,28 @@ private fun HeroImageSection(
 
 @Preview(
     group = "story loaded",
+    name = "small screen - light",
     showSystemUi = true,
     showBackground = true,
     uiMode = UI_MODE_NIGHT_NO,
     device = androidx.compose.ui.tooling.preview.Devices.NEXUS_5
 )
-@Composable
-private fun StoryDetailScreenLayoutPreviewLightSmallScreen(
-    @PreviewParameter(StoryProvider::class)
-    story: Story,
-) {
-    SkyCatNewsTheme {
-        StoryDetailScreenLayout(
-            isLoading = false,
-            story = story,
-            onRefresh = {},
-        )
-    }
-}
-
 @Preview(
     group = "story loaded",
+    name = "regular screen - light",
     showSystemUi = true,
     showBackground = true,
     uiMode = UI_MODE_NIGHT_NO,
 )
-@Composable
-private fun StoryDetailScreenLayoutPreviewLight(
-    @PreviewParameter(StoryProvider::class)
-    story: Story,
-) {
-    SkyCatNewsTheme {
-        StoryDetailScreenLayout(
-            isLoading = false,
-            story = story,
-            onRefresh = {},
-        )
-    }
-}
-
 @Preview(
     group = "story loaded",
+    name = "regular screen - dark",
     showSystemUi = true,
     showBackground = true,
     uiMode = UI_MODE_NIGHT_YES,
 )
 @Composable
-private fun StoryDetailScreenLayoutPreviewDark(
+private fun StoryDetailScreenLayoutPreview(
     @PreviewParameter(StoryProvider::class)
     story: Story,
 ) {
@@ -311,29 +286,20 @@ private fun StoryDetailScreenLayoutPreviewDark(
 
 @Preview(
     group = "no data",
+    name = "light",
     showSystemUi = true,
     showBackground = true,
     uiMode = UI_MODE_NIGHT_NO,
 )
-@Composable
-private fun StoryDetailScreenLayoutNoDataPreviewLight() {
-    SkyCatNewsTheme {
-        StoryDetailScreenLayout(
-            isLoading = false,
-            story = null,
-            onRefresh = {},
-        )
-    }
-}
-
 @Preview(
     group = "no data",
+    name = "dark",
     showSystemUi = true,
     showBackground = true,
     uiMode = UI_MODE_NIGHT_YES,
 )
 @Composable
-private fun StoryDetailScreenLayoutNoDataPreviewDark() {
+private fun StoryDetailScreenLayoutNoDataPreview() {
     SkyCatNewsTheme {
         StoryDetailScreenLayout(
             isLoading = false,
