@@ -21,7 +21,6 @@ import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,8 +30,6 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import uk.ryanwong.skycatnews.R
 import uk.ryanwong.skycatnews.app.ui.component.NoDataScreen
 import uk.ryanwong.skycatnews.app.ui.theme.SkyCatNewsTheme
@@ -42,26 +39,25 @@ import uk.ryanwong.skycatnews.newslist.ui.screen.component.LargeWebLinkHeadline
 import uk.ryanwong.skycatnews.newslist.ui.screen.component.RegularStoryHeadline
 import uk.ryanwong.skycatnews.newslist.ui.screen.component.RegularWebLinkHeadline
 import uk.ryanwong.skycatnews.newslist.ui.screen.previewparameter.NewsListProvider
-import uk.ryanwong.skycatnews.newslist.ui.viewmodel.NewsListViewModel
 import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.app.ui.theme.getDimension
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.ui.NewsListUIEvent
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.ui.NewsListUIState
 
 @Composable
 fun NewsListScreen(
     modifier: Modifier = Modifier,
-    newsListViewModel: NewsListViewModel = hiltViewModel(),
-    onStoryItemClicked: (id: Int) -> Unit,
-    onWebLinkItemClicked: (id: Int) -> Unit,
+    uiState: NewsListUIState,
+    uiEvent: NewsListUIEvent,
 ) {
-    val uiState by newsListViewModel.uiState.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
 
     Box(modifier = modifier.fillMaxSize()) {
         NewsListScreenLayout(
             newsList = uiState.newsList,
             isLoading = uiState.isLoading,
-            onRefresh = { newsListViewModel.refreshNewsList() },
-            onStoryItemClicked = onStoryItemClicked,
-            onWebLinkItemClicked = onWebLinkItemClicked,
+            onRefresh = uiEvent.onRefresh,
+            onStoryItemClicked = uiEvent.onStoryItemClicked,
+            onWebLinkItemClicked = uiEvent.onWebLinkItemClicked,
         )
 
         SnackbarHost(
@@ -80,7 +76,7 @@ fun NewsListScreen(
                 message = errorMessageText,
                 actionLabel = actionLabel
             )
-            newsListViewModel.errorShown(errorId = errorMessage.id)
+            uiEvent.onErrorShown(errorMessage.id)
         }
     }
 }

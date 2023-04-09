@@ -16,6 +16,7 @@ import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import uk.ryanwong.skycatnews.R
 import uk.ryanwong.skycatnews.newslist.data.repository.MockNewsListRepository
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.ui.NewsListUIState
 
 @OptIn(ExperimentalCoroutinesApi::class)
 internal class NewsListViewModelTest : FreeSpec() {

@@ -18,6 +18,7 @@ import uk.ryanwong.skycatnews.R
 import uk.ryanwong.skycatnews.app.di.DispatcherModule
 import uk.ryanwong.skycatnews.app.util.ErrorMessage
 import uk.ryanwong.skycatnews.newslist.data.repository.NewsListRepository
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.ui.NewsListUIState
 
 @HiltViewModel
 class NewsListViewModel @Inject constructor(
