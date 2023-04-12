@@ -130,6 +130,7 @@ android {
                     "META-INF/LGPL2.1",
                     "META-INF/*.properties",
                     "/*.properties",
+                    "META-INF/LICENSE*",
                 ),
             )
         }
