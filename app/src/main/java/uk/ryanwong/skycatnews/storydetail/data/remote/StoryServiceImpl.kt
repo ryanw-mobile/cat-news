@@ -19,7 +19,6 @@ class StoryServiceImpl(
 
     override suspend fun getStory(storyId: Int): Result<StoryDto?> {
         return Result.runCatching {
-
             val response = httpClient.get(StoryService.Endpoints.GetAllItems.url) {
                 url {
                     appendPathSegments(storyId.toString())

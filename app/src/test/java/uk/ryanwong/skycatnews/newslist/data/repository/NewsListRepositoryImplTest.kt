@@ -31,7 +31,6 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
     private lateinit var mockNiceDateFormatter: MockNiceDateFormatter
 
     private fun setupRepository() {
-
         val dispatcher = StandardTestDispatcher()
         scope = TestScope(dispatcher)
 
@@ -87,13 +86,17 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                         mockNewsListService.mockGetAllItemsResponse = Result.success(newsListDto)
                         mockNewsListDao.mockGetNewsListTitleResponse = "some-title"
                         mockNewsListDao.mockGetNewsListResponse =
-                            listOf(NewsListRepositoryImplTestData.getMockNewsItemEntity(listId = listId))
+                            listOf(
+                                NewsListRepositoryImplTestData.getMockNewsItemEntity(listId = listId)
+                            )
 
                         // When
                         val newsList = newsListRepository.getNewsList()
 
                         // Then
-                        newsList shouldBe Result.success(NewsListRepositoryImplTestData.mockNewsList)
+                        newsList shouldBe Result.success(
+                            NewsListRepositoryImplTestData.mockNewsList
+                        )
                     }
                 }
             }
@@ -151,7 +154,11 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                             val listId = 1
                             mockNewsListDao.mockGetNewsListTitleResponse = "some-title"
                             mockNewsListDao.mockGetNewsListResponse =
-                                listOf(NewsListRepositoryImplTestData.getMockNewsItemEntity(listId = listId))
+                                listOf(
+                                    NewsListRepositoryImplTestData.getMockNewsItemEntity(
+                                        listId = listId
+                                    )
+                                )
                             mockNewsListService.mockGetAllItemsResponse =
                                 Result.failure(exception = UnknownHostException())
                             mockNiceDateFormatter.mockGetNiceDateResponse = "2 days ago"
@@ -160,7 +167,9 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                             val newsList = newsListRepository.getNewsList()
 
                             // Then
-                            newsList shouldBe Result.success(NewsListRepositoryImplTestData.mockNewsList)
+                            newsList shouldBe Result.success(
+                                NewsListRepositoryImplTestData.mockNewsList
+                            )
                         }
                     }
 
@@ -171,7 +180,11 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                             val listId = 1
                             mockNewsListDao.mockGetNewsListTitleResponse = "some-title"
                             mockNewsListDao.mockGetNewsListResponse =
-                                listOf(NewsListRepositoryImplTestData.getMockNewsItemEntity(listId = listId))
+                                listOf(
+                                    NewsListRepositoryImplTestData.getMockNewsItemEntity(
+                                        listId = listId
+                                    )
+                                )
                             mockNewsListService.mockGetAllItemsResponse =
                                 Result.failure(exception = ConnectException())
                             mockNiceDateFormatter.mockGetNiceDateResponse = "2 days ago"
@@ -180,7 +193,9 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                             val newsList = newsListRepository.getNewsList()
 
                             // Then
-                            newsList shouldBe Result.success(NewsListRepositoryImplTestData.mockNewsList)
+                            newsList shouldBe Result.success(
+                                NewsListRepositoryImplTestData.mockNewsList
+                            )
                         }
                     }
 
@@ -191,7 +206,11 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                             val listId = 1
                             mockNewsListDao.mockGetNewsListTitleResponse = "some-title"
                             mockNewsListDao.mockGetNewsListResponse =
-                                listOf(NewsListRepositoryImplTestData.getMockNewsItemEntity(listId = listId))
+                                listOf(
+                                    NewsListRepositoryImplTestData.getMockNewsItemEntity(
+                                        listId = listId
+                                    )
+                                )
                             mockNewsListService.mockGetAllItemsResponse =
                                 Result.failure(
                                     exception = HttpRequestTimeoutException(
@@ -205,7 +224,9 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                             val newsList = newsListRepository.getNewsList()
 
                             // Then
-                            newsList shouldBe Result.success(NewsListRepositoryImplTestData.mockNewsList)
+                            newsList shouldBe Result.success(
+                                NewsListRepositoryImplTestData.mockNewsList
+                            )
                         }
                     }
                 }

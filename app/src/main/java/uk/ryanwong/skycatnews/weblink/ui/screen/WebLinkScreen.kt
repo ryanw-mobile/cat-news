@@ -33,7 +33,6 @@ fun WebLinkScreen(
     val snackbarHostState = remember { SnackbarHostState() }
 
     Box(modifier = modifier.fillMaxSize()) {
-
         if (uiState.isLoading) {
             CircularProgressIndicator()
         } else {

@@ -14,7 +14,6 @@ import uk.ryanwong.skycatnews.newslist.data.remote.model.UrlDto
 
 class MockNewsListService : NewsListService {
     override suspend fun getAllItems(): Result<NewsListDto> {
-
         val randomTimestamp1 = generateRandomPastDate(1)
         val randomTimestamp2 = generateRandomPastDate(2)
         val randomTimestamp3 = generateRandomPastDate(3)

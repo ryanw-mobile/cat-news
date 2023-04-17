@@ -55,7 +55,6 @@ fun SkyCatNewsAppBar(
         backgroundColor = MaterialTheme.colors.surface,
         modifier = modifier
     ) {
-
         Box(Modifier.height(dimension.appBarHeight)) {
             // TODO: Material-3 will provide a new way to achieve this - pending rewrite.
             // Doing in this way instead of using the default navigationIcon slot,
