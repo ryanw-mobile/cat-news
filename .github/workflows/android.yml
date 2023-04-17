@@ -1,8 +1,6 @@
 name: Android CI
 
 on:
-  push:
-    branches: [ "main", 'renovate/**', 'feature/**', 'fix/**', 'refactor/**', 'chore/**' ]
   pull_request:
     branches: [ "main", 'renovate/**', 'feature/**', 'fix/**', 'refactor/**', 'chore/**' ]
 
@@ -30,7 +28,8 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew test
-#      env:
+      env:
+         BITRISE: 'true'
 #        BITRISEIO_ANDROID_KEYSTORE_ALIAS: ${{ secrets.BITRISEIO_ANDROID_KEYSTORE_ALIAS }}
 #        BITRISEIO_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD: ${{ secrets.BITRISEIO_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
 #        BITRISEIO_ANDROID_KEYSTORE_PASSWORD: ${{ secrets.BITRISEIO_ANDROID_KEYSTORE_PASSWORD }}
