@@ -16,8 +16,7 @@ jobs:
       id: decode_keystore
       uses: timheuer/base64-to-file@v1
       with:
-        fileName: 'release.jks'
-        fileDir: './keystores/'
+        fileName: keystores/release.jks
         encodedString: ${{ secrets.KEYSTORE }}
     - uses: actions/checkout@v3
     - name: set up JDK 11
