@@ -38,6 +38,7 @@ for applying some later techs and keep the tech stack updated.
 * Story detail screen: on the `FakeDebug` and `FakeRelease` builds, it shows the same layout with random images.
 * Basic dark mode supported.
 * Gradle build scripts in Kotlin DSL instead of Groovy
+* Renovate plugin with Github Actions to run automated tests for automatic dependency upgrades
 
 ## High-level architecture
 
