@@ -29,7 +29,6 @@ import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.app.ui.theme.getDimension
 )
 @Composable
 fun NoDataScreen(modifier: Modifier = Modifier) {
-
     val dimension = LocalConfiguration.current.getDimension()
 
     Column(

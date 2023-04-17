@@ -98,7 +98,9 @@ internal class StoryDetailViewModelTest : FreeSpec() {
                 scope.runTest {
                     // Given
                     every { mockStateHandle.get<Int>("list_id") } returns 1
-                    mockStoryDetailRepository.mockGetStoryResponse = Result.failure(exception = StoryNotFoundException())
+                    mockStoryDetailRepository.mockGetStoryResponse = Result.failure(
+                        exception = StoryNotFoundException()
+                    )
 
                     // When
                     setupViewModel()
@@ -120,7 +122,9 @@ internal class StoryDetailViewModelTest : FreeSpec() {
                 scope.runTest {
                     // Given
                     every { mockStateHandle.get<Int>("list_id") } returns 1
-                    mockStoryDetailRepository.mockGetStoryResponse = Result.failure(exception = StoryNotFoundException())
+                    mockStoryDetailRepository.mockGetStoryResponse = Result.failure(
+                        exception = StoryNotFoundException()
+                    )
                     setupViewModel()
                     dispatcher.scheduler.advanceUntilIdle()
 

@@ -44,7 +44,6 @@ data class NewsItemEntity(
         fun fromDto(listId: Int, newsItemDtoList: List<NewsItemDto>?): List<NewsItemEntity> {
             return newsItemDtoList?.mapNotNull { newsItem ->
                 with(newsItem) {
-
                     /***
                      * The type "advert" is not in the current scope, and it does not follow
                      * the format of story and weblink, we drop them for now.

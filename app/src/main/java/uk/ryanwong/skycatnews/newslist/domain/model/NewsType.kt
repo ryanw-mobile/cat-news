@@ -10,7 +10,8 @@ enum class NewsType {
     UNKNOWN,
     STORY,
     ADVERT,
-    WEBLINK;
+    WEBLINK,
+    ;
 
     companion object {
         fun parse(newsType: String?): NewsType {

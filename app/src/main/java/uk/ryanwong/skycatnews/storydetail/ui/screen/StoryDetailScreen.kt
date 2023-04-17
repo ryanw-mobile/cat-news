@@ -63,7 +63,6 @@ fun StoryDetailScreen(
     uiState: StoryDetailUIState,
     uiEvent: StoryDetailUIEvent,
 ) {
-
     val snackbarHostState = remember { SnackbarHostState() }
 
     Box(modifier = modifier.fillMaxSize()) {
@@ -124,7 +123,6 @@ private fun StoryDetailScreenLayout(
                 .fillMaxSize()
                 .semantics { contentDescription = contentDescriptionStoryDetail },
         ) {
-
             if (story == null) {
                 if (!isLoading) {
                     item {

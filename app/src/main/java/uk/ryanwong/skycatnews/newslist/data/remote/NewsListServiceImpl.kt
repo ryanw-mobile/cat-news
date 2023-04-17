@@ -18,7 +18,6 @@ class NewsListServiceImpl(
 
     override suspend fun getAllItems(): Result<NewsListDto?> {
         return Result.runCatching {
-
             val response = httpClient.get(NewsListService.Endpoints.GetAllItems.url)
 
             when (response.status) {

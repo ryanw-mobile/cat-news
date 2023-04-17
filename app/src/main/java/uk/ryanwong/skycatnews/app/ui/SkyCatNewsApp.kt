@@ -39,8 +39,16 @@ fun SkyCatNewsApp(
                 uiState = uiState,
                 uiEvent = NewsListUIEvent(
                     onRefresh = { newsListViewModel.refreshNewsList() },
-                    onStoryItemClicked = { listId -> navController.navigate("newslist/story/$listId") },
-                    onWebLinkItemClicked = { listId -> navController.navigate("newslist/weblink/$listId") },
+                    onStoryItemClicked = { listId ->
+                        navController.navigate(
+                            "newslist/story/$listId"
+                        )
+                    },
+                    onWebLinkItemClicked = { listId ->
+                        navController.navigate(
+                            "newslist/weblink/$listId"
+                        )
+                    },
                     onErrorShown = { errorId -> (newsListViewModel::errorShown)(errorId) }
                 )
             )

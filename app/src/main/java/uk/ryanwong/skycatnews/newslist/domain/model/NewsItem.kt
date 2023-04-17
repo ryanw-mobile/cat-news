@@ -79,7 +79,9 @@ sealed class NewsItem {
                     }
                     // For unknown type and ADVERT, we drop them for now as we don't know how to show them.
                     else -> {
-                        Timber.d("NewsItem.fromEntity(): unknown NewsItem with type $newsItemType dropped")
+                        Timber.d(
+                            "NewsItem.fromEntity(): unknown NewsItem with type $newsItemType dropped"
+                        )
                         null
                     }
                 }

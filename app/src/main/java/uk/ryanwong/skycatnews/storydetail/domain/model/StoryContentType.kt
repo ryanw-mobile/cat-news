@@ -9,7 +9,8 @@ import timber.log.Timber
 enum class StoryContentType {
     UNKNOWN,
     IMAGE,
-    PARAGRAPH;
+    PARAGRAPH,
+    ;
 
     companion object {
         fun parse(storyContentType: String?): StoryContentType {

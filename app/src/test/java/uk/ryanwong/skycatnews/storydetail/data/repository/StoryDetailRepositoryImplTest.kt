@@ -66,7 +66,9 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
                         )
                         mockStoryDao.mockDeleteContentsReceivedValue shouldBe storyId
                         mockStoryDao.mockInsertContentsReceivedValue shouldBe listOf(
-                            StoryDetailRepositoryImplTestData.getMockContentEntity(storyId = storyId)
+                            StoryDetailRepositoryImplTestData.getMockContentEntity(
+                                storyId = storyId
+                            )
                         )
                     }
                 }
@@ -85,14 +87,18 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
                         mockStoryDao.mockGetStoryResponse =
                             StoryDetailRepositoryImplTestData.getMockStoryEntity(storyId = storyId)
                         mockStoryDao.mockGetContentsResponse = listOf(
-                            StoryDetailRepositoryImplTestData.getMockContentEntity(storyId = storyId)
+                            StoryDetailRepositoryImplTestData.getMockContentEntity(
+                                storyId = storyId
+                            )
                         )
 
                         // When
                         val story = storyDetailRepository.getStory(storyId = storyId)
 
                         // Then
-                        story shouldBe Result.success(StoryDetailRepositoryImplTestData.mockStoryId1)
+                        story shouldBe Result.success(
+                            StoryDetailRepositoryImplTestData.mockStoryId1
+                        )
                     }
                 }
             }
@@ -183,16 +189,22 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
                             mockStoryService.mockGetStoryResponse =
                                 Result.failure(exception = UnknownHostException())
                             mockStoryDao.mockGetStoryResponse =
-                                StoryDetailRepositoryImplTestData.getMockStoryEntity(storyId = storyId)
+                                StoryDetailRepositoryImplTestData.getMockStoryEntity(
+                                    storyId = storyId
+                                )
                             mockStoryDao.mockGetContentsResponse = listOf(
-                                StoryDetailRepositoryImplTestData.getMockContentEntity(storyId = storyId)
+                                StoryDetailRepositoryImplTestData.getMockContentEntity(
+                                    storyId = storyId
+                                )
                             )
 
                             // When
                             val story = storyDetailRepository.getStory(storyId = storyId)
 
                             // Then
-                            story shouldBe Result.success(StoryDetailRepositoryImplTestData.mockStoryId1)
+                            story shouldBe Result.success(
+                                StoryDetailRepositoryImplTestData.mockStoryId1
+                            )
                         }
                     }
 
@@ -204,16 +216,22 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
                             mockStoryService.mockGetStoryResponse =
                                 Result.failure(exception = ConnectException())
                             mockStoryDao.mockGetStoryResponse =
-                                StoryDetailRepositoryImplTestData.getMockStoryEntity(storyId = storyId)
+                                StoryDetailRepositoryImplTestData.getMockStoryEntity(
+                                    storyId = storyId
+                                )
                             mockStoryDao.mockGetContentsResponse = listOf(
-                                StoryDetailRepositoryImplTestData.getMockContentEntity(storyId = storyId)
+                                StoryDetailRepositoryImplTestData.getMockContentEntity(
+                                    storyId = storyId
+                                )
                             )
 
                             // When
                             val story = storyDetailRepository.getStory(storyId = storyId)
 
                             // Then
-                            story shouldBe Result.success(StoryDetailRepositoryImplTestData.mockStoryId1)
+                            story shouldBe Result.success(
+                                StoryDetailRepositoryImplTestData.mockStoryId1
+                            )
                         }
                     }
 
@@ -230,16 +248,22 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
                                     )
                                 )
                             mockStoryDao.mockGetStoryResponse =
-                                StoryDetailRepositoryImplTestData.getMockStoryEntity(storyId = storyId)
+                                StoryDetailRepositoryImplTestData.getMockStoryEntity(
+                                    storyId = storyId
+                                )
                             mockStoryDao.mockGetContentsResponse = listOf(
-                                StoryDetailRepositoryImplTestData.getMockContentEntity(storyId = storyId)
+                                StoryDetailRepositoryImplTestData.getMockContentEntity(
+                                    storyId = storyId
+                                )
                             )
 
                             // When
                             val story = storyDetailRepository.getStory(storyId = storyId)
 
                             // Then
-                            story shouldBe Result.success(StoryDetailRepositoryImplTestData.mockStoryId1)
+                            story shouldBe Result.success(
+                                StoryDetailRepositoryImplTestData.mockStoryId1
+                            )
                         }
                     }
                 }
