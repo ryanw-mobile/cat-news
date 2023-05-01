@@ -87,7 +87,9 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                         mockNewsListDao.mockGetNewsListTitleResponse = "some-title"
                         mockNewsListDao.mockGetNewsListResponse =
                             listOf(
-                                NewsListRepositoryImplTestData.getMockNewsItemEntity(listId = listId)
+                                NewsListRepositoryImplTestData.getMockNewsItemEntity(
+                                    listId = listId
+                                )
                             )
 
                         // When
