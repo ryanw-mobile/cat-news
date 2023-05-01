@@ -139,7 +139,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+        kotlinCompilerExtensionVersion = libs.versions.compose.kotlin.compiler.extension.get()
     }
     testOptions {
         animationsDisabled = true
