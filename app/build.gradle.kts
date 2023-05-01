@@ -150,9 +150,13 @@ android {
     }
     // https://kotlinlang.org/docs/gradle-configure-project.html#gradle-java-toolchains-support
     compileOptions {
-        sourceCompatibility(11)
-        targetCompatibility(11)
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 dependencies {
@@ -223,10 +227,6 @@ configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
         reporter(ReporterType.CHECKSTYLE)
         reporter(ReporterType.SARIF)
     }
-}
-
-kotlin {
-    jvmToolchain(11)
 }
 
 tasks.named("preBuild") {
