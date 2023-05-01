@@ -58,6 +58,9 @@ androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 
+# Not actually being called. For renovate only
+androidx-compose-compiler = { group = "androidx.compose.compiler", name = "compiler", version.ref = "compose-kotlin-compiler-extension" }
+
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 
 coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
