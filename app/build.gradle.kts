@@ -23,15 +23,16 @@ android {
     signingConfigs {
         create("release") {
             val isRunningOnBitrise = System.getenv("BITRISE") == "true"
-            if (isRunningOnBitrise) {
+            val keystorePropertiesFile = file("../../../keystore.properties")
+
+            if (isRunningOnBitrise || !keystorePropertiesFile.exists()) {
                 keyAlias = System.getenv("BITRISEIO_ANDROID_KEYSTORE_ALIAS")
                 keyPassword = System.getenv("BITRISEIO_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
                 storeFile = file(System.getenv("HOME") + "/keystores/release.jks")
                 storePassword = System.getenv("BITRISEIO_ANDROID_KEYSTORE_PASSWORD")
             } else {
                 val properties = Properties()
-                val localProperties = File("../../keystore.properties")
-                InputStreamReader(FileInputStream(localProperties), Charsets.UTF_8).use { reader ->
+                InputStreamReader(FileInputStream(keystorePropertiesFile), Charsets.UTF_8).use { reader ->
                     properties.load(reader)
                 }
 
@@ -67,7 +68,6 @@ android {
             isMinifyEnabled = false
             isDebuggable = true
 
-            signingConfig = signingConfigs.getByName("release")
             applicationVariants.all {
                 val variant = this
                 variant.outputs
