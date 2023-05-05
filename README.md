@@ -27,6 +27,8 @@ This project has been reviewed.
 
 Further changes to this project are entirely experimental,
 for applying some later techs and keep the tech stack updated.
+
+The project now requires no initial keystore setup to run the debug build.
 ```
 
 * Fully functional. Use `fakeDebug` or `fakeRelease` to have the App retrieve mock data locally.
@@ -76,6 +78,9 @@ for applying some later techs and keep the tech stack updated.
 * Android device or simulator running Android 8.0+ (API 26)
 
 ## Setting up the Keystore
+
+Thanks to the feedback from MSMG, debug builds now are not signed. 
+This means you do not have to set up a keystore to run the debug builds, and Gradle will show no errors during the initial sync when the `keystore.properties` does not exist.
 
 ### Local
 
