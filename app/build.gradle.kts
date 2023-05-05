@@ -23,7 +23,7 @@ android {
     signingConfigs {
         create("release") {
             val isRunningOnBitrise = System.getenv("BITRISE") == "true"
-            val keystorePropertiesFile = file("../../../keystore.properties")
+            val keystorePropertiesFile = file("../../keystore.properties")
 
             if (isRunningOnBitrise || !keystorePropertiesFile.exists()) {
                 keyAlias = System.getenv("BITRISEIO_ANDROID_KEYSTORE_ALIAS")
