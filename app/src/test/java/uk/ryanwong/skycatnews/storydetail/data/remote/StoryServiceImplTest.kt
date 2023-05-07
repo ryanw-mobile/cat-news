@@ -5,9 +5,7 @@
 package uk.ryanwong.skycatnews.storydetail.data.remote
 
 import io.kotest.core.spec.style.FreeSpec
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.types.beInstanceOf
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
@@ -15,14 +13,11 @@ import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.headersOf
-import io.ktor.serialization.JsonConvertException
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.utils.io.ByteReadChannel
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 
-@OptIn(ExperimentalCoroutinesApi::class)
 internal class StoryServiceImplTest : FreeSpec() {
 
     private lateinit var httpClient: HttpClient
@@ -44,7 +39,7 @@ internal class StoryServiceImplTest : FreeSpec() {
                         ignoreUnknownKeys = true
                         prettyPrint = true
                         isLenient = true
-                    }
+                    },
                 )
             }
         }
@@ -70,7 +65,7 @@ internal class StoryServiceImplTest : FreeSpec() {
                 }
             }
 
-            "Should return failure if API request is successful with empty body" {
+            "Should return success with null DTO if API request is successful with empty body" {
                 runTest {
                     // Given
                     setupDataSource(
@@ -83,8 +78,7 @@ internal class StoryServiceImplTest : FreeSpec() {
                     val storyDto = storyService.getStory(storyId = 1)
 
                     // Then
-                    storyDto.isFailure shouldBe true
-                    storyDto.exceptionOrNull() should beInstanceOf<JsonConvertException>()
+                    storyDto shouldBe Result.success(null)
                 }
             }
 
