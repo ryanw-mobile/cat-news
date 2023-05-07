@@ -5,9 +5,7 @@
 package uk.ryanwong.skycatnews.newslist.data.remote
 
 import io.kotest.core.spec.style.FreeSpec
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.types.beInstanceOf
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
@@ -15,14 +13,11 @@ import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.headersOf
-import io.ktor.serialization.JsonConvertException
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.utils.io.ByteReadChannel
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 
-@OptIn(ExperimentalCoroutinesApi::class)
 internal class NewsListServiceImplTest : FreeSpec() {
 
     private lateinit var httpClient: HttpClient
@@ -71,7 +66,7 @@ internal class NewsListServiceImplTest : FreeSpec() {
                 }
             }
 
-            "Should return failure if API request is successful with empty body" {
+            "Should return success with null DTO if API request is successful with empty body" {
                 runTest {
                     // Given
                     setupDataSource(
@@ -84,8 +79,7 @@ internal class NewsListServiceImplTest : FreeSpec() {
                     val newsListDto = newsListService.getAllItems()
 
                     // Then
-                    newsListDto.isFailure shouldBe true
-                    newsListDto.exceptionOrNull() should beInstanceOf<JsonConvertException>()
+                    newsListDto shouldBe Result.success(null)
                 }
             }
 
