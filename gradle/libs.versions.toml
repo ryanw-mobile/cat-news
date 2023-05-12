@@ -1,8 +1,8 @@
 [versions]
 # App configurations, not dependencies
-minSdk = "26"
-targetSdk = "33"
-compileSdk = "33"
+minsdk = "26"
+targetsdk = "33"
+compilesdk = "33"
 
 accompanist = "0.30.1"
 androidx-activity-compose = "1.7.1"

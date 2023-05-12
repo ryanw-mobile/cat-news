@@ -44,11 +44,11 @@ android {
         }
     }
 
-    compileSdk = libs.versions.compileSdk.get().toInt()
+    compileSdk = libs.versions.compilesdk.get().toInt()
     defaultConfig {
         applicationId = "uk.ryanwong.skycatnews"
-        minSdk = libs.versions.minSdk.get().toInt()
-        targetSdk = libs.versions.targetSdk.get().toInt()
+        minSdk = libs.versions.minsdk.get().toInt()
+        targetSdk = libs.versions.targetsdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
 
