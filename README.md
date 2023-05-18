@@ -24,6 +24,7 @@ This is a prototype of the app. As the backend isn't developed yet, this prototy
 
 ```
 This project has been reviewed.
+I have been offered a role, joined and left Sky. :)
 
 Further changes to this project are entirely experimental,
 for applying some later techs and keep the tech stack updated.
