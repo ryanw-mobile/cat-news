@@ -184,11 +184,13 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation(libs.bundles.kotest)
-    androidTestImplementation(libs.androidx.test.junit4)
-    androidTestImplementation(libs.androidx.test.rules)
-    androidTestImplementation(libs.androidx.test.espresso.core)
-    androidTestImplementation(libs.androidx.test.espresso.idling.resource)
-    androidTestImplementation(libs.kotest.assertions.core)
+    with(libs.androidx.test) {
+        androidTestImplementation(junit4)
+        androidTestImplementation(rules)
+        androidTestImplementation(espresso.core)
+        androidTestImplementation(espresso.idling.resource)
+        androidTestImplementation(libs.kotest.assertions.core)
+    }
 
     // Dagger-Hilt
     // Hilt does not support ksp yet https://issuetracker.google.com/issues/179057202?pli=1
