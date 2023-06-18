@@ -6,6 +6,7 @@ package uk.ryanwong.skycatnews.newslist.domain.model
 
 import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsType
 
 internal class NewsTypeTest : FreeSpec() {
 

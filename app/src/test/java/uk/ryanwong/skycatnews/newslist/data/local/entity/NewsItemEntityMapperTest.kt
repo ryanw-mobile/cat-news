@@ -1,16 +1,13 @@
-/*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
- */
-
-package uk.ryanwong.skycatnews.newslist.domain.model
+package uk.ryanwong.skycatnews.newslist.data.local.entity
 
 import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.shouldBe
 import uk.ryanwong.skycatnews.app.util.nicedateformatter.MockNiceDateFormatter
-import uk.ryanwong.skycatnews.newslist.data.local.entity.NewsItemEntity
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.data.local.entity.toDomainModel
 
-internal class NewsItemTest : FreeSpec() {
+class NewsItemEntityMapperTest : FreeSpec() {
 
     private lateinit var mockNiceDateFormatter: MockNiceDateFormatter
 
@@ -19,7 +16,7 @@ internal class NewsItemTest : FreeSpec() {
     }
 
     init {
-        "fromEntity" - {
+        "toDomainModel" - {
             "Should return an empty list if newsItemEntities is empty" {
                 // Given
                 setupNiceDateFormatter()
@@ -27,9 +24,8 @@ internal class NewsItemTest : FreeSpec() {
                 val newsItemEntities = listOf<NewsItemEntity>()
 
                 // When
-                val newsItem = NewsItem.fromEntity(
-                    newsItemEntities = newsItemEntities,
-                    niceDateFormatter = mockNiceDateFormatter
+                val newsItem = newsItemEntities.toDomainModel(
+                    niceDateFormatter = mockNiceDateFormatter,
                 )
 
                 // then
@@ -41,21 +37,20 @@ internal class NewsItemTest : FreeSpec() {
                 setupNiceDateFormatter()
                 mockNiceDateFormatter.mockGetNiceDateResponse = "2 days ago"
                 val newsItemEntities = listOf(
-                    NewsItemTestData.mockNewsItemEntity1,
-                    NewsItemTestData.mockNewsItemEntity2,
-                    NewsItemTestData.mockNewsItemEntity3
+                    NewsItemEntityMapperTestData.mockNewsItemEntity1,
+                    NewsItemEntityMapperTestData.mockNewsItemEntity2,
+                    NewsItemEntityMapperTestData.mockNewsItemEntity3,
                 )
 
                 // When
-                val newsItem = NewsItem.fromEntity(
-                    newsItemEntities = newsItemEntities,
-                    niceDateFormatter = mockNiceDateFormatter
+                val newsItem = newsItemEntities.toDomainModel(
+                    niceDateFormatter = mockNiceDateFormatter,
                 )
 
                 // then
                 newsItem shouldContainInOrder listOf(
-                    NewsItemTestData.mockNewsItemStory,
-                    NewsItemTestData.mockNewsItemWebLink
+                    NewsItemEntityMapperTestData.mockNewsItemStory,
+                    NewsItemEntityMapperTestData.mockNewsItemWebLink,
                 )
             }
 
@@ -64,12 +59,11 @@ internal class NewsItemTest : FreeSpec() {
                 setupNiceDateFormatter()
                 mockNiceDateFormatter.mockGetNiceDateResponse = "2 days ago"
                 val newsItemEntities =
-                    listOf(NewsItemTestData.mockNewsItemEntity1.copy(headline = null))
+                    listOf(NewsItemEntityMapperTestData.mockNewsItemEntity1.copy(headline = null))
 
                 // When
-                val newsItem = NewsItem.fromEntity(
-                    newsItemEntities = newsItemEntities,
-                    niceDateFormatter = mockNiceDateFormatter
+                val newsItem = newsItemEntities.toDomainModel(
+                    niceDateFormatter = mockNiceDateFormatter,
                 )
 
                 // then
@@ -82,7 +76,7 @@ internal class NewsItemTest : FreeSpec() {
                         niceDate = "2 days ago",
                         teaserImageUrl = "https://some.teaser.image/href",
                         teaserImageAccessibilityText = "some-teaser-image-accessibility-text",
-                    )
+                    ),
                 )
             }
 
@@ -91,12 +85,11 @@ internal class NewsItemTest : FreeSpec() {
                 setupNiceDateFormatter()
                 mockNiceDateFormatter.mockGetNiceDateResponse = "2 days ago"
                 val newsItemEntities =
-                    listOf(NewsItemTestData.mockNewsItemEntity1.copy(teaserText = null))
+                    listOf(NewsItemEntityMapperTestData.mockNewsItemEntity1.copy(teaserText = null))
 
                 // When
-                val newsItem = NewsItem.fromEntity(
-                    newsItemEntities = newsItemEntities,
-                    niceDateFormatter = mockNiceDateFormatter
+                val newsItem = newsItemEntities.toDomainModel(
+                    niceDateFormatter = mockNiceDateFormatter,
                 )
 
                 // then
@@ -109,7 +102,7 @@ internal class NewsItemTest : FreeSpec() {
                         niceDate = "2 days ago",
                         teaserImageUrl = "https://some.teaser.image/href",
                         teaserImageAccessibilityText = "some-teaser-image-accessibility-text",
-                    )
+                    ),
                 )
             }
 
@@ -118,12 +111,15 @@ internal class NewsItemTest : FreeSpec() {
                 setupNiceDateFormatter()
                 mockNiceDateFormatter.mockGetNiceDateResponse = "2 days ago"
                 val newsItemEntities =
-                    listOf(NewsItemTestData.mockNewsItemEntity1.copy(teaserImageHref = null))
+                    listOf(
+                        NewsItemEntityMapperTestData.mockNewsItemEntity1.copy(
+                            teaserImageHref = null
+                        )
+                    )
 
                 // When
-                val newsItem = NewsItem.fromEntity(
-                    newsItemEntities = newsItemEntities,
-                    niceDateFormatter = mockNiceDateFormatter
+                val newsItem = newsItemEntities.toDomainModel(
+                    niceDateFormatter = mockNiceDateFormatter,
                 )
 
                 // then
@@ -136,7 +132,7 @@ internal class NewsItemTest : FreeSpec() {
                         niceDate = "2 days ago",
                         teaserImageUrl = "",
                         teaserImageAccessibilityText = "some-teaser-image-accessibility-text",
-                    )
+                    ),
                 )
             }
 
@@ -145,12 +141,11 @@ internal class NewsItemTest : FreeSpec() {
                 setupNiceDateFormatter()
                 mockNiceDateFormatter.mockGetNiceDateResponse = "2 days ago"
                 val newsItemEntities =
-                    listOf(NewsItemTestData.mockNewsItemEntity1.copy(advertUrl = null))
+                    listOf(NewsItemEntityMapperTestData.mockNewsItemEntity1.copy(advertUrl = null))
 
                 // When
-                val newsItem = NewsItem.fromEntity(
-                    newsItemEntities = newsItemEntities,
-                    niceDateFormatter = mockNiceDateFormatter
+                val newsItem = newsItemEntities.toDomainModel(
+                    niceDateFormatter = mockNiceDateFormatter,
                 )
 
                 // then
@@ -163,7 +158,7 @@ internal class NewsItemTest : FreeSpec() {
                         niceDate = "2 days ago",
                         teaserImageUrl = "https://some.teaser.image/href",
                         teaserImageAccessibilityText = "some-teaser-image-accessibility-text",
-                    )
+                    ),
                 )
             }
         }

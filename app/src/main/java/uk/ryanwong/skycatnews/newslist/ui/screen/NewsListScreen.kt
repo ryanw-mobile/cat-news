@@ -20,8 +20,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import uk.ryanwong.skycatnews.R
 import uk.ryanwong.skycatnews.app.ui.theme.SkyCatNewsTheme
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsItem
 import uk.ryanwong.skycatnews.newslist.ui.screen.previewparameter.NewsListProvider
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
 import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.ui.NewsListUIEvent
 import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.ui.NewsListUIState
 import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.ui.screen.component.NewsListScreenLayout

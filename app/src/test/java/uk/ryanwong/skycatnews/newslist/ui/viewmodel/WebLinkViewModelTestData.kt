@@ -4,7 +4,7 @@
 
 package uk.ryanwong.skycatnews.newslist.ui.viewmodel
 
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsItem
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
 
 internal object WebLinkViewModelTestData {
 

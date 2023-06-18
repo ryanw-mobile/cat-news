@@ -18,8 +18,8 @@ import uk.ryanwong.skycatnews.app.util.nicedateformatter.MockNiceDateFormatter
 import uk.ryanwong.skycatnews.newslist.data.local.MockNewsListDao
 import uk.ryanwong.skycatnews.newslist.data.local.entity.NewsListEntity
 import uk.ryanwong.skycatnews.newslist.data.remote.MockNewsListService
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsItem
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsList
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 
 @OptIn(ExperimentalCoroutinesApi::class)
 internal class NewsListRepositoryImplTest : FreeSpec() {

@@ -5,7 +5,7 @@
 package uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.ui
 
 import uk.ryanwong.skycatnews.app.util.ErrorMessage
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsItem
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
 
 data class NewsListUIState(
     val newsList: List<NewsItem> = emptyList(),

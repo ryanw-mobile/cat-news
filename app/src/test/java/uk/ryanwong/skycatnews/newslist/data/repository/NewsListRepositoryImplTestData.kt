@@ -10,8 +10,8 @@ import uk.ryanwong.skycatnews.newslist.data.remote.model.NewsItemDto
 import uk.ryanwong.skycatnews.newslist.data.remote.model.NewsListDto
 import uk.ryanwong.skycatnews.newslist.data.remote.model.TeaserImageDto
 import uk.ryanwong.skycatnews.newslist.data.remote.model.UrlDto
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsItem
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsList
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 
 internal object NewsListRepositoryImplTestData {
     val mockNewsItemDto by lazy {

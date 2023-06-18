@@ -4,8 +4,8 @@
 
 package uk.ryanwong.skycatnews.newslist.data.repository
 
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsItem
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsList
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 
 internal class MockNewsListRepository : NewsListRepository {
 

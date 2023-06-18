@@ -24,12 +24,12 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import uk.ryanwong.skycatnews.R
 import uk.ryanwong.skycatnews.app.ui.component.NoDataScreen
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsItem
 import uk.ryanwong.skycatnews.newslist.ui.screen.component.LargeStoryHeadline
 import uk.ryanwong.skycatnews.newslist.ui.screen.component.LargeWebLinkHeadline
 import uk.ryanwong.skycatnews.newslist.ui.screen.component.RegularStoryHeadline
 import uk.ryanwong.skycatnews.newslist.ui.screen.component.RegularWebLinkHeadline
 import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.app.ui.theme.getDimension
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable

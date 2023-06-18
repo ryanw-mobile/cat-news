@@ -11,7 +11,7 @@ import uk.ryanwong.skycatnews.newslist.data.remote.model.NewsItemDto
 
 @Entity(
     tableName = "news_items",
-    primaryKeys = ["list_id", "news_id"]
+    primaryKeys = ["list_id", "news_id"],
 )
 data class NewsItemEntity(
     @ColumnInfo(name = "list_id")
