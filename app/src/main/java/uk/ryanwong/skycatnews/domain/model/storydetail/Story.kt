@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2023. Ryan Wong (hello@ryanwong.co.uk)
  */
 
-package uk.ryanwong.skycatnews.storydetail.domain.model
+package uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail
 
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.ContentEntity
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.StoryEntity

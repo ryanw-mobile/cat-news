@@ -18,7 +18,7 @@ import uk.ryanwong.skycatnews.app.exception.StoryNotFoundException
 import uk.ryanwong.skycatnews.storydetail.data.local.MockStoryDao
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.StoryEntity
 import uk.ryanwong.skycatnews.storydetail.data.remote.MockStoryService
-import uk.ryanwong.skycatnews.storydetail.domain.model.Story
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Story
 
 @OptIn(ExperimentalCoroutinesApi::class)
 internal class StoryDetailRepositoryImplTest : FreeSpec() {

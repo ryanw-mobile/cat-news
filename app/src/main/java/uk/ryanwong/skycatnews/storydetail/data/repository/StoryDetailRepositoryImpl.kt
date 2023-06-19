@@ -19,7 +19,7 @@ import uk.ryanwong.skycatnews.storydetail.data.local.entity.ContentEntity
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.StoryEntity
 import uk.ryanwong.skycatnews.storydetail.data.remote.StoryService
 import uk.ryanwong.skycatnews.storydetail.data.remote.model.StoryDto
-import uk.ryanwong.skycatnews.storydetail.domain.model.Story
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Story
 
 class StoryDetailRepositoryImpl(
     private val storyService: StoryService,

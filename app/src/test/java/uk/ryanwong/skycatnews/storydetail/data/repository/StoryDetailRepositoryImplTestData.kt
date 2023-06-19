@@ -9,8 +9,8 @@ import uk.ryanwong.skycatnews.storydetail.data.local.entity.StoryEntity
 import uk.ryanwong.skycatnews.storydetail.data.remote.model.ContentDto
 import uk.ryanwong.skycatnews.storydetail.data.remote.model.HeroImageDto
 import uk.ryanwong.skycatnews.storydetail.data.remote.model.StoryDto
-import uk.ryanwong.skycatnews.storydetail.domain.model.Content
-import uk.ryanwong.skycatnews.storydetail.domain.model.Story
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Content
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Story
 
 internal object StoryDetailRepositoryImplTestData {
     val mockStoryDto by lazy {

@@ -4,7 +4,7 @@
 
 package uk.ryanwong.skycatnews.storydetail.data.repository
 
-import uk.ryanwong.skycatnews.storydetail.domain.model.Story
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Story
 
 internal class MockStoryDetailRepository : StoryDetailRepository {
 

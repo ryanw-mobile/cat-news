@@ -5,6 +5,7 @@
 package uk.ryanwong.skycatnews.storydetail.domain.model
 
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.ContentEntity
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Content
 
 internal object ContentTestData {
 
