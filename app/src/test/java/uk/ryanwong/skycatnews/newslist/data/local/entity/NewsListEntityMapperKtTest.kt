@@ -8,7 +8,7 @@ import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.data.local.entity.
 
 class NewsListEntityMapperKtTest : FreeSpec() {
 
-    lateinit var mockNiceDateFormatter: MockNiceDateFormatter
+    private lateinit var mockNiceDateFormatter: MockNiceDateFormatter
 
     private fun setupNiceDateFormatter() {
         mockNiceDateFormatter = MockNiceDateFormatter()

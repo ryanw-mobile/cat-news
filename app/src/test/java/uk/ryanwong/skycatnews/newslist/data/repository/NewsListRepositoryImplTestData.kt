@@ -14,7 +14,7 @@ import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsI
 import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 
 internal object NewsListRepositoryImplTestData {
-    val mockNewsItemDto by lazy {
+    private val mockNewsItemDto by lazy {
         NewsItemDto(
             creationDate = "2020-11-18T00:00:00Z",
             headline = "some-headline",

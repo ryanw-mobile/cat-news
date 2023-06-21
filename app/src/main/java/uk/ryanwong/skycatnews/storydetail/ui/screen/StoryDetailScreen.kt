@@ -252,7 +252,7 @@ private fun HeroImageSection(
     showSystemUi = true,
     showBackground = true,
     uiMode = UI_MODE_NIGHT_NO,
-    device = androidx.compose.ui.tooling.preview.Devices.NEXUS_5
+    device = "id:pixel_5"
 )
 @Preview(
     group = "story loaded",
