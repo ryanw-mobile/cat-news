@@ -14,12 +14,12 @@ import uk.ryanwong.skycatnews.app.di.DispatcherModule
 import uk.ryanwong.skycatnews.app.exception.RemoteSourceFailedWithNoCacheException
 import uk.ryanwong.skycatnews.app.exception.StoryNotFoundException
 import uk.ryanwong.skycatnews.app.util.except
+import uk.ryanwong.skycatnews.domain.model.storydetail.Story
 import uk.ryanwong.skycatnews.storydetail.data.local.StoryDao
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.ContentEntity
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.StoryEntity
 import uk.ryanwong.skycatnews.storydetail.data.remote.StoryService
 import uk.ryanwong.skycatnews.storydetail.data.remote.model.StoryDto
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Story
 
 class StoryDetailRepositoryImpl(
     private val storyService: StoryService,

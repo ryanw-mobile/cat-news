@@ -6,8 +6,8 @@ package uk.ryanwong.skycatnews.newslist.domain.model
 
 import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 import uk.ryanwong.skycatnews.newslist.data.local.entity.NewsListEntityMapperTestData
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 
 internal class NewsListTest : FreeSpec() {
     init {

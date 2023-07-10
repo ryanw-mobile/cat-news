@@ -1,4 +1,4 @@
-package uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.app.ui.theme
+package uk.ryanwong.skycatnews.app.ui.theme
 
 import android.content.res.Configuration
 import androidx.compose.ui.unit.Dp

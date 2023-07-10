@@ -4,8 +4,8 @@
 
 package uk.ryanwong.skycatnews.newslist.ui.viewmodel
 
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsList
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 
 internal object NewsListViewModelTestData {
 

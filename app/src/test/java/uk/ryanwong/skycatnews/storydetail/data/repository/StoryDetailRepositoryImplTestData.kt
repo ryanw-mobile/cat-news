@@ -4,13 +4,13 @@
 
 package uk.ryanwong.skycatnews.storydetail.data.repository
 
+import uk.ryanwong.skycatnews.domain.model.storydetail.Content
+import uk.ryanwong.skycatnews.domain.model.storydetail.Story
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.ContentEntity
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.StoryEntity
 import uk.ryanwong.skycatnews.storydetail.data.remote.model.ContentDto
 import uk.ryanwong.skycatnews.storydetail.data.remote.model.HeroImageDto
 import uk.ryanwong.skycatnews.storydetail.data.remote.model.StoryDto
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Content
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Story
 
 internal object StoryDetailRepositoryImplTestData {
     val mockStoryDto by lazy {

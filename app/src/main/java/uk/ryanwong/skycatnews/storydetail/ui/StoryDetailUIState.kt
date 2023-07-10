@@ -2,10 +2,10 @@
  * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
  */
 
-package uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.ui
+package uk.ryanwong.skycatnews.storydetail.ui
 
 import uk.ryanwong.skycatnews.app.util.ErrorMessage
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Story
+import uk.ryanwong.skycatnews.domain.model.storydetail.Story
 
 data class StoryDetailUIState(
     val story: Story? = null,

@@ -14,10 +14,10 @@ import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import uk.ryanwong.skycatnews.app.exception.RemoteSourceFailedWithNoCacheException
 import uk.ryanwong.skycatnews.app.exception.StoryNotFoundException
+import uk.ryanwong.skycatnews.domain.model.storydetail.Story
 import uk.ryanwong.skycatnews.storydetail.data.local.MockStoryDao
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.StoryEntity
 import uk.ryanwong.skycatnews.storydetail.data.remote.MockStoryService
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Story
 
 internal class StoryDetailRepositoryImplTest : FreeSpec() {
 

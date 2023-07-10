@@ -21,8 +21,8 @@ import androidx.compose.ui.semantics.semantics
 import com.google.accompanist.web.WebView
 import com.google.accompanist.web.rememberWebViewState
 import uk.ryanwong.skycatnews.R
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.weblink.ui.WebLinkUIEvent
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.weblink.ui.WebLinkUIState
+import uk.ryanwong.skycatnews.weblink.ui.WebLinkUIEvent
+import uk.ryanwong.skycatnews.weblink.ui.WebLinkUIState
 
 @Composable
 fun WebLinkScreen(

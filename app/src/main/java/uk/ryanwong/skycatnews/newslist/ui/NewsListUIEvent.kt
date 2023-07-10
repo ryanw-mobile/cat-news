@@ -2,7 +2,7 @@
  * Copyright (c) 2023. Ryan Wong (hello@ryanwong.co.uk)
  */
 
-package uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.ui
+package uk.ryanwong.skycatnews.newslist.ui
 
 data class NewsListUIEvent(
     val onStoryItemClicked: (id: Int) -> Unit,

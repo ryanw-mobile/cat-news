@@ -21,7 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import uk.ryanwong.skycatnews.R
 import uk.ryanwong.skycatnews.app.ui.theme.CustomTextStyle
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.app.ui.theme.getDimension
+import uk.ryanwong.skycatnews.app.ui.theme.getDimension
 
 @Preview(
     showBackground = true,

@@ -7,8 +7,8 @@ package uk.ryanwong.skycatnews.storydetail.domain.model
 import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.shouldBe
+import uk.ryanwong.skycatnews.domain.model.storydetail.Content
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.ContentEntity
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Content
 
 internal class ContentTest : FreeSpec() {
 

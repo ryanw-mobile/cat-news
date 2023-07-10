@@ -50,12 +50,12 @@ import uk.ryanwong.skycatnews.app.ui.theme.BlackGradientEnd
 import uk.ryanwong.skycatnews.app.ui.theme.BlackGradientStart
 import uk.ryanwong.skycatnews.app.ui.theme.CustomTextStyle
 import uk.ryanwong.skycatnews.app.ui.theme.SkyCatNewsTheme
+import uk.ryanwong.skycatnews.app.ui.theme.getDimension
+import uk.ryanwong.skycatnews.domain.model.storydetail.Content
+import uk.ryanwong.skycatnews.domain.model.storydetail.Story
+import uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIEvent
+import uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIState
 import uk.ryanwong.skycatnews.storydetail.ui.previewparameter.StoryProvider
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.app.ui.theme.getDimension
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Content
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.storydetail.Story
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIEvent
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIState
 
 @Composable
 fun StoryDetailScreen(

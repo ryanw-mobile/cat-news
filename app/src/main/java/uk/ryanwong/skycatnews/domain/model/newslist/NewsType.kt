@@ -2,7 +2,7 @@
  * Copyright (c) 2023. Ryan Wong (hello@ryanwong.co.uk)
  */
 
-package uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist
+package uk.ryanwong.skycatnews.domain.model.newslist
 
 import timber.log.Timber
 

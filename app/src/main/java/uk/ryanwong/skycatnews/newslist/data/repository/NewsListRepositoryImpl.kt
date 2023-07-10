@@ -14,14 +14,14 @@ import uk.ryanwong.skycatnews.app.di.DispatcherModule
 import uk.ryanwong.skycatnews.app.exception.RemoteSourceFailedWithNoCacheException
 import uk.ryanwong.skycatnews.app.util.except
 import uk.ryanwong.skycatnews.app.util.nicedateformatter.NiceDateFormatter
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 import uk.ryanwong.skycatnews.newslist.data.local.NewsListDao
 import uk.ryanwong.skycatnews.newslist.data.local.entity.NewsItemEntity
 import uk.ryanwong.skycatnews.newslist.data.local.entity.NewsListEntity
+import uk.ryanwong.skycatnews.newslist.data.local.entity.toDomainModel
 import uk.ryanwong.skycatnews.newslist.data.remote.NewsListService
 import uk.ryanwong.skycatnews.newslist.data.remote.model.NewsListDto
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsList
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.data.local.entity.toDomainModel
 
 class NewsListRepositoryImpl(
     private val newsListService: NewsListService,

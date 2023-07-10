@@ -3,8 +3,7 @@ package uk.ryanwong.skycatnews.newslist.data.local.entity
 import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
 import uk.ryanwong.skycatnews.app.util.nicedateformatter.MockNiceDateFormatter
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.domain.model.newslist.NewsList
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.data.local.entity.toDomainModel
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 
 class NewsListEntityMapperKtTest : FreeSpec() {
 
