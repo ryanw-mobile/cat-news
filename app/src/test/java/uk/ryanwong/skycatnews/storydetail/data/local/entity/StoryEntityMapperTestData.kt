@@ -2,12 +2,9 @@
  * Copyright (c) 2023. Ryan Wong (hello@ryanwong.co.uk)
  */
 
-package uk.ryanwong.skycatnews.domain.model.storydetail
+package uk.ryanwong.skycatnews.storydetail.data.local.entity
 
-import uk.ryanwong.skycatnews.storydetail.data.local.entity.ContentEntity
-import uk.ryanwong.skycatnews.storydetail.data.local.entity.StoryEntity
-
-internal object StoryTestData {
+internal object StoryEntityMapperTestData {
 
     val mockStoryEntity by lazy {
         StoryEntity(

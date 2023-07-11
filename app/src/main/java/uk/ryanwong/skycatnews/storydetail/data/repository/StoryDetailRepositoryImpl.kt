@@ -20,6 +20,7 @@ import uk.ryanwong.skycatnews.storydetail.data.local.entity.ContentEntity
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.StoryEntity
 import uk.ryanwong.skycatnews.storydetail.data.remote.StoryService
 import uk.ryanwong.skycatnews.storydetail.data.remote.model.StoryDto
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.data.local.entity.toDomainModel
 
 class StoryDetailRepositoryImpl(
     private val storyService: StoryService,
@@ -44,6 +45,7 @@ class StoryDetailRepositoryImpl(
                             return@runCatching story
                                 ?: throw RemoteSourceFailedWithNoCacheException()
                         }
+
                         else -> {
                             throw throwable
                         }
@@ -63,7 +65,7 @@ class StoryDetailRepositoryImpl(
         val storyEntity = storyDao.getStory(storyId = storyId)
         val contentEntities = storyDao.getContents(storyId = storyId)
 
-        return Story.fromEntity(storyEntity = storyEntity, contentEntities = contentEntities)
+        return storyEntity?.toDomainModel(contentEntities = contentEntities)
     }
 
     private suspend fun updateLocalDatabase(storyDto: StoryDto) {

@@ -1,40 +1,22 @@
-/*
- * Copyright (c) 2023. Ryan Wong (hello@ryanwong.co.uk)
- */
-
-package uk.ryanwong.skycatnews.domain.model.storydetail
+package uk.ryanwong.skycatnews.storydetail.data.local.entity
 
 import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
-import uk.ryanwong.skycatnews.storydetail.data.local.entity.ContentEntity
+import uk.ryanwong.skycatnews.domain.model.storydetail.Content
+import uk.ryanwong.skycatnews.domain.model.storydetail.Story
+import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.data.local.entity.toDomainModel
 
-internal class StoryTest : FreeSpec() {
+internal class StoryEntityMapperTest : FreeSpec() {
 
     init {
         "fromEntity" - {
-            "Should return null if storyEntity is null even contentEntities is not null" {
-                // Given
-                val storyEntity = null
-                val contentEntities = listOf(StoryTestData.mockContentEntity)
-
-                // When
-                val story = Story.fromEntity(
-                    storyEntity = storyEntity,
-                    contentEntities = contentEntities,
-                )
-
-                // Then
-                story shouldBe null
-            }
-
             "Should return Story if storyEntity is not null and contentEntities is empty" {
                 // Given
-                val storyEntity = StoryTestData.mockStoryEntity
+                val storyEntity = StoryEntityMapperTestData.mockStoryEntity
                 val contentEntities = listOf<ContentEntity>()
 
                 // When
-                val story = Story.fromEntity(
-                    storyEntity = storyEntity,
+                val story = storyEntity.toDomainModel(
                     contentEntities = contentEntities,
                 )
 
@@ -51,14 +33,13 @@ internal class StoryTest : FreeSpec() {
 
             "Should fill headline with empty string if it comes as null" {
                 // Given
-                val storyEntity = StoryTestData.mockStoryEntity.copy(
+                val storyEntity = StoryEntityMapperTestData.mockStoryEntity.copy(
                     headline = null,
                 )
                 val contentEntities = listOf<ContentEntity>()
 
                 // When
-                val story = Story.fromEntity(
-                    storyEntity = storyEntity,
+                val story = storyEntity.toDomainModel(
                     contentEntities = contentEntities,
                 )
 
@@ -75,12 +56,11 @@ internal class StoryTest : FreeSpec() {
 
             "Should return Story if storyEntity and contentEntities are not null" {
                 // Given
-                val storyEntity = StoryTestData.mockStoryEntity
-                val contentEntities = listOf(StoryTestData.mockContentEntity)
+                val storyEntity = StoryEntityMapperTestData.mockStoryEntity
+                val contentEntities = listOf(StoryEntityMapperTestData.mockContentEntity)
 
                 // When
-                val story = Story.fromEntity(
-                    storyEntity = storyEntity,
+                val story = storyEntity.toDomainModel(
                     contentEntities = contentEntities,
                 )
 
