@@ -5,7 +5,7 @@ import io.kotest.matchers.shouldBe
 import uk.ryanwong.skycatnews.app.util.nicedateformatter.MockNiceDateFormatter
 import uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 
-class NewsListEntityMapperKtTest : FreeSpec() {
+class NewsListEntityMapperTest : FreeSpec() {
 
     private lateinit var mockNiceDateFormatter: MockNiceDateFormatter
 

@@ -1,13 +1,12 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2023. Ryan Wong (hello@ryanwong.co.uk)
  */
 
-package uk.ryanwong.skycatnews.storydetail.domain.model
+package uk.ryanwong.skycatnews.domain.model.storydetail
 
 import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.shouldBe
-import uk.ryanwong.skycatnews.domain.model.storydetail.Content
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.ContentEntity
 
 internal class ContentTest : FreeSpec() {
@@ -31,7 +30,7 @@ internal class ContentTest : FreeSpec() {
                 val contentEntities = listOf(
                     ContentTestData.mockContentEntity1,
                     ContentTestData.mockContentEntity2,
-                    ContentTestData.mockContentEntity3
+                    ContentTestData.mockContentEntity3,
                 )
 
                 // When
@@ -40,7 +39,7 @@ internal class ContentTest : FreeSpec() {
                 // Then
                 content shouldContainInOrder listOf(
                     ContentTestData.mockContentList1,
-                    ContentTestData.mockContentList2
+                    ContentTestData.mockContentList2,
                 )
             }
 
@@ -48,8 +47,8 @@ internal class ContentTest : FreeSpec() {
                 // Given
                 val contentEntities = listOf(
                     ContentTestData.mockContentEntity1.copy(
-                        text = null
-                    )
+                        text = null,
+                    ),
                 )
 
                 // When
@@ -63,8 +62,8 @@ internal class ContentTest : FreeSpec() {
                 // Given
                 val contentEntities = listOf(
                     ContentTestData.mockContentEntity1.copy(
-                        url = null
-                    )
+                        url = null,
+                    ),
                 )
 
                 // When
@@ -78,8 +77,8 @@ internal class ContentTest : FreeSpec() {
                 // Given
                 val contentEntities = listOf(
                     ContentTestData.mockContentEntity1.copy(
-                        accessibilityText = null
-                    )
+                        accessibilityText = null,
+                    ),
                 )
 
                 // When

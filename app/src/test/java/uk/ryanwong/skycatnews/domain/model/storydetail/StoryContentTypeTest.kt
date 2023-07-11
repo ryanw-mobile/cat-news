@@ -1,12 +1,11 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2023. Ryan Wong (hello@ryanwong.co.uk)
  */
 
-package uk.ryanwong.skycatnews.storydetail.domain.model
+package uk.ryanwong.skycatnews.domain.model.storydetail
 
 import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
-import uk.ryanwong.skycatnews.domain.model.storydetail.StoryContentType
 
 internal class StoryContentTypeTest : FreeSpec() {
 

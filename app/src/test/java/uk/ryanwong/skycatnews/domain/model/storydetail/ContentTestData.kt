@@ -1,10 +1,9 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2023. Ryan Wong (hello@ryanwong.co.uk)
  */
 
-package uk.ryanwong.skycatnews.storydetail.domain.model
+package uk.ryanwong.skycatnews.domain.model.storydetail
 
-import uk.ryanwong.skycatnews.domain.model.storydetail.Content
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.ContentEntity
 
 internal object ContentTestData {
@@ -16,7 +15,7 @@ internal object ContentTestData {
             type = "paragraph",
             url = "https://some.url/1",
             accessibilityText = "some-accessibility-text-1",
-            text = "some-text-1"
+            text = "some-text-1",
         )
     }
 
@@ -27,7 +26,7 @@ internal object ContentTestData {
             type = "image",
             url = "https://some.url/2",
             accessibilityText = "some-accessibility-text-2",
-            text = "some-text-2"
+            text = "some-text-2",
         )
     }
 
@@ -38,7 +37,7 @@ internal object ContentTestData {
             type = "some-unknown-type",
             url = "https://some.url/3",
             accessibilityText = "some-accessibility-text-3",
-            text = "some-text-3"
+            text = "some-text-3",
         )
     }
 
@@ -51,7 +50,7 @@ internal object ContentTestData {
     val mockContentList2 by lazy {
         Content.Image(
             accessibilityText = "some-accessibility-text-2",
-            url = "https://some.url/2"
+            url = "https://some.url/2",
         )
     }
 }
