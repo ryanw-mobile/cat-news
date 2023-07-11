@@ -4,8 +4,8 @@
 
 package uk.ryanwong.skycatnews.storydetail.ui.viewmodel
 
-import uk.ryanwong.skycatnews.storydetail.domain.model.Content
-import uk.ryanwong.skycatnews.storydetail.domain.model.Story
+import uk.ryanwong.skycatnews.domain.model.storydetail.Content
+import uk.ryanwong.skycatnews.domain.model.storydetail.Story
 
 internal object StoryDetailViewModelTestData {
 

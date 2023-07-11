@@ -5,7 +5,7 @@
 package uk.ryanwong.skycatnews.newslist.ui.screen.previewparameter
 
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsItem
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
 
 internal class NewsListProvider : PreviewParameterProvider<List<NewsItem>> {
     override val values = sequenceOf(

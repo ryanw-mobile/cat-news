@@ -2,7 +2,7 @@
  * Copyright (c) 2023. Ryan Wong (hello@ryanwong.co.uk)
  */
 
-package uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.app.ui
+package uk.ryanwong.skycatnews.app.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -14,13 +14,13 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import uk.ryanwong.skycatnews.newslist.ui.NewsListUIEvent
 import uk.ryanwong.skycatnews.newslist.ui.screen.NewsListScreen
 import uk.ryanwong.skycatnews.newslist.ui.viewmodel.NewsListViewModel
+import uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIEvent
 import uk.ryanwong.skycatnews.storydetail.ui.screen.StoryDetailScreen
 import uk.ryanwong.skycatnews.storydetail.ui.viewmodel.StoryDetailViewModel
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.newslist.ui.NewsListUIEvent
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIEvent
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.weblink.ui.WebLinkUIEvent
+import uk.ryanwong.skycatnews.weblink.ui.WebLinkUIEvent
 import uk.ryanwong.skycatnews.weblink.ui.screen.WebLinkScreen
 import uk.ryanwong.skycatnews.weblink.ui.viewmodel.WebLinkViewModel
 

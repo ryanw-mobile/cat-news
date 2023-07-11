@@ -10,7 +10,6 @@ import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestDispatcher
@@ -19,9 +18,8 @@ import kotlinx.coroutines.test.runTest
 import uk.ryanwong.skycatnews.R
 import uk.ryanwong.skycatnews.app.exception.StoryNotFoundException
 import uk.ryanwong.skycatnews.storydetail.data.repository.MockStoryDetailRepository
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIState
+import uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIState
 
-@OptIn(ExperimentalCoroutinesApi::class)
 internal class StoryDetailViewModelTest : FreeSpec() {
 
     private lateinit var scope: TestScope

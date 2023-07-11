@@ -5,8 +5,8 @@
 package uk.ryanwong.skycatnews.storydetail.ui.previewparameter
 
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
-import uk.ryanwong.skycatnews.storydetail.domain.model.Content
-import uk.ryanwong.skycatnews.storydetail.domain.model.Story
+import uk.ryanwong.skycatnews.domain.model.storydetail.Content
+import uk.ryanwong.skycatnews.domain.model.storydetail.Story
 
 internal class StoryProvider : PreviewParameterProvider<Story> {
     override val values = sequenceOf(

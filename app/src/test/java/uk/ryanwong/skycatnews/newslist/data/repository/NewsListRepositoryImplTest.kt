@@ -9,19 +9,17 @@ import io.kotest.matchers.shouldBe
 import io.ktor.client.plugins.HttpRequestTimeoutException
 import java.net.ConnectException
 import java.net.UnknownHostException
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import uk.ryanwong.skycatnews.app.exception.RemoteSourceFailedWithNoCacheException
 import uk.ryanwong.skycatnews.app.util.nicedateformatter.MockNiceDateFormatter
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 import uk.ryanwong.skycatnews.newslist.data.local.MockNewsListDao
 import uk.ryanwong.skycatnews.newslist.data.local.entity.NewsListEntity
 import uk.ryanwong.skycatnews.newslist.data.remote.MockNewsListService
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsItem
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsList
 
-@OptIn(ExperimentalCoroutinesApi::class)
 internal class NewsListRepositoryImplTest : FreeSpec() {
 
     private lateinit var scope: TestScope

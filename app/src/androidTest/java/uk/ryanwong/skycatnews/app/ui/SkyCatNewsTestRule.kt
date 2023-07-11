@@ -15,7 +15,7 @@ typealias SkyCatNewsTestRule = AndroidComposeTestRule<ActivityScenarioRule<MainA
 fun SkyCatNewsTestRule.loadMainScreen(): SkyCatNewsTestRule {
     with(this) {
         setContent {
-            SkyCatNewsTheme() {
+            SkyCatNewsTheme {
                 SkyCatNewsApp()
             }
         }

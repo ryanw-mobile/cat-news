@@ -1,13 +1,10 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2023. Ryan Wong (hello@ryanwong.co.uk)
  */
 
-package uk.ryanwong.skycatnews.storydetail.domain.model
+package uk.ryanwong.skycatnews.storydetail.data.local.entity
 
-import uk.ryanwong.skycatnews.storydetail.data.local.entity.ContentEntity
-import uk.ryanwong.skycatnews.storydetail.data.local.entity.StoryEntity
-
-internal object StoryTestData {
+internal object StoryEntityMapperTestData {
 
     val mockStoryEntity by lazy {
         StoryEntity(
@@ -16,7 +13,7 @@ internal object StoryTestData {
             heroImageUrl = "https://some.hero.image/url",
             heroImageAccessibilityText = "some-accessibility-text",
             creationDate = "2022-05-21T00:00:00Z",
-            modifiedDate = "2022-05-21T00:00:00Z"
+            modifiedDate = "2022-05-21T00:00:00Z",
         )
     }
 
@@ -27,7 +24,7 @@ internal object StoryTestData {
             type = "paragraph",
             url = "https://some.url/",
             accessibilityText = "some-accessibility-text",
-            text = "some-text-1"
+            text = "some-text-1",
         )
     }
 }

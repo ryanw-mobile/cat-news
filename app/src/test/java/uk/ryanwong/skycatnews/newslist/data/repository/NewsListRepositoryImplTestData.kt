@@ -4,17 +4,17 @@
 
 package uk.ryanwong.skycatnews.newslist.data.repository
 
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 import uk.ryanwong.skycatnews.newslist.data.local.entity.NewsItemEntity
 import uk.ryanwong.skycatnews.newslist.data.remote.model.LinksDto
 import uk.ryanwong.skycatnews.newslist.data.remote.model.NewsItemDto
 import uk.ryanwong.skycatnews.newslist.data.remote.model.NewsListDto
 import uk.ryanwong.skycatnews.newslist.data.remote.model.TeaserImageDto
 import uk.ryanwong.skycatnews.newslist.data.remote.model.UrlDto
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsItem
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsList
 
 internal object NewsListRepositoryImplTestData {
-    val mockNewsItemDto by lazy {
+    private val mockNewsItemDto by lazy {
         NewsItemDto(
             creationDate = "2020-11-18T00:00:00Z",
             headline = "some-headline",

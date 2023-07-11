@@ -14,13 +14,14 @@ import uk.ryanwong.skycatnews.app.di.DispatcherModule
 import uk.ryanwong.skycatnews.app.exception.RemoteSourceFailedWithNoCacheException
 import uk.ryanwong.skycatnews.app.util.except
 import uk.ryanwong.skycatnews.app.util.nicedateformatter.NiceDateFormatter
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 import uk.ryanwong.skycatnews.newslist.data.local.NewsListDao
 import uk.ryanwong.skycatnews.newslist.data.local.entity.NewsItemEntity
 import uk.ryanwong.skycatnews.newslist.data.local.entity.NewsListEntity
+import uk.ryanwong.skycatnews.newslist.data.local.entity.toDomainModel
 import uk.ryanwong.skycatnews.newslist.data.remote.NewsListService
 import uk.ryanwong.skycatnews.newslist.data.remote.model.NewsListDto
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsItem
-import uk.ryanwong.skycatnews.newslist.domain.model.NewsList
 
 class NewsListRepositoryImpl(
     private val newsListService: NewsListService,
@@ -53,6 +54,7 @@ class NewsListRepositoryImpl(
                                 return@runCatching newsList
                             }
                         }
+
                         else -> {
                             throw throwable
                         }
@@ -74,8 +76,7 @@ class NewsListRepositoryImpl(
 
                 newsItemEntity?.let {
                     val newsItemList =
-                        NewsItem.fromEntity(
-                            newsItemEntities = listOf(newsItemEntity),
+                        listOf(newsItemEntity).toDomainModel(
                             niceDateFormatter = niceDateFormatter,
                         )
                     newsItemList.getOrNull(0)
@@ -85,12 +86,11 @@ class NewsListRepositoryImpl(
     }
 
     private suspend fun getNewsListFromLocalDatabase(): NewsList {
-        val newsItemEntities = newsListDao.getNewsList(listId = listId)
-        val title = newsListDao.getNewsListTitle(listId = listId)
-
-        return NewsList.fromEntity(
-            title = title,
-            newsItemEntities = newsItemEntities,
+        return NewsListEntity(
+            listId = listId,
+            title = newsListDao.getNewsListTitle(listId = listId) ?: "",
+        ).toDomainModel(
+            newsItemEntities = newsListDao.getNewsList(listId = listId),
             niceDateFormatter = niceDateFormatter,
         )
     }
@@ -100,7 +100,7 @@ class NewsListRepositoryImpl(
             newsListEntity = NewsListEntity(
                 listId = listId,
                 title = newsListDto.title,
-            )
+            ),
         )
 
         // Cleaning up DB first, as we are not using paging and the API behaviour is not clearly defined

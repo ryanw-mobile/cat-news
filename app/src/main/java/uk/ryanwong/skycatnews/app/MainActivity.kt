@@ -13,9 +13,9 @@ import androidx.compose.material.rememberScaffoldState
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import uk.ryanwong.skycatnews.app.ui.SkyCatNewsApp
 import uk.ryanwong.skycatnews.app.ui.component.SkyCatNewsAppBar
 import uk.ryanwong.skycatnews.app.ui.theme.SkyCatNewsTheme
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.app.ui.SkyCatNewsApp
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

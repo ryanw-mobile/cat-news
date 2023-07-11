@@ -9,18 +9,16 @@ import io.kotest.matchers.shouldBe
 import io.ktor.client.plugins.HttpRequestTimeoutException
 import java.net.ConnectException
 import java.net.UnknownHostException
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import uk.ryanwong.skycatnews.app.exception.RemoteSourceFailedWithNoCacheException
 import uk.ryanwong.skycatnews.app.exception.StoryNotFoundException
+import uk.ryanwong.skycatnews.domain.model.storydetail.Story
 import uk.ryanwong.skycatnews.storydetail.data.local.MockStoryDao
 import uk.ryanwong.skycatnews.storydetail.data.local.entity.StoryEntity
 import uk.ryanwong.skycatnews.storydetail.data.remote.MockStoryService
-import uk.ryanwong.skycatnews.storydetail.domain.model.Story
 
-@OptIn(ExperimentalCoroutinesApi::class)
 internal class StoryDetailRepositoryImplTest : FreeSpec() {
 
     private lateinit var scope: TestScope

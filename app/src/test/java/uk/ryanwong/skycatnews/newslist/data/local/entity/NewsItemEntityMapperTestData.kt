@@ -2,11 +2,11 @@
  * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
  */
 
-package uk.ryanwong.skycatnews.newslist.domain.model
+package uk.ryanwong.skycatnews.newslist.data.local.entity
 
-import uk.ryanwong.skycatnews.newslist.data.local.entity.NewsItemEntity
+import uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
 
-internal object NewsItemTestData {
+internal object NewsItemEntityMapperTestData {
 
     val mockNewsItemEntity1 by lazy {
         NewsItemEntity(

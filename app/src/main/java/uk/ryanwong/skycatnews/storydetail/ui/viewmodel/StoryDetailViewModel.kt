@@ -19,7 +19,7 @@ import uk.ryanwong.skycatnews.R
 import uk.ryanwong.skycatnews.app.di.DispatcherModule
 import uk.ryanwong.skycatnews.app.util.ErrorMessage
 import uk.ryanwong.skycatnews.storydetail.data.repository.StoryDetailRepository
-import uk.ryanwong.skycatnews.uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIState
+import uk.ryanwong.skycatnews.storydetail.ui.StoryDetailUIState
 
 @HiltViewModel
 class StoryDetailViewModel @Inject constructor(
