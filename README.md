@@ -75,7 +75,7 @@ The project now requires no initial keystore setup to run the debug build.
 
 ## Requirements
 
-* Android Studio Electric Eel | 2022.1.1
+* Android Studio Hedgehog | 2023.1.1 Beta 5
 * Android device or simulator running Android 8.0+ (API 26)
 
 ## Setting up the Keystore
