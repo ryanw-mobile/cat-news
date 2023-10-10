@@ -32,7 +32,10 @@ android {
                 storePassword = System.getenv("BITRISEIO_ANDROID_KEYSTORE_PASSWORD")
             } else {
                 val properties = Properties()
-                InputStreamReader(FileInputStream(keystorePropertiesFile), Charsets.UTF_8).use { reader ->
+                InputStreamReader(
+                    FileInputStream(keystorePropertiesFile),
+                    Charsets.UTF_8,
+                ).use { reader ->
                     properties.load(reader)
                 }
 
@@ -89,8 +92,8 @@ android {
             setProguardFiles(
                 listOf(
                     getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
-                )
+                    "proguard-rules.pro",
+                ),
             )
 
             signingConfig = signingConfigs.getByName("release")
@@ -119,7 +122,7 @@ android {
             buildConfigField("String", "DEFAULT_BASE_URL", "\"https://ryanwong.co.uk/restapis\"")
         }
     }
-    packagingOptions {
+    packaging {
         resources {
             excludes.addAll(
                 listOf(
@@ -223,7 +226,6 @@ ksp {
 configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
     android.set(true)
     ignoreFailures.set(true)
-    disabledRules.set(setOf("max-line-length", "trailing-comma-on-call-site"))
     reporters {
         reporter(ReporterType.PLAIN)
         reporter(ReporterType.CHECKSTYLE)
@@ -239,12 +241,14 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-koverMerged {
-    enable()
-
-    filters { // common filters for all default Kover tasks
-        classes { // common class filter for all default Kover tasks
-            excludes += listOf(
+/*
+ * Kover configs
+ */
+koverReport {
+    // filters for all report types of all build variants
+    filters {
+        excludes {
+            classes(
                 "dagger.hilt.internal.aggregatedroot.codegen.*",
                 "hilt_aggregated_deps.*",
                 "uk.ryanwong.skycatnews.app.ui.*",
@@ -260,16 +264,27 @@ koverMerged {
                 "uk.ryanwong.skycatnews.BuildConfig*",
                 "uk.ryanwong.skycatnews.*.Fake*",
                 "uk.ryanwong.skycatnews.*.previewparameter*",
-                "uk.ryanwong.skycatnews.app.ComposableSingletons*"
+                "uk.ryanwong.skycatnews.app.ComposableSingletons*",
             )
         }
     }
 
-    xmlReport {
-        onCheck.set(true)
-    }
+    androidReports("fakeRelease") {
+        // filters for all report types only of 'release' build type
+        filters {
+            excludes {
+                classes(
+                    "*Fragment",
+                    "*Fragment\$*",
+                    "*Activity",
+                    "*Activity\$*",
+                    "*.databinding.*",
+                    "*.BuildConfig",
 
-    htmlReport {
-        onCheck.set(true)
+                    // excludes debug classes
+                    "*.DebugUtil",
+                )
+            }
+        }
     }
 }
