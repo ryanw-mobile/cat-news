@@ -33,7 +33,7 @@ data class StoryEntity(
                     heroImageUrl = heroImage?.imageUrl,
                     heroImageAccessibilityText = heroImage?.accessibilityText,
                     creationDate = creationDate,
-                    modifiedDate = modifiedDate
+                    modifiedDate = modifiedDate,
                 )
             }
         }

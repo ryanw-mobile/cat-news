@@ -53,7 +53,7 @@ fun SkyCatNewsAppBar(
 
     TopAppBar(
         backgroundColor = MaterialTheme.colors.surface,
-        modifier = modifier
+        modifier = modifier,
     ) {
         Box(Modifier.height(dimension.appBarHeight)) {
             // TODO: Material-3 will provide a new way to achieve this - pending rewrite.
@@ -68,7 +68,7 @@ fun SkyCatNewsAppBar(
                     ) {
                         IconButton(onClick = {
                             navController.navigateUp()
-                        }) {
+                        },) {
                             Icon(Icons.Rounded.ArrowBack, "")
                         }
                     }
@@ -107,7 +107,7 @@ private fun AppBarPreviewDefaultImageLight() {
     SkyCatNewsTheme {
         SkyCatNewsAppBar(
             customTitle = null,
-            navController = rememberNavController()
+            navController = rememberNavController(),
         )
     }
 }
@@ -123,7 +123,7 @@ private fun AppBarPreviewCustomTitleLight() {
     SkyCatNewsTheme {
         SkyCatNewsAppBar(
             customTitle = "Some Other News",
-            navController = rememberNavController()
+            navController = rememberNavController(),
         )
     }
 }
@@ -139,7 +139,7 @@ private fun AppBarPreviewDefaultImageDark() {
     SkyCatNewsTheme {
         SkyCatNewsAppBar(
             customTitle = null,
-            navController = rememberNavController()
+            navController = rememberNavController(),
         )
     }
 }
@@ -155,7 +155,7 @@ private fun AppBarPreviewCustomTitleDark() {
     SkyCatNewsTheme {
         SkyCatNewsAppBar(
             customTitle = "Some Other News",
-            navController = rememberNavController()
+            navController = rememberNavController(),
         )
     }
 }

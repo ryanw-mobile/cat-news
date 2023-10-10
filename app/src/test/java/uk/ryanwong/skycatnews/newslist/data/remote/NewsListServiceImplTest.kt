@@ -39,7 +39,7 @@ internal class NewsListServiceImplTest : FreeSpec() {
                         ignoreUnknownKeys = true
                         prettyPrint = true
                         isLenient = true
-                    }
+                    },
                 )
             }
         }

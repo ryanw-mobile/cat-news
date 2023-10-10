@@ -15,12 +15,12 @@ internal object StoryDetailViewModelTestData {
             contents = listOf(
                 Content.Paragraph(
                     text = "some-text-1",
-                )
+                ),
             ),
             date = "2020-11-19T00:00:00Z",
             headline = "some-headline",
             heroImageAccessibilityText = "some-hero-image-accessibility-text",
-            heroImageUrl = "https://some.hero.image/url"
+            heroImageUrl = "https://some.hero.image/url",
         )
     }
 }

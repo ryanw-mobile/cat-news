@@ -41,16 +41,16 @@ fun SkyCatNewsApp(
                     onRefresh = { newsListViewModel.refreshNewsList() },
                     onStoryItemClicked = { listId ->
                         navController.navigate(
-                            "newslist/story/$listId"
+                            "newslist/story/$listId",
                         )
                     },
                     onWebLinkItemClicked = { listId ->
                         navController.navigate(
-                            "newslist/weblink/$listId"
+                            "newslist/weblink/$listId",
                         )
                     },
-                    onErrorShown = { errorId -> (newsListViewModel::errorShown)(errorId) }
-                )
+                    onErrorShown = { errorId -> (newsListViewModel::errorShown)(errorId) },
+                ),
             )
         }
         composable(
@@ -58,8 +58,8 @@ fun SkyCatNewsApp(
             arguments = listOf(
                 navArgument("list_id") {
                     type = NavType.IntType
-                }
-            )
+                },
+            ),
         ) {
             val storyDetailViewModel: StoryDetailViewModel = hiltViewModel()
             val uiState by storyDetailViewModel.uiState.collectAsStateWithLifecycle()
@@ -69,8 +69,8 @@ fun SkyCatNewsApp(
                 uiState = uiState,
                 uiEvent = StoryDetailUIEvent(
                     onRefresh = { storyDetailViewModel.refreshStory() },
-                    onErrorShown = { errorId -> (storyDetailViewModel::errorShown)(errorId) }
-                )
+                    onErrorShown = { errorId -> (storyDetailViewModel::errorShown)(errorId) },
+                ),
             )
         }
 
@@ -79,8 +79,8 @@ fun SkyCatNewsApp(
             arguments = listOf(
                 navArgument("list_id") {
                     type = NavType.IntType
-                }
-            )
+                },
+            ),
         ) {
             val webLinkViewModel: WebLinkViewModel = hiltViewModel()
             val uiState by webLinkViewModel.uiState.collectAsStateWithLifecycle()
@@ -89,8 +89,8 @@ fun SkyCatNewsApp(
                 modifier = modifier,
                 uiState = uiState,
                 uiEvent = WebLinkUIEvent(
-                    onErrorShown = { errorId -> (webLinkViewModel::errorShown)(errorId) }
-                )
+                    onErrorShown = { errorId -> (webLinkViewModel::errorShown)(errorId) },
+                ),
             )
         }
     }

@@ -22,15 +22,15 @@ internal object NewsItemEntityTestData {
                     url = UrlDto(
                         href = "https://some.links.url/href",
                         templated = true,
-                        type = "image/jpeg"
-                    )
+                        type = "image/jpeg",
+                    ),
                 ),
-                accessibilityText = "some-accessibility-text"
+                accessibilityText = "some-accessibility-text",
             ),
             teaserText = "some-teaser-text",
             type = "story",
             advertUrl = "https://some.url/",
-            weblinkUrl = "https://some.weblink.url/"
+            weblinkUrl = "https://some.weblink.url/",
         )
     }
 
@@ -48,7 +48,7 @@ internal object NewsItemEntityTestData {
             teaserImageHref = "https://some.links.url/href",
             teaserImageTemplated = true,
             teaserImageType = "image/jpeg",
-            teaserImageAccessibilityText = "some-accessibility-text"
+            teaserImageAccessibilityText = "some-accessibility-text",
         )
     }
 
@@ -63,15 +63,15 @@ internal object NewsItemEntityTestData {
                     url = UrlDto(
                         href = "https://some.links.url/href",
                         templated = true,
-                        type = "image/jpeg"
-                    )
+                        type = "image/jpeg",
+                    ),
                 ),
-                accessibilityText = "some-accessibility-text"
+                accessibilityText = "some-accessibility-text",
             ),
             teaserText = "some-teaser-text-2",
             type = "story",
             advertUrl = "https://some.url/",
-            weblinkUrl = "https://some.weblink.url/"
+            weblinkUrl = "https://some.weblink.url/",
         )
     }
 
@@ -89,7 +89,7 @@ internal object NewsItemEntityTestData {
             teaserImageHref = "https://some.links.url/href",
             teaserImageTemplated = true,
             teaserImageType = "image/jpeg",
-            teaserImageAccessibilityText = "some-accessibility-text"
+            teaserImageAccessibilityText = "some-accessibility-text",
         )
     }
 
@@ -104,15 +104,15 @@ internal object NewsItemEntityTestData {
                     url = UrlDto(
                         href = "https://some.links.url/href",
                         templated = true,
-                        type = "image/jpeg"
-                    )
+                        type = "image/jpeg",
+                    ),
                 ),
-                accessibilityText = "some-accessibility-text"
+                accessibilityText = "some-accessibility-text",
             ),
             teaserText = "some-teaser-text-3",
             type = "story",
             advertUrl = "https://some.url/",
-            weblinkUrl = "https://some.weblink.url/"
+            weblinkUrl = "https://some.weblink.url/",
         )
     }
 
@@ -130,7 +130,7 @@ internal object NewsItemEntityTestData {
             teaserImageHref = "https://some.links.url/href",
             teaserImageTemplated = true,
             teaserImageType = "image/jpeg",
-            teaserImageAccessibilityText = "some-accessibility-text"
+            teaserImageAccessibilityText = "some-accessibility-text",
         )
     }
 }

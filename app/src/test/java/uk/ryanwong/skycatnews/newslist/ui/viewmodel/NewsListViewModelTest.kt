@@ -35,7 +35,7 @@ internal class NewsListViewModelTest : FreeSpec() {
     private fun setupViewModel() {
         newsListViewModel = NewsListViewModel(
             newsListRepository = mockNewsListRepository,
-            dispatcher = dispatcher
+            dispatcher = dispatcher,
         )
     }
 
@@ -57,7 +57,7 @@ internal class NewsListViewModelTest : FreeSpec() {
                     uiState shouldBe NewsListUIState(
                         newsList = listOf(NewsListViewModelTestData.mockNewsItem),
                         isLoading = false,
-                        errorMessages = emptyList()
+                        errorMessages = emptyList(),
                     )
                 }
             }

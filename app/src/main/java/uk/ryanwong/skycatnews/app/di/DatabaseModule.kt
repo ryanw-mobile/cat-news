@@ -26,7 +26,7 @@ class DatabaseModule {
         return Room.databaseBuilder(
             context,
             LocalDatabaseImpl::class.java,
-            context.getString(R.string.app_name)
+            context.getString(R.string.app_name),
         )
             .fallbackToDestructiveMigration() // As a local cache it is not necessary to migrate data
             .build()

@@ -43,7 +43,7 @@ fun LargeStoryHeadline(
         teaserText = story.teaserText,
         date = story.niceDate,
         onItemClicked = onItemClicked,
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
@@ -60,7 +60,7 @@ fun LargeWebLinkHeadline(
         teaserText = null,
         date = webLink.niceDate,
         onItemClicked = onItemClicked,
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
@@ -81,7 +81,7 @@ fun LargeHeadline(
             .padding(horizontal = dimension.grid_2)
             .padding(bottom = dimension.grid_2)
             .fillMaxWidth()
-            .aspectRatio(ratio = 1f, matchHeightConstraintsFirst = true)
+            .aspectRatio(ratio = 1f, matchHeightConstraintsFirst = true),
     ) {
         Column(
             modifier = Modifier
@@ -90,8 +90,8 @@ fun LargeHeadline(
                 .wrapContentHeight()
                 .clickable(
                     enabled = true,
-                    onClick = onItemClicked
-                )
+                    onClick = onItemClicked,
+                ),
         ) {
             AsyncImage(
                 model = ImageRequest
@@ -107,7 +107,7 @@ fun LargeHeadline(
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight()
-                    .weight(weight = 1f, fill = true)
+                    .weight(weight = 1f, fill = true),
             )
 
             Text(
@@ -119,7 +119,7 @@ fun LargeHeadline(
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight()
-                    .padding(horizontal = dimension.grid_2, vertical = dimension.grid_1)
+                    .padding(horizontal = dimension.grid_2, vertical = dimension.grid_1),
             )
 
             teaserText?.let {
@@ -132,7 +132,7 @@ fun LargeHeadline(
                     modifier = Modifier
                         .fillMaxWidth()
                         .wrapContentHeight()
-                        .padding(horizontal = dimension.grid_2)
+                        .padding(horizontal = dimension.grid_2),
                 )
             }
 
@@ -144,7 +144,7 @@ fun LargeHeadline(
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight()
-                    .padding(horizontal = dimension.grid_2, vertical = dimension.grid_1)
+                    .padding(horizontal = dimension.grid_2, vertical = dimension.grid_1),
             )
         }
     }

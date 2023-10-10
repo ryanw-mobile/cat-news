@@ -16,7 +16,7 @@ class NiceDateFormatterImpl : NiceDateFormatter {
         return DateUtils.getRelativeTimeSpanString(
             instant.toEpochMilli(),
             currentTimeMills,
-            DateUtils.SECOND_IN_MILLIS
+            DateUtils.SECOND_IN_MILLIS,
         ).toString()
     }
 }

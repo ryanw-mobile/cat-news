@@ -34,15 +34,15 @@ class MockNewsListService : NewsListService {
                                 url = UrlDto(
                                     href = "https://ryanwong.co.uk/sample-resources/skycatnews/cat1_hero.jpg",
                                     templated = true,
-                                    type = "image/jpeg"
-                                )
+                                    type = "image/jpeg",
+                                ),
                             ),
-                            accessibilityText = "some-teaser-image-accessibility-text-1"
+                            accessibilityText = "some-teaser-image-accessibility-text-1",
                         ),
                         teaserText = "some-teaser-text-1",
                         type = "story",
                         advertUrl = null,
-                        weblinkUrl = null
+                        weblinkUrl = null,
                     ),
                     NewsItemDto(
                         creationDate = randomTimestamp2,
@@ -54,15 +54,15 @@ class MockNewsListService : NewsListService {
                                 url = UrlDto(
                                     href = "https://ryanwong.co.uk/sample-resources/skycatnews/cat2_hero.jpg",
                                     templated = true,
-                                    type = "image/jpeg"
-                                )
+                                    type = "image/jpeg",
+                                ),
                             ),
-                            accessibilityText = "some-teaser-image-accessibility-text-2"
+                            accessibilityText = "some-teaser-image-accessibility-text-2",
                         ),
                         teaserText = "some-teaser-text-2",
                         type = "story",
                         advertUrl = null,
-                        weblinkUrl = null
+                        weblinkUrl = null,
                     ),
                     NewsItemDto(
                         creationDate = randomTimestamp3,
@@ -74,15 +74,15 @@ class MockNewsListService : NewsListService {
                                 url = UrlDto(
                                     href = "https://ryanwong.co.uk/sample-resources/skycatnews/cat3_hero.jpg",
                                     templated = true,
-                                    type = "image/jpeg"
-                                )
+                                    type = "image/jpeg",
+                                ),
                             ),
-                            accessibilityText = "some-teaser-image-accessibility-text-3"
+                            accessibilityText = "some-teaser-image-accessibility-text-3",
                         ),
                         teaserText = null,
                         type = "weblink",
                         advertUrl = null,
-                        weblinkUrl = "https://news.sky.com/weblinkUrl3"
+                        weblinkUrl = "https://news.sky.com/weblinkUrl3",
                     ),
                     NewsItemDto(
                         creationDate = randomTimestamp4,
@@ -94,15 +94,15 @@ class MockNewsListService : NewsListService {
                                 url = UrlDto(
                                     href = "https://ryanwong.co.uk/sample-resources/skycatnews/cat4_hero.jpg",
                                     templated = true,
-                                    type = "image/jpeg"
-                                )
+                                    type = "image/jpeg",
+                                ),
                             ),
-                            accessibilityText = "some-teaser-image-accessibility-text-4"
+                            accessibilityText = "some-teaser-image-accessibility-text-4",
                         ),
                         teaserText = "some-teaser-text-4",
                         type = "story",
                         advertUrl = null,
-                        weblinkUrl = null
+                        weblinkUrl = null,
                     ),
                     NewsItemDto(
                         creationDate = randomTimestamp5,
@@ -114,15 +114,15 @@ class MockNewsListService : NewsListService {
                                 url = UrlDto(
                                     href = "https://ryanwong.co.uk/sample-resources/skycatnews/cat5_hero.jpg",
                                     templated = true,
-                                    type = "image/jpeg"
-                                )
+                                    type = "image/jpeg",
+                                ),
                             ),
-                            accessibilityText = "some-teaser-image-accessibility-text-5"
+                            accessibilityText = "some-teaser-image-accessibility-text-5",
                         ),
                         teaserText = null,
                         type = "weblink",
                         advertUrl = null,
-                        weblinkUrl = "https://news.sky.com/weblinkUrl5"
+                        weblinkUrl = "https://news.sky.com/weblinkUrl5",
                     ),
                     NewsItemDto(
                         creationDate = randomTimestamp6,
@@ -134,19 +134,19 @@ class MockNewsListService : NewsListService {
                                 url = UrlDto(
                                     href = "https://ryanwong.co.uk/sample-resources/skycatnews/cat6_hero.jpg",
                                     templated = true,
-                                    type = "image/jpeg"
-                                )
+                                    type = "image/jpeg",
+                                ),
                             ),
-                            accessibilityText = "some-teaser-image-accessibility-text-6"
+                            accessibilityText = "some-teaser-image-accessibility-text-6",
                         ),
                         teaserText = "some-teaser-text-6",
                         type = "story",
                         advertUrl = null,
-                        weblinkUrl = null
+                        weblinkUrl = null,
                     ),
                 ),
-                title = "Sky Cat News"
-            )
+                title = "Sky Cat News",
+            ),
         )
     }
 

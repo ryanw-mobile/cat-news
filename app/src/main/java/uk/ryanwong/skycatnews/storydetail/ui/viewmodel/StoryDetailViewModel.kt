@@ -48,7 +48,7 @@ class StoryDetailViewModel @Inject constructor(
                 _uiState.update { currentUiState ->
                     currentUiState.copy(
                         story = story,
-                        isLoading = false
+                        isLoading = false,
                     )
                 }
             }.onFailure { ex ->
@@ -56,11 +56,11 @@ class StoryDetailViewModel @Inject constructor(
                 _uiState.update { currentUiState ->
                     val errorMessages = currentUiState.errorMessages + ErrorMessage(
                         id = UUID.randomUUID().mostSignificantBits,
-                        messageId = R.string.error_loading_story_detail
+                        messageId = R.string.error_loading_story_detail,
                     )
                     currentUiState.copy(
                         isLoading = false,
-                        errorMessages = errorMessages
+                        errorMessages = errorMessages,
                     )
                 }
             }

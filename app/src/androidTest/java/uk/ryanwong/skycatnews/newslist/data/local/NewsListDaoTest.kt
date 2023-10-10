@@ -131,8 +131,8 @@ internal class NewsListDaoTest {
                 teaserImageHref = "https://some.teaser.image/href",
                 teaserImageTemplated = true,
                 teaserImageType = "some-teaser-image-type",
-                teaserImageAccessibilityText = "some-teaser-image-accessibility-text"
-            )
+                teaserImageAccessibilityText = "some-teaser-image-accessibility-text",
+            ),
         )
         newsListDao.getNewsList(listId = listId) shouldBe emptyList()
 
@@ -162,7 +162,7 @@ internal class NewsListDaoTest {
                 teaserImageHref = "https://some.teaser.image/href",
                 teaserImageTemplated = true,
                 teaserImageType = "some-teaser-image-type",
-                teaserImageAccessibilityText = "some-teaser-image-accessibility-text"
+                teaserImageAccessibilityText = "some-teaser-image-accessibility-text",
             ),
             NewsItemEntity(
                 listId = listId,
@@ -177,7 +177,7 @@ internal class NewsListDaoTest {
                 teaserImageHref = "https://some.teaser.image/href/2",
                 teaserImageTemplated = true,
                 teaserImageType = "some-teaser-image-type-2",
-                teaserImageAccessibilityText = "some-teaser-image-accessibility-text-2"
+                teaserImageAccessibilityText = "some-teaser-image-accessibility-text-2",
             ),
             NewsItemEntity(
                 listId = listId,
@@ -192,8 +192,8 @@ internal class NewsListDaoTest {
                 teaserImageHref = "https://some.teaser.image/href/3",
                 teaserImageTemplated = true,
                 teaserImageType = "some-teaser-image-type-3",
-                teaserImageAccessibilityText = "some-teaser-image-accessibility-text-3"
-            )
+                teaserImageAccessibilityText = "some-teaser-image-accessibility-text-3",
+            ),
         )
         newsListDao.getNewsList(listId = listId) shouldBe emptyList()
 
@@ -222,7 +222,7 @@ internal class NewsListDaoTest {
             teaserImageHref = "https://some.teaser.image/href",
             teaserImageTemplated = true,
             teaserImageType = "some-teaser-image-type",
-            teaserImageAccessibilityText = "some-teaser-image-accessibility-text"
+            teaserImageAccessibilityText = "some-teaser-image-accessibility-text",
         )
         val newsItemEntityTwo = NewsItemEntity(
             listId = listId,
@@ -237,7 +237,7 @@ internal class NewsListDaoTest {
             teaserImageHref = "https://some.teaser.image/href/2",
             teaserImageTemplated = true,
             teaserImageType = "some-teaser-image-type-2",
-            teaserImageAccessibilityText = "some-teaser-image-accessibility-text-2"
+            teaserImageAccessibilityText = "some-teaser-image-accessibility-text-2",
         )
         val newsItemEntityOneModified = NewsItemEntity(
             listId = listId,
@@ -252,7 +252,7 @@ internal class NewsListDaoTest {
             teaserImageHref = "https://some.teaser.image/href/3",
             teaserImageTemplated = true,
             teaserImageType = "some-teaser-image-type-3",
-            teaserImageAccessibilityText = "some-teaser-image-accessibility-text-3"
+            teaserImageAccessibilityText = "some-teaser-image-accessibility-text-3",
         )
         val newsItems = listOf(newsItemEntityOne, newsItemEntityTwo)
         newsListDao.insertNewsItems(newsItems = newsItems)
@@ -264,7 +264,7 @@ internal class NewsListDaoTest {
         val returnedNewsList = newsListDao.getNewsList(listId = listId)
         returnedNewsList shouldContainExactlyInAnyOrder listOf(
             newsItemEntityOneModified,
-            newsItemEntityTwo
+            newsItemEntityTwo,
         )
     }
 
@@ -285,7 +285,7 @@ internal class NewsListDaoTest {
             teaserImageHref = "https://some.teaser.image/href",
             teaserImageTemplated = true,
             teaserImageType = "some-teaser-image-type",
-            teaserImageAccessibilityText = "some-teaser-image-accessibility-text"
+            teaserImageAccessibilityText = "some-teaser-image-accessibility-text",
         )
         val newsItemEntityTwo = NewsItemEntity(
             listId = listId,
@@ -300,7 +300,7 @@ internal class NewsListDaoTest {
             teaserImageHref = "https://some.teaser.image/href/2",
             teaserImageTemplated = true,
             teaserImageType = "some-teaser-image-type-2",
-            teaserImageAccessibilityText = "some-teaser-image-accessibility-text-2"
+            teaserImageAccessibilityText = "some-teaser-image-accessibility-text-2",
         )
         val newsItems = listOf(newsItemEntityOne, newsItemEntityTwo)
         newsListDao.insertNewsItems(newsItems = newsItems)
@@ -333,7 +333,7 @@ internal class NewsListDaoTest {
             teaserImageHref = "https://some.teaser.image/href",
             teaserImageTemplated = true,
             teaserImageType = "some-teaser-image-type",
-            teaserImageAccessibilityText = "some-teaser-image-accessibility-text"
+            teaserImageAccessibilityText = "some-teaser-image-accessibility-text",
         )
         val newsItems = listOf(originalNewsItemEntity)
         newsListDao.insertNewsItems(newsItems = newsItems)
@@ -362,7 +362,7 @@ internal class NewsListDaoTest {
             teaserImageHref = "https://some.teaser.image/href",
             teaserImageTemplated = true,
             teaserImageType = "some-teaser-image-type",
-            teaserImageAccessibilityText = "some-teaser-image-accessibility-text"
+            teaserImageAccessibilityText = "some-teaser-image-accessibility-text",
         )
         val newsItems = listOf(originalNewsItemEntity)
         newsListDao.insertNewsItems(newsItems = newsItems)

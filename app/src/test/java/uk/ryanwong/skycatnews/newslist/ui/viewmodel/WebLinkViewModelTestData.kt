@@ -28,7 +28,7 @@ internal object WebLinkViewModelTestData {
             niceDate = "2 days ago",
             teaserImageUrl = "https://some.teaser.image/href/2",
             teaserImageAccessibilityText = "some-teaser-image-accessibility-text-2",
-            url = "https://some.weblink.url/2"
+            url = "https://some.weblink.url/2",
         )
     }
 }

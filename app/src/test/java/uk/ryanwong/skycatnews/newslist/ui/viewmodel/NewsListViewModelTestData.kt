@@ -21,8 +21,8 @@ internal object NewsListViewModelTestData {
                     niceDate = "2 days ago",
                     teaserImageUrl = "https://some.url/href",
                     teaserImageAccessibilityText = "some-accessibility-text",
-                )
-            )
+                ),
+            ),
         )
     }
 

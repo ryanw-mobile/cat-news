@@ -47,7 +47,7 @@ fun RegularStoryHeadline(
         teaserText = story.teaserText,
         date = story.niceDate,
         onItemClicked = onItemClicked,
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
@@ -64,7 +64,7 @@ fun RegularWebLinkHeadline(
         imageUrl = webLink.teaserImageUrl,
         imageAccessibilityText = webLink.teaserImageAccessibilityText,
         onItemClicked = onItemClicked,
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
@@ -86,7 +86,7 @@ fun RegularHeadline(
             .padding(bottom = dimension.grid_2)
             .fillMaxWidth()
             .wrapContentHeight()
-            .defaultMinSize(minHeight = dimension.minListItemHeight)
+            .defaultMinSize(minHeight = dimension.minListItemHeight),
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -95,8 +95,8 @@ fun RegularHeadline(
                 .wrapContentHeight()
                 .clickable(
                     enabled = true,
-                    onClick = onItemClicked
-                )
+                    onClick = onItemClicked,
+                ),
         ) {
             AsyncImage(
                 model = ImageRequest
@@ -112,14 +112,14 @@ fun RegularHeadline(
                 contentScale = ContentScale.FillWidth,
                 modifier = Modifier
                     .weight(0.3f)
-                    .padding(all = dimension.grid_0_5)
+                    .padding(all = dimension.grid_0_5),
             )
 
             Column(
                 verticalArrangement = Arrangement.Center,
                 modifier = modifier
                     .weight(0.7f)
-                    .height(intrinsicSize = IntrinsicSize.Max)
+                    .height(intrinsicSize = IntrinsicSize.Max),
             ) {
                 Text(
                     text = headline,
@@ -129,7 +129,7 @@ fun RegularHeadline(
                     modifier = Modifier
                         .fillMaxWidth()
                         .wrapContentHeight()
-                        .padding(horizontal = dimension.grid_2, vertical = dimension.grid_0_5)
+                        .padding(horizontal = dimension.grid_2, vertical = dimension.grid_0_5),
                 )
                 Text(
                     text = teaserText ?: "",
@@ -140,7 +140,7 @@ fun RegularHeadline(
                         .fillMaxWidth()
                         .wrapContentHeight()
                         .weight(weight = 1.0f)
-                        .padding(horizontal = dimension.grid_2)
+                        .padding(horizontal = dimension.grid_2),
                 )
                 Text(
                     text = date,
@@ -149,7 +149,7 @@ fun RegularHeadline(
                     modifier = Modifier
                         .fillMaxWidth()
                         .wrapContentHeight()
-                        .padding(horizontal = dimension.grid_2, vertical = dimension.grid_1)
+                        .padding(horizontal = dimension.grid_2, vertical = dimension.grid_1),
                 )
             }
         }
@@ -193,7 +193,7 @@ private fun RegularWebLinkHeadlinePreview() {
                 niceDate = "2 days ago",
                 teaserImageUrl = "https://www.google.com/",
                 teaserImageAccessibilityText = "some-accessibility-text",
-                url = "https://some.url/"
+                url = "https://some.url/",
             ),
             onItemClicked = {},
         )

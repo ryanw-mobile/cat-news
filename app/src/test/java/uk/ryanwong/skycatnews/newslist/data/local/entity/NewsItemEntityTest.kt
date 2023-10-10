@@ -17,8 +17,8 @@ internal class NewsItemEntityTest : FreeSpec() {
                 // Given
                 val newsItemDtoList = listOf(
                     NewsItemEntityTestData.mockNewsItemDto.copy(
-                        id = null
-                    )
+                        id = null,
+                    ),
                 )
 
                 // When
@@ -33,8 +33,8 @@ internal class NewsItemEntityTest : FreeSpec() {
                 // Given
                 val newsItemDtoList = listOf(
                     NewsItemEntityTestData.mockNewsItemDto.copy(
-                        creationDate = null
-                    )
+                        creationDate = null,
+                    ),
                 )
 
                 // When
@@ -49,8 +49,8 @@ internal class NewsItemEntityTest : FreeSpec() {
                 // Given
                 val newsItemDtoList = listOf(
                     NewsItemEntityTestData.mockNewsItemDto.copy(
-                        modifiedDate = null
-                    )
+                        modifiedDate = null,
+                    ),
                 )
 
                 // When
@@ -65,9 +65,9 @@ internal class NewsItemEntityTest : FreeSpec() {
                 // Given
                 val newsItemDtoList = listOf(
                     NewsItemEntityTestData.mockNewsItemDto.copy(
-                        modifiedDate = null
+                        modifiedDate = null,
                     ),
-                    NewsItemEntityTestData.mockNewsItemDto2
+                    NewsItemEntityTestData.mockNewsItemDto2,
                 )
 
                 // When
@@ -119,7 +119,7 @@ internal class NewsItemEntityTest : FreeSpec() {
                 val newsItemDtoList = listOf(
                     NewsItemEntityTestData.mockNewsItemDto,
                     NewsItemEntityTestData.mockNewsItemDto2,
-                    NewsItemEntityTestData.mockNewsItemDto3
+                    NewsItemEntityTestData.mockNewsItemDto3,
                 )
 
                 // When
@@ -130,7 +130,7 @@ internal class NewsItemEntityTest : FreeSpec() {
                 newsItemEntity shouldContainExactlyInAnyOrder listOf(
                     NewsItemEntityTestData.mockNewsItemEntity,
                     NewsItemEntityTestData.mockNewsItemEntity2,
-                    NewsItemEntityTestData.mockNewsItemEntity3
+                    NewsItemEntityTestData.mockNewsItemEntity3,
                 )
             }
         }

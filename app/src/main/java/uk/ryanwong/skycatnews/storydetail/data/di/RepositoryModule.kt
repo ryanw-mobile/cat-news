@@ -29,7 +29,7 @@ object RepositoryModule {
         return StoryDetailRepositoryImpl(
             storyService = storyService,
             storyDao = storyDao,
-            dispatcher = dispatcher
+            dispatcher = dispatcher,
         )
     }
 }

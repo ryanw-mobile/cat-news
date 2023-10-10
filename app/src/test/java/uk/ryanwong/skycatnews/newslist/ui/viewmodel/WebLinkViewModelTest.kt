@@ -50,7 +50,7 @@ internal class WebLinkViewModelTest : FreeSpec() {
         webLinkViewModel = WebLinkViewModel(
             stateHandle = mockStateHandle,
             newsListRepository = mockNewsListRepository,
-            dispatcher = dispatcher
+            dispatcher = dispatcher,
         )
     }
 
@@ -88,7 +88,7 @@ internal class WebLinkViewModelTest : FreeSpec() {
                     uiState shouldBe WebLinkUIState(
                         url = "https://some.weblink.url/2",
                         isLoading = false,
-                        errorMessages = emptyList()
+                        errorMessages = emptyList(),
                     )
                 }
             }

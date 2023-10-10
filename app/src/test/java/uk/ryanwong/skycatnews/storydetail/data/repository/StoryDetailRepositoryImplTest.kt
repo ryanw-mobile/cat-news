@@ -35,7 +35,7 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
         storyDetailRepository = StoryDetailRepositoryImpl(
             storyService = mockStoryService,
             storyDao = mockStoryDao,
-            dispatcher = dispatcher
+            dispatcher = dispatcher,
         )
     }
 
@@ -60,13 +60,13 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
                             heroImageUrl = "https://some.hero.image/url",
                             heroImageAccessibilityText = "some-accessibility-text",
                             creationDate = "2020-11-18T00:00:00Z",
-                            modifiedDate = "2020-11-19T00:00:00Z"
+                            modifiedDate = "2020-11-19T00:00:00Z",
                         )
                         mockStoryDao.mockDeleteContentsReceivedValue shouldBe storyId
                         mockStoryDao.mockInsertContentsReceivedValue shouldBe listOf(
                             StoryDetailRepositoryImplTestData.getMockContentEntity(
-                                storyId = storyId
-                            )
+                                storyId = storyId,
+                            ),
                         )
                     }
                 }
@@ -86,8 +86,8 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
                             StoryDetailRepositoryImplTestData.getMockStoryEntity(storyId = storyId)
                         mockStoryDao.mockGetContentsResponse = listOf(
                             StoryDetailRepositoryImplTestData.getMockContentEntity(
-                                storyId = storyId
-                            )
+                                storyId = storyId,
+                            ),
                         )
 
                         // When
@@ -95,7 +95,7 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
 
                         // Then
                         story shouldBe Result.success(
-                            StoryDetailRepositoryImplTestData.mockStoryId1
+                            StoryDetailRepositoryImplTestData.mockStoryId1,
                         )
                     }
                 }
@@ -153,8 +153,8 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
                                 date = "2020-11-19T00:00:00Z",
                                 headline = "some-headline",
                                 heroImageAccessibilityText = "some-hero-image-accessibility-text",
-                                heroImageUrl = "https://some.hero.image/url"
-                            )
+                                heroImageUrl = "https://some.hero.image/url",
+                            ),
                         )
                     }
                 }
@@ -188,12 +188,12 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
                                 Result.failure(exception = UnknownHostException())
                             mockStoryDao.mockGetStoryResponse =
                                 StoryDetailRepositoryImplTestData.getMockStoryEntity(
-                                    storyId = storyId
+                                    storyId = storyId,
                                 )
                             mockStoryDao.mockGetContentsResponse = listOf(
                                 StoryDetailRepositoryImplTestData.getMockContentEntity(
-                                    storyId = storyId
-                                )
+                                    storyId = storyId,
+                                ),
                             )
 
                             // When
@@ -201,7 +201,7 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
 
                             // Then
                             story shouldBe Result.success(
-                                StoryDetailRepositoryImplTestData.mockStoryId1
+                                StoryDetailRepositoryImplTestData.mockStoryId1,
                             )
                         }
                     }
@@ -215,12 +215,12 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
                                 Result.failure(exception = ConnectException())
                             mockStoryDao.mockGetStoryResponse =
                                 StoryDetailRepositoryImplTestData.getMockStoryEntity(
-                                    storyId = storyId
+                                    storyId = storyId,
                                 )
                             mockStoryDao.mockGetContentsResponse = listOf(
                                 StoryDetailRepositoryImplTestData.getMockContentEntity(
-                                    storyId = storyId
-                                )
+                                    storyId = storyId,
+                                ),
                             )
 
                             // When
@@ -228,7 +228,7 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
 
                             // Then
                             story shouldBe Result.success(
-                                StoryDetailRepositoryImplTestData.mockStoryId1
+                                StoryDetailRepositoryImplTestData.mockStoryId1,
                             )
                         }
                     }
@@ -242,17 +242,17 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
                                 Result.failure(
                                     exception = HttpRequestTimeoutException(
                                         "some-url",
-                                        1200L
-                                    )
+                                        1200L,
+                                    ),
                                 )
                             mockStoryDao.mockGetStoryResponse =
                                 StoryDetailRepositoryImplTestData.getMockStoryEntity(
-                                    storyId = storyId
+                                    storyId = storyId,
                                 )
                             mockStoryDao.mockGetContentsResponse = listOf(
                                 StoryDetailRepositoryImplTestData.getMockContentEntity(
-                                    storyId = storyId
-                                )
+                                    storyId = storyId,
+                                ),
                             )
 
                             // When
@@ -260,7 +260,7 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
 
                             // Then
                             story shouldBe Result.success(
-                                StoryDetailRepositoryImplTestData.mockStoryId1
+                                StoryDetailRepositoryImplTestData.mockStoryId1,
                             )
                         }
                     }
@@ -314,8 +314,8 @@ internal class StoryDetailRepositoryImplTest : FreeSpec() {
                                 Result.failure(
                                     exception = HttpRequestTimeoutException(
                                         "some-url",
-                                        1200L
-                                    )
+                                        1200L,
+                                    ),
                                 )
                             mockStoryDao.mockGetStoryResponse = null
                             mockStoryDao.mockGetContentsResponse = emptyList()

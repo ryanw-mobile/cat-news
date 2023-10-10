@@ -34,11 +34,11 @@ fun NoDataScreen(modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth(),
     ) {
         Image(
             painter = painterResource(id = R.mipmap.ic_launcher_foreground),
-            contentDescription = null
+            contentDescription = null,
         )
 
         Text(
@@ -48,7 +48,7 @@ fun NoDataScreen(modifier: Modifier = Modifier) {
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(all = dimension.grid_2)
+                .padding(all = dimension.grid_2),
         )
     }
 }

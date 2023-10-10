@@ -112,8 +112,8 @@ class NewsItemEntityMapperTest : FreeSpec() {
                 val newsItemEntities =
                     listOf(
                         NewsItemEntityMapperTestData.mockNewsItemEntity1.copy(
-                            teaserImageHref = null
-                        )
+                            teaserImageHref = null,
+                        ),
                     )
 
                 // When

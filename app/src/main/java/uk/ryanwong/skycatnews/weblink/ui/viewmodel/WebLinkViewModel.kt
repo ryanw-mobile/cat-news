@@ -53,7 +53,7 @@ class WebLinkViewModel @Inject constructor(
                     _uiState.update { currentUiState ->
                         currentUiState.copy(
                             url = newsItem.url,
-                            isLoading = false
+                            isLoading = false,
                         )
                     }
                 } else {
@@ -70,11 +70,11 @@ class WebLinkViewModel @Inject constructor(
         _uiState.update { currentUiState ->
             val errorMessages = currentUiState.errorMessages + ErrorMessage(
                 id = UUID.randomUUID().mostSignificantBits,
-                messageId = R.string.error_loading_web_link
+                messageId = R.string.error_loading_web_link,
             )
             currentUiState.copy(
                 isLoading = false,
-                errorMessages = errorMessages
+                errorMessages = errorMessages,
             )
         }
     }

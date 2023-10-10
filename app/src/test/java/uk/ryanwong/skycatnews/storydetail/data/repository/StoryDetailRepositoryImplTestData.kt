@@ -20,17 +20,17 @@ internal object StoryDetailRepositoryImplTestData {
                     accessibilityText = "some-accessibility-text",
                     text = "some-text-1",
                     type = "paragraph",
-                    url = "https://some.url/"
-                )
+                    url = "https://some.url/",
+                ),
             ),
             creationDate = "2020-11-18T00:00:00Z",
             headline = "some-head-line",
             heroImage = HeroImageDto(
                 accessibilityText = "some-accessibility-text",
-                imageUrl = "https://some.hero.image/url"
+                imageUrl = "https://some.hero.image/url",
             ),
             id = 1,
-            modifiedDate = "2020-11-19T00:00:00Z"
+            modifiedDate = "2020-11-19T00:00:00Z",
         )
     }
 
@@ -40,7 +40,7 @@ internal object StoryDetailRepositoryImplTestData {
         type = "paragraph",
         url = "https://some.url/",
         accessibilityText = "some-accessibility-text",
-        text = "some-text-1"
+        text = "some-text-1",
     )
 
     fun getMockStoryEntity(storyId: Int) = StoryEntity(
@@ -49,7 +49,7 @@ internal object StoryDetailRepositoryImplTestData {
         heroImageUrl = "https://some.hero.image/url",
         heroImageAccessibilityText = "some-hero-image-accessibility-text",
         creationDate = "2020-11-18T00:00:00Z",
-        modifiedDate = "2020-11-19T00:00:00Z"
+        modifiedDate = "2020-11-19T00:00:00Z",
     )
 
     val mockStoryId1 by lazy {
@@ -58,12 +58,12 @@ internal object StoryDetailRepositoryImplTestData {
             contents = listOf(
                 Content.Paragraph(
                     text = "some-text-1",
-                )
+                ),
             ),
             date = "2020-11-19T00:00:00Z",
             headline = "some-headline",
             heroImageAccessibilityText = "some-hero-image-accessibility-text",
-            heroImageUrl = "https://some.hero.image/url"
+            heroImageUrl = "https://some.hero.image/url",
         )
     }
 }
