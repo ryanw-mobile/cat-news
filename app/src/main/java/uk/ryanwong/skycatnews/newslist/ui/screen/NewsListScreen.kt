@@ -45,7 +45,7 @@ fun NewsListScreen(
 
         SnackbarHost(
             hostState = snackbarHostState,
-            modifier = Modifier.align(Alignment.BottomCenter)
+            modifier = Modifier.align(Alignment.BottomCenter),
         )
     }
 
@@ -57,7 +57,7 @@ fun NewsListScreen(
         LaunchedEffect(errorMessage.id) {
             snackbarHostState.showSnackbar(
                 message = errorMessageText,
-                actionLabel = actionLabel
+                actionLabel = actionLabel,
             )
             uiEvent.onErrorShown(errorMessage.id)
         }

@@ -32,7 +32,7 @@ object RepositoryModule {
             newsListService = newsListService,
             newsListDao = newsListDao,
             niceDateFormatter = niceDateFormatter,
-            dispatcher = dispatcher
+            dispatcher = dispatcher,
         )
     }
 }

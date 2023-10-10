@@ -25,22 +25,22 @@ internal object NewsListRepositoryImplTestData {
                     url = UrlDto(
                         href = "https://some.url/href",
                         templated = true,
-                        type = "image/jpeg"
-                    )
+                        type = "image/jpeg",
+                    ),
                 ),
-                accessibilityText = "some-accessibility-text"
+                accessibilityText = "some-accessibility-text",
             ),
             teaserText = "some-teaser-text",
             type = "story",
             advertUrl = null,
-            weblinkUrl = null
+            weblinkUrl = null,
         )
     }
 
     val mockNewsListDto by lazy {
         NewsListDto(
             title = "some-title",
-            news = listOf(mockNewsItemDto)
+            news = listOf(mockNewsItemDto),
         )
     }
 
@@ -57,7 +57,7 @@ internal object NewsListRepositoryImplTestData {
         teaserImageHref = "https://some.url/href",
         teaserImageTemplated = true,
         teaserImageType = "image/jpeg",
-        teaserImageAccessibilityText = "some-accessibility-text"
+        teaserImageAccessibilityText = "some-accessibility-text",
     )
 
     val mockNewsList by lazy {
@@ -72,8 +72,8 @@ internal object NewsListRepositoryImplTestData {
                     niceDate = "2 days ago",
                     teaserImageUrl = "https://some.url/href",
                     teaserImageAccessibilityText = "some-accessibility-text",
-                )
-            )
+                ),
+            ),
         )
     }
 }

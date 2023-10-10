@@ -126,15 +126,15 @@ internal object NewsListServiceTestData {
                             url = UrlDto(
                                 href = "",
                                 templated = true,
-                                type = "image/jpeg"
-                            )
+                                type = "image/jpeg",
+                            ),
                         ),
-                        accessibilityText = "Image content description"
+                        accessibilityText = "Image content description",
                     ),
                     teaserText = "Story teaser text",
                     type = "story",
                     advertUrl = null,
-                    weblinkUrl = null
+                    weblinkUrl = null,
                 ),
                 NewsItemDto(
                     creationDate = "2020-11-18T00:00:00Z",
@@ -146,15 +146,15 @@ internal object NewsListServiceTestData {
                             url = UrlDto(
                                 href = "",
                                 templated = true,
-                                type = "image/jpeg"
-                            )
+                                type = "image/jpeg",
+                            ),
                         ),
-                        accessibilityText = "Image content description"
+                        accessibilityText = "Image content description",
                     ),
                     teaserText = "Story teaser text",
                     type = "story",
                     advertUrl = null,
-                    weblinkUrl = null
+                    weblinkUrl = null,
                 ),
                 NewsItemDto(
                     creationDate = null,
@@ -165,7 +165,7 @@ internal object NewsListServiceTestData {
                     teaserText = null,
                     type = "advert",
                     advertUrl = "advert/url",
-                    weblinkUrl = null
+                    weblinkUrl = null,
                 ),
                 NewsItemDto(
                     creationDate = "2020-11-18T00:00:00Z",
@@ -177,15 +177,15 @@ internal object NewsListServiceTestData {
                             url = UrlDto(
                                 href = "",
                                 templated = true,
-                                type = "image/jpeg"
-                            )
+                                type = "image/jpeg",
+                            ),
                         ),
-                        accessibilityText = "Image content description"
+                        accessibilityText = "Image content description",
                     ),
                     teaserText = null,
                     type = "weblink",
                     advertUrl = null,
-                    weblinkUrl = "weblink url"
+                    weblinkUrl = "weblink url",
                 ),
                 NewsItemDto(
                     creationDate = "2020-11-18T00:00:00Z",
@@ -197,15 +197,15 @@ internal object NewsListServiceTestData {
                             url = UrlDto(
                                 href = "",
                                 templated = true,
-                                type = "image/jpeg"
-                            )
+                                type = "image/jpeg",
+                            ),
                         ),
-                        accessibilityText = "Image content description"
+                        accessibilityText = "Image content description",
                     ),
                     teaserText = "Story teaser text",
                     type = "story",
                     advertUrl = null,
-                    weblinkUrl = null
+                    weblinkUrl = null,
                 ),
                 NewsItemDto(
                     creationDate = "2020-11-18T00:00:00Z",
@@ -217,18 +217,18 @@ internal object NewsListServiceTestData {
                             url = UrlDto(
                                 href = "",
                                 templated = true,
-                                type = "image/jpeg"
-                            )
+                                type = "image/jpeg",
+                            ),
                         ),
-                        accessibilityText = "Image content description"
+                        accessibilityText = "Image content description",
                     ),
                     teaserText = null,
                     type = "weblink",
                     advertUrl = null,
-                    weblinkUrl = ""
-                )
+                    weblinkUrl = "",
+                ),
             ),
-            title = "Sky Cat News"
+            title = "Sky Cat News",
         )
     }
 }

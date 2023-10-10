@@ -43,7 +43,7 @@ class NewsListViewModel @Inject constructor(
                 _uiState.update { currentUiState ->
                     currentUiState.copy(
                         newsList = newsListResult.newsItems,
-                        isLoading = false
+                        isLoading = false,
                     )
                 }
             }.onFailure { ex ->
@@ -51,11 +51,11 @@ class NewsListViewModel @Inject constructor(
                 _uiState.update { currentUiState ->
                     val errorMessages = currentUiState.errorMessages + ErrorMessage(
                         id = UUID.randomUUID().mostSignificantBits,
-                        messageId = R.string.error_loading_news_list
+                        messageId = R.string.error_loading_news_list,
                     )
                     currentUiState.copy(
                         isLoading = false,
-                        errorMessages = errorMessages
+                        errorMessages = errorMessages,
                     )
                 }
             }

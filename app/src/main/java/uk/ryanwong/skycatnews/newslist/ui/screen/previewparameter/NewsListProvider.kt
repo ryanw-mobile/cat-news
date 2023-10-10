@@ -17,7 +17,7 @@ internal class NewsListProvider : PreviewParameterProvider<List<NewsItem>> {
                 modifiedDate = "2022-09-06T02:30:19Z",
                 niceDate = "2 days ago",
                 teaserImageUrl = "https://ryanwong.co.uk/sample-resources/skycatnews/cat5_hero.jpg",
-                teaserImageAccessibilityText = "Image content description"
+                teaserImageAccessibilityText = "Image content description",
             ),
 
             NewsItem.Story(
@@ -27,7 +27,7 @@ internal class NewsListProvider : PreviewParameterProvider<List<NewsItem>> {
                 modifiedDate = "2022-09-05T14:26:19Z",
                 niceDate = "2 days ago",
                 teaserImageUrl = "https://ryanwong.co.uk/sample-resources/skycatnews/cat2_hero.jpg",
-                teaserImageAccessibilityText = "Image content description"
+                teaserImageAccessibilityText = "Image content description",
             ),
 
             NewsItem.WebLink(
@@ -37,7 +37,7 @@ internal class NewsListProvider : PreviewParameterProvider<List<NewsItem>> {
                 modifiedDate = "2022-09-03T09:11:19Z",
                 niceDate = "2 days ago",
                 teaserImageUrl = "https://ryanwong.co.uk/sample-resources/skycatnews/cat3_hero.jpg",
-                teaserImageAccessibilityText = "Image content description"
+                teaserImageAccessibilityText = "Image content description",
             ),
 
             NewsItem.Story(
@@ -47,7 +47,7 @@ internal class NewsListProvider : PreviewParameterProvider<List<NewsItem>> {
                 modifiedDate = "2022-09-02T11:52:19Z",
                 niceDate = "2 days ago",
                 teaserImageUrl = "https://ryanwong.co.uk/sample-resources/skycatnews/cat1_hero.jpg",
-                teaserImageAccessibilityText = "Image content description"
+                teaserImageAccessibilityText = "Image content description",
             ),
 
             NewsItem.Story(
@@ -57,7 +57,7 @@ internal class NewsListProvider : PreviewParameterProvider<List<NewsItem>> {
                 modifiedDate = "2022-08-31T05:23:19Z",
                 niceDate = "2 days ago",
                 teaserImageUrl = "https://ryanwong.co.uk/sample-resources/skycatnews/cat4_hero.jpg",
-                teaserImageAccessibilityText = "Image content description"
+                teaserImageAccessibilityText = "Image content description",
             ),
 
             NewsItem.Story(
@@ -67,8 +67,8 @@ internal class NewsListProvider : PreviewParameterProvider<List<NewsItem>> {
                 modifiedDate = "2022-08-31T05:23:19Z",
                 niceDate = "2 days ago",
                 teaserImageUrl = "https://ryanwong.co.uk/sample-resources/skycatnews/cat6_hero.jpg",
-                teaserImageAccessibilityText = "Image content description"
+                teaserImageAccessibilityText = "Image content description",
             ),
-        )
+        ),
     )
 }

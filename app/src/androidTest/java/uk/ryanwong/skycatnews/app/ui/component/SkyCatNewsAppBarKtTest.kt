@@ -24,7 +24,7 @@ internal class SkyCatNewsAppBarKtTest {
             SkyCatNewsTheme {
                 SkyCatNewsAppBar(
                     navController = rememberNavController(),
-                    customTitle = null
+                    customTitle = null,
                 )
             }
         }
@@ -37,7 +37,7 @@ internal class SkyCatNewsAppBarKtTest {
             SkyCatNewsTheme {
                 SkyCatNewsAppBar(
                     navController = rememberNavController(),
-                    customTitle = "some-custom-text-title"
+                    customTitle = "some-custom-text-title",
                 )
             }
         }

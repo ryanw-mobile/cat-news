@@ -20,7 +20,7 @@ internal class ContentEntityTest : FreeSpec() {
                 // When
                 val contentEntity = ContentEntity.fromDto(
                     storyId = 1,
-                    contentDtoList = contentDtoList
+                    contentDtoList = contentDtoList,
                 )
 
                 // Then
@@ -34,7 +34,7 @@ internal class ContentEntityTest : FreeSpec() {
                 // When
                 val contentEntity = ContentEntity.fromDto(
                     storyId = 1,
-                    contentDtoList = contentDtoList
+                    contentDtoList = contentDtoList,
                 )
 
                 // Then
@@ -48,7 +48,7 @@ internal class ContentEntityTest : FreeSpec() {
                 // When
                 val contentEntity = ContentEntity.fromDto(
                     storyId = 1,
-                    contentDtoList = contentDtoList
+                    contentDtoList = contentDtoList,
                 )
 
                 // Then
@@ -60,20 +60,20 @@ internal class ContentEntityTest : FreeSpec() {
                 val contentDtoList = listOf(
                     ContentEntityTestData.mockContentDao1,
                     ContentEntityTestData.mockContentDao2,
-                    ContentEntityTestData.mockContentDao3
+                    ContentEntityTestData.mockContentDao3,
                 )
 
                 // When
                 val contentEntity = ContentEntity.fromDto(
                     storyId = 1,
-                    contentDtoList = contentDtoList
+                    contentDtoList = contentDtoList,
                 )
 
                 // Then
                 contentEntity shouldContainExactly listOf(
                     ContentEntityTestData.mockContentEntity1,
                     ContentEntityTestData.mockContentEntity2,
-                    ContentEntityTestData.mockContentEntity3
+                    ContentEntityTestData.mockContentEntity3,
                 )
             }
         }

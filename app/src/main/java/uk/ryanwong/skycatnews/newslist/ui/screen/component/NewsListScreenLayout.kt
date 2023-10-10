@@ -50,7 +50,7 @@ fun NewsListScreenLayout(
             contentPadding = PaddingValues(vertical = dimension.grid_2),
             modifier = Modifier
                 .fillMaxSize()
-                .semantics { contentDescription = contentDescriptionNewsList }
+                .semantics { contentDescription = contentDescriptionNewsList },
         ) {
             if (newsList.isEmpty()) {
                 if (!isLoading) {
@@ -103,7 +103,7 @@ fun NewsListScreenLayout(
         PullRefreshIndicator(
             refreshing = isLoading,
             state = pullRefreshState,
-            modifier = Modifier.align(Alignment.TopCenter)
+            modifier = Modifier.align(Alignment.TopCenter),
         )
     }
 }

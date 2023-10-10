@@ -40,7 +40,7 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
             newsListService = mockNewsListService,
             newsListDao = mockNewsListDao,
             niceDateFormatter = mockNiceDateFormatter,
-            dispatcher = dispatcher
+            dispatcher = dispatcher,
         )
     }
 
@@ -61,11 +61,11 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                         // Then
                         mockNewsListDao.mockInsertNewsListTitleReceivedValue shouldBe NewsListEntity(
                             listId = listId,
-                            title = "some-title"
+                            title = "some-title",
                         )
                         mockNewsListDao.mockDeleteNewsItemsReceivedValue shouldBe listId
                         mockNewsListDao.mockInsertNewsItemsReceivedValue shouldBe listOf(
-                            NewsListRepositoryImplTestData.getMockNewsItemEntity(listId = listId)
+                            NewsListRepositoryImplTestData.getMockNewsItemEntity(listId = listId),
                         )
                     }
                 }
@@ -86,8 +86,8 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                         mockNewsListDao.mockGetNewsListResponse =
                             listOf(
                                 NewsListRepositoryImplTestData.getMockNewsItemEntity(
-                                    listId = listId
-                                )
+                                    listId = listId,
+                                ),
                             )
 
                         // When
@@ -95,7 +95,7 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
 
                         // Then
                         newsList shouldBe Result.success(
-                            NewsListRepositoryImplTestData.mockNewsList
+                            NewsListRepositoryImplTestData.mockNewsList,
                         )
                     }
                 }
@@ -122,8 +122,8 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                         newsList shouldBe Result.success(
                             NewsList(
                                 title = "",
-                                newsItems = emptyList()
-                            )
+                                newsItems = emptyList(),
+                            ),
                         )
                     }
                 }
@@ -156,8 +156,8 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                             mockNewsListDao.mockGetNewsListResponse =
                                 listOf(
                                     NewsListRepositoryImplTestData.getMockNewsItemEntity(
-                                        listId = listId
-                                    )
+                                        listId = listId,
+                                    ),
                                 )
                             mockNewsListService.mockGetAllItemsResponse =
                                 Result.failure(exception = UnknownHostException())
@@ -168,7 +168,7 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
 
                             // Then
                             newsList shouldBe Result.success(
-                                NewsListRepositoryImplTestData.mockNewsList
+                                NewsListRepositoryImplTestData.mockNewsList,
                             )
                         }
                     }
@@ -182,8 +182,8 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                             mockNewsListDao.mockGetNewsListResponse =
                                 listOf(
                                     NewsListRepositoryImplTestData.getMockNewsItemEntity(
-                                        listId = listId
-                                    )
+                                        listId = listId,
+                                    ),
                                 )
                             mockNewsListService.mockGetAllItemsResponse =
                                 Result.failure(exception = ConnectException())
@@ -194,7 +194,7 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
 
                             // Then
                             newsList shouldBe Result.success(
-                                NewsListRepositoryImplTestData.mockNewsList
+                                NewsListRepositoryImplTestData.mockNewsList,
                             )
                         }
                     }
@@ -208,15 +208,15 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                             mockNewsListDao.mockGetNewsListResponse =
                                 listOf(
                                     NewsListRepositoryImplTestData.getMockNewsItemEntity(
-                                        listId = listId
-                                    )
+                                        listId = listId,
+                                    ),
                                 )
                             mockNewsListService.mockGetAllItemsResponse =
                                 Result.failure(
                                     exception = HttpRequestTimeoutException(
                                         "some-url",
-                                        1200L
-                                    )
+                                        1200L,
+                                    ),
                                 )
                             mockNiceDateFormatter.mockGetNiceDateResponse = "2 days ago"
 
@@ -225,7 +225,7 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
 
                             // Then
                             newsList shouldBe Result.success(
-                                NewsListRepositoryImplTestData.mockNewsList
+                                NewsListRepositoryImplTestData.mockNewsList,
                             )
                         }
                     }
@@ -278,8 +278,8 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                                 Result.failure(
                                     exception = HttpRequestTimeoutException(
                                         "some-url",
-                                        1200L
-                                    )
+                                        1200L,
+                                    ),
                                 )
 
                             // When
@@ -302,7 +302,7 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                     val listId = 1
                     val newsItemEntity =
                         NewsListRepositoryImplTestData.getMockNewsItemEntity(listId = listId).copy(
-                            newsId = 1234
+                            newsId = 1234,
                         )
 
                     // Only to trigger a success response,
@@ -326,7 +326,7 @@ internal class NewsListRepositoryImplTest : FreeSpec() {
                             niceDate = "2 days ago",
                             teaserImageUrl = "https://some.url/href",
                             teaserImageAccessibilityText = "some-accessibility-text",
-                        )
+                        ),
                     )
                 }
             }

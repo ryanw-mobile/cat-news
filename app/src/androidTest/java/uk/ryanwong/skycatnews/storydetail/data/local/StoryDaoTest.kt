@@ -58,7 +58,7 @@ internal class StoryDaoTest {
             heroImageUrl = "https://some.hero.image/url",
             heroImageAccessibilityText = "some-accessibility-text",
             creationDate = "2022-5-21T00:00:00Z",
-            modifiedDate = "2022-5-21T00:00:00Z"
+            modifiedDate = "2022-5-21T00:00:00Z",
         )
         storyDao.getStory(storyId = storyId) shouldBe null
 
@@ -80,7 +80,7 @@ internal class StoryDaoTest {
             heroImageUrl = "https://some.hero.image/url",
             heroImageAccessibilityText = "some-accessibility-text",
             creationDate = "2022-5-21T00:00:00Z",
-            modifiedDate = "2022-5-21T00:00:00Z"
+            modifiedDate = "2022-5-21T00:00:00Z",
         )
         val newStory = StoryEntity(
             storyId = storyId,
@@ -88,7 +88,7 @@ internal class StoryDaoTest {
             heroImageUrl = "https://some.hero.image/new-url",
             heroImageAccessibilityText = "some-new-accessibility-text",
             creationDate = "2022-5-21T00:00:01Z",
-            modifiedDate = "2022-5-21T00:00:01Z"
+            modifiedDate = "2022-5-21T00:00:01Z",
         )
         storyDao.insertStory(story = existingStory)
 
@@ -110,7 +110,7 @@ internal class StoryDaoTest {
             heroImageUrl = "https://some.hero.image/url",
             heroImageAccessibilityText = "some-accessibility-text",
             creationDate = "2022-5-21T00:00:00Z",
-            modifiedDate = "2022-5-21T00:00:00Z"
+            modifiedDate = "2022-5-21T00:00:00Z",
         )
         storyDao.insertStory(story = story)
 
@@ -151,8 +151,8 @@ internal class StoryDaoTest {
                 type = "some-type",
                 url = "https://some.url/",
                 accessibilityText = "some-accessibility-text",
-                text = "some-text"
-            )
+                text = "some-text",
+            ),
         )
         storyDao.getContents(storyId = storyId) shouldBe emptyList()
 
@@ -175,7 +175,7 @@ internal class StoryDaoTest {
                 type = "some-type-1",
                 url = "https://some.url/1",
                 accessibilityText = "some-accessibility-text-1",
-                text = "some-text-1"
+                text = "some-text-1",
             ),
             ContentEntity(
                 sequenceId = 2,
@@ -183,7 +183,7 @@ internal class StoryDaoTest {
                 type = "some-type-2",
                 url = "https://some.url/2",
                 accessibilityText = "some-accessibility-text-2",
-                text = "some-text-2"
+                text = "some-text-2",
             ),
             ContentEntity(
                 sequenceId = 3,
@@ -191,8 +191,8 @@ internal class StoryDaoTest {
                 type = "some-type-3",
                 url = "https://some.url/3",
                 accessibilityText = "some-accessibility-text-3",
-                text = "some-text-3"
-            )
+                text = "some-text-3",
+            ),
         )
         storyDao.getContents(storyId = storyId) shouldBe emptyList()
 
@@ -214,7 +214,7 @@ internal class StoryDaoTest {
             type = "some-type-1",
             url = "https://some.url/1",
             accessibilityText = "some-accessibility-text-1",
-            text = "some-text-1"
+            text = "some-text-1",
         )
         val contentEntityTwo = ContentEntity(
             sequenceId = 2,
@@ -222,7 +222,7 @@ internal class StoryDaoTest {
             type = "some-type-2",
             url = "https://some.url/2",
             accessibilityText = "some-accessibility-text-2",
-            text = "some-text-2"
+            text = "some-text-2",
         )
         val contentEntityOneModified = ContentEntity(
             sequenceId = 1,
@@ -230,7 +230,7 @@ internal class StoryDaoTest {
             type = "some-type-3",
             url = "https://some.url/3",
             accessibilityText = "some-accessibility-text-3",
-            text = "some-text-3"
+            text = "some-text-3",
         )
         val contents = listOf(contentEntityOne, contentEntityTwo)
         storyDao.insertContents(contents = contents)
@@ -242,7 +242,7 @@ internal class StoryDaoTest {
         val returnedContents = storyDao.getContents(storyId = storyId)
         returnedContents shouldContainExactlyInAnyOrder listOf(
             contentEntityOneModified,
-            contentEntityTwo
+            contentEntityTwo,
         )
     }
 
@@ -256,7 +256,7 @@ internal class StoryDaoTest {
             type = "some-type-1",
             url = "https://some.url/1",
             accessibilityText = "some-accessibility-text-1",
-            text = "some-text-1"
+            text = "some-text-1",
         )
         val contentEntityTwo = ContentEntity(
             sequenceId = 2,
@@ -264,7 +264,7 @@ internal class StoryDaoTest {
             type = "some-type-2",
             url = "https://some.url/2",
             accessibilityText = "some-accessibility-text-2",
-            text = "some-text-2"
+            text = "some-text-2",
         )
         val contents = listOf(contentEntityOne, contentEntityTwo)
         storyDao.insertContents(contents = contents)

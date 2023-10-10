@@ -44,7 +44,7 @@ internal class StoryDetailViewModelTest : FreeSpec() {
         storyDetailViewModel = StoryDetailViewModel(
             stateHandle = mockStateHandle,
             storyDetailRepository = mockStoryDetailRepository,
-            dispatcher = dispatcher
+            dispatcher = dispatcher,
         )
     }
 
@@ -86,7 +86,7 @@ internal class StoryDetailViewModelTest : FreeSpec() {
                     uiState shouldBe StoryDetailUIState(
                         story = StoryDetailViewModelTestData.mockNewsItemStory,
                         isLoading = false,
-                        errorMessages = emptyList()
+                        errorMessages = emptyList(),
                     )
                 }
             }
@@ -97,7 +97,7 @@ internal class StoryDetailViewModelTest : FreeSpec() {
                     // Given
                     every { mockStateHandle.get<Int>("list_id") } returns 1
                     mockStoryDetailRepository.mockGetStoryResponse = Result.failure(
-                        exception = StoryNotFoundException()
+                        exception = StoryNotFoundException(),
                     )
 
                     // When
@@ -121,7 +121,7 @@ internal class StoryDetailViewModelTest : FreeSpec() {
                     // Given
                     every { mockStateHandle.get<Int>("list_id") } returns 1
                     mockStoryDetailRepository.mockGetStoryResponse = Result.failure(
-                        exception = StoryNotFoundException()
+                        exception = StoryNotFoundException(),
                     )
                     setupViewModel()
                     dispatcher.scheduler.advanceUntilIdle()

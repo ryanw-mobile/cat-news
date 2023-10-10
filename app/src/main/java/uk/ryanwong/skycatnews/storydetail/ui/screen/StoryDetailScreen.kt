@@ -74,7 +74,7 @@ fun StoryDetailScreen(
 
         SnackbarHost(
             hostState = snackbarHostState,
-            modifier = Modifier.align(Alignment.BottomCenter)
+            modifier = Modifier.align(Alignment.BottomCenter),
         )
     }
 
@@ -86,7 +86,7 @@ fun StoryDetailScreen(
         LaunchedEffect(errorMessage.id) {
             snackbarHostState.showSnackbar(
                 message = errorMessageText,
-                actionLabel = actionLabel
+                actionLabel = actionLabel,
             )
             uiEvent.onErrorShown(errorMessage.id)
         }
@@ -136,7 +136,7 @@ private fun StoryDetailScreenLayout(
                 HeroImageSection(
                     headline = story.headline,
                     heroImageUrl = story.heroImageUrl,
-                    heroImageAccessibilityText = story.heroImageAccessibilityText
+                    heroImageAccessibilityText = story.heroImageAccessibilityText,
                 )
             }
 
@@ -149,7 +149,7 @@ private fun StoryDetailScreenLayout(
                             style = CustomTextStyle.storyDetailParagraph,
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(all = dimension.grid_2)
+                                .padding(all = dimension.grid_2),
                         )
                     }
 
@@ -168,7 +168,7 @@ private fun StoryDetailScreenLayout(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(all = dimension.grid_2)
-                                .wrapContentHeight()
+                                .wrapContentHeight(),
                         )
                     }
                 }
@@ -178,7 +178,7 @@ private fun StoryDetailScreenLayout(
         PullRefreshIndicator(
             refreshing = isLoading,
             state = pullRefreshState,
-            modifier = Modifier.align(Alignment.TopCenter)
+            modifier = Modifier.align(Alignment.TopCenter),
         )
     }
 }
@@ -196,7 +196,7 @@ private fun HeroImageSection(
         modifier = modifier
             .background(color = MaterialTheme.colors.primary)
             .fillMaxWidth()
-            .wrapContentHeight()
+            .wrapContentHeight(),
     ) {
         AsyncImage(
             model = ImageRequest
@@ -211,7 +211,7 @@ private fun HeroImageSection(
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .fillMaxWidth()
-                .aspectRatio(ratio = 4 / 3f)
+                .aspectRatio(ratio = 4 / 3f),
         )
 
         Column(
@@ -220,16 +220,16 @@ private fun HeroImageSection(
                     brush = Brush.verticalGradient(
                         colors = listOf(
                             BlackGradientStart,
-                            BlackGradientEnd
+                            BlackGradientEnd,
                         ),
                         startY = 0.0f,
-                        endY = 100.0f
-                    )
+                        endY = 100.0f,
+                    ),
                 )
                 .fillMaxWidth()
                 .wrapContentHeight()
                 .padding(all = dimension.grid_2)
-                .align(alignment = Alignment.BottomStart)
+                .align(alignment = Alignment.BottomStart),
 
         ) {
             Text(
@@ -240,7 +240,7 @@ private fun HeroImageSection(
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .wrapContentHeight()
+                    .wrapContentHeight(),
             )
         }
     }
@@ -252,7 +252,7 @@ private fun HeroImageSection(
     showSystemUi = true,
     showBackground = true,
     uiMode = UI_MODE_NIGHT_NO,
-    device = "id:pixel_5"
+    device = "id:pixel_5",
 )
 @Preview(
     group = "story loaded",

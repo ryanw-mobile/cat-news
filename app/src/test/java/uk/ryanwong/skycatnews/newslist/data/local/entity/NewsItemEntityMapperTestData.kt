@@ -22,7 +22,7 @@ internal object NewsItemEntityMapperTestData {
             teaserImageHref = "https://some.teaser.image/href",
             teaserImageTemplated = true,
             teaserImageType = "some-teaser-image-type",
-            teaserImageAccessibilityText = "some-teaser-image-accessibility-text"
+            teaserImageAccessibilityText = "some-teaser-image-accessibility-text",
         )
     }
 
@@ -40,7 +40,7 @@ internal object NewsItemEntityMapperTestData {
             teaserImageHref = "https://some.teaser.image/href/2",
             teaserImageTemplated = true,
             teaserImageType = "some-teaser-image-type-2",
-            teaserImageAccessibilityText = "some-teaser-image-accessibility-text-2"
+            teaserImageAccessibilityText = "some-teaser-image-accessibility-text-2",
         )
     }
 
@@ -58,7 +58,7 @@ internal object NewsItemEntityMapperTestData {
             teaserImageHref = "https://some.teaser.image/href/3",
             teaserImageTemplated = true,
             teaserImageType = "some-teaser-image-type-3",
-            teaserImageAccessibilityText = "some-teaser-image-accessibility-text-3"
+            teaserImageAccessibilityText = "some-teaser-image-accessibility-text-3",
         )
     }
 
@@ -82,7 +82,7 @@ internal object NewsItemEntityMapperTestData {
             niceDate = "2 days ago",
             teaserImageUrl = "https://some.teaser.image/href/2",
             teaserImageAccessibilityText = "some-teaser-image-accessibility-text-2",
-            url = "https://some.weblink.url/2"
+            url = "https://some.weblink.url/2",
         )
     }
 }

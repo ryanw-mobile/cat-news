@@ -28,7 +28,7 @@ object KtorNetworkModule {
                         ignoreUnknownKeys = true
                         prettyPrint = true
                         isLenient = true
-                    }
+                    },
                 )
             }
         }

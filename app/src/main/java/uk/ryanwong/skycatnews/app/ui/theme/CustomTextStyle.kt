@@ -51,6 +51,6 @@ object CustomTextStyle {
 
     val storyDetailParagraph
         @Composable get() = MaterialTheme.typography.body1.copy(
-            lineHeight = 28.sp
+            lineHeight = 28.sp,
         )
 }

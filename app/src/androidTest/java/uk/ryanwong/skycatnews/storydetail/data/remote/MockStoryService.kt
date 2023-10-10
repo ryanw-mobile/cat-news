@@ -26,30 +26,30 @@ class MockStoryService : StoryService {
                         accessibilityText = null,
                         text = "some-paragraph-1",
                         type = "paragraph",
-                        url = null
+                        url = null,
                     ),
                     ContentDto(
                         accessibilityText = "some-accessibility-text-2",
                         text = null,
                         type = "image",
-                        url = mockImageUrl[0]
+                        url = mockImageUrl[0],
                     ),
                     ContentDto(
                         accessibilityText = null,
                         text = "some-paragraph-3",
                         type = "paragraph",
-                        url = null
+                        url = null,
                     ),
                 ),
                 creationDate = "2020-11-18T00:00:00Z",
                 headline = "some-headline",
                 heroImage = HeroImageDto(
                     accessibilityText = "some-hero-image-accessibility-text",
-                    imageUrl = mockImageUrl[2]
+                    imageUrl = mockImageUrl[2],
                 ),
                 id = storyId,
-                modifiedDate = "2020-11-19T00:00:00Z"
-            )
+                modifiedDate = "2020-11-19T00:00:00Z",
+            ),
         )
     }
 }

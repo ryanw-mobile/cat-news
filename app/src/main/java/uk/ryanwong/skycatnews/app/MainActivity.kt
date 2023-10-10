@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
                 ) { padding ->
                     SkyCatNewsApp(
                         navController = navController,
-                        modifier = Modifier.padding(padding)
+                        modifier = Modifier.padding(padding),
                     )
                 }
             }

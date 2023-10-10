@@ -13,7 +13,7 @@ internal object ContentEntityTestData {
             accessibilityText = "some-accessibility-text",
             text = "some-text-1",
             type = "paragraph",
-            url = "https://some.url/"
+            url = "https://some.url/",
         )
     }
 
@@ -22,7 +22,7 @@ internal object ContentEntityTestData {
             accessibilityText = "some-accessibility-text",
             text = "some-text-2",
             type = "paragraph",
-            url = "https://some.url/"
+            url = "https://some.url/",
         )
     }
 
@@ -31,7 +31,7 @@ internal object ContentEntityTestData {
             accessibilityText = "some-accessibility-text",
             text = "some-text-3",
             type = "paragraph",
-            url = "https://some.url/"
+            url = "https://some.url/",
         )
     }
 
@@ -42,7 +42,7 @@ internal object ContentEntityTestData {
             type = "paragraph",
             url = "https://some.url/",
             accessibilityText = "some-accessibility-text",
-            text = "some-text-1"
+            text = "some-text-1",
         )
     }
 
@@ -53,7 +53,7 @@ internal object ContentEntityTestData {
             type = "paragraph",
             url = "https://some.url/",
             accessibilityText = "some-accessibility-text",
-            text = "some-text-2"
+            text = "some-text-2",
         )
     }
 
@@ -64,7 +64,7 @@ internal object ContentEntityTestData {
             type = "paragraph",
             url = "https://some.url/",
             accessibilityText = "some-accessibility-text",
-            text = "some-text-3"
+            text = "some-text-3",
         )
     }
 }

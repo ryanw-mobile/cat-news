@@ -31,7 +31,7 @@ data class ContentEntity(
                         type = type,
                         url = url,
                         accessibilityText = accessibilityText,
-                        text = text
+                        text = text,
                     )
                 }
             } ?: emptyList()
