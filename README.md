@@ -1,6 +1,6 @@
 # Sky Cat News
 
-[![Build Status](https://app.bitrise.io/app/a0e8541b47b30002/status.svg?token=Q40Sl8puw7pk7BT7AbF_8w&branch=main)](https://app.bitrise.io/app/a0e8541b47b30002) [![codecov](https://codecov.io/gh/ryanwong-uk/sky-cat-news/branch/main/graph/badge.svg?token=UG926FRXVG)](https://codecov.io/github/ryanwong-uk/sky-cat-news)
+[![Build Status](https://app.bitrise.io/app/a0e8541b47b30002/status.svg?token=Q40Sl8puw7pk7BT7AbF_8w&branch=main)](https://app.bitrise.io/app/a0e8541b47b30002) [![codecov](https://codecov.io/github/ryanw-mobile/cat-news/graph/badge.svg?token=UG926FRXVG)](https://codecov.io/github/ryanw-mobile/cat-news)
 
 <p align="center">
   <img src="screenshot_20220907_1.jpg" width="200" />
