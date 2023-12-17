@@ -8,8 +8,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import java.util.UUID
-import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -21,6 +19,8 @@ import uk.ryanwong.skycatnews.app.util.ErrorMessage
 import uk.ryanwong.skycatnews.domain.model.newslist.NewsItem
 import uk.ryanwong.skycatnews.newslist.data.repository.NewsListRepository
 import uk.ryanwong.skycatnews.weblink.ui.WebLinkUIState
+import java.util.UUID
+import javax.inject.Inject
 
 @HiltViewModel
 class WebLinkViewModel @Inject constructor(

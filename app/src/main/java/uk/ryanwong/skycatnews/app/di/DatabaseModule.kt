@@ -11,10 +11,10 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 import uk.ryanwong.skycatnews.R
 import uk.ryanwong.skycatnews.app.database.LocalDatabase
 import uk.ryanwong.skycatnews.app.database.LocalDatabaseImpl
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)

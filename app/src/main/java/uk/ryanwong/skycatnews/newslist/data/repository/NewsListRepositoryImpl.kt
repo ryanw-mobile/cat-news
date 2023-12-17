@@ -5,8 +5,6 @@
 package uk.ryanwong.skycatnews.newslist.data.repository
 
 import io.ktor.client.plugins.HttpRequestTimeoutException
-import java.net.ConnectException
-import java.net.UnknownHostException
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
@@ -22,6 +20,8 @@ import uk.ryanwong.skycatnews.newslist.data.local.entity.NewsListEntity
 import uk.ryanwong.skycatnews.newslist.data.local.entity.toDomainModel
 import uk.ryanwong.skycatnews.newslist.data.remote.NewsListService
 import uk.ryanwong.skycatnews.newslist.data.remote.model.NewsListDto
+import java.net.ConnectException
+import java.net.UnknownHostException
 
 class NewsListRepositoryImpl(
     private val newsListService: NewsListService,

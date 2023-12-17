@@ -7,8 +7,6 @@ package uk.ryanwong.skycatnews.newslist.data.repository
 import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
 import io.ktor.client.plugins.HttpRequestTimeoutException
-import java.net.ConnectException
-import java.net.UnknownHostException
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
@@ -19,6 +17,8 @@ import uk.ryanwong.skycatnews.domain.model.newslist.NewsList
 import uk.ryanwong.skycatnews.newslist.data.local.MockNewsListDao
 import uk.ryanwong.skycatnews.newslist.data.local.entity.NewsListEntity
 import uk.ryanwong.skycatnews.newslist.data.remote.MockNewsListService
+import java.net.ConnectException
+import java.net.UnknownHostException
 
 internal class NewsListRepositoryImplTest : FreeSpec() {
 

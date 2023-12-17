@@ -8,9 +8,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 import uk.ryanwong.skycatnews.app.util.nicedateformatter.NiceDateFormatter
 import uk.ryanwong.skycatnews.app.util.nicedateformatter.NiceDateFormatterImpl
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
