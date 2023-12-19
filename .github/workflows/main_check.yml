@@ -37,3 +37,8 @@ jobs:
           BITRISEIO_ANDROID_KEYSTORE_ALIAS: ${{ secrets.BITRISEIO_ANDROID_KEYSTORE_ALIAS }}
           BITRISEIO_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD: ${{ secrets.BITRISEIO_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
           BITRISEIO_ANDROID_KEYSTORE_PASSWORD: ${{ secrets.BITRISEIO_ANDROID_KEYSTORE_PASSWORD }}
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
