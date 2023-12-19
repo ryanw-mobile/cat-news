@@ -1,13 +1,13 @@
-name: Android CI
+name: Gradle Check on Main
 
 on:
   push:
-    branches:
-      - "some-non-existing-branch"
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -17,18 +17,21 @@ jobs:
         with:
           fileName: keystores/release.jks
           encodedString: ${{ secrets.KEYSTORE }}
+
       - uses: actions/checkout@v4
-      - name: set up JDK 17
+
+      - name: set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
           distribution: 'temurin'
+          java-version: '21'
           cache: gradle
 
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-      - name: Build with Gradle
-        run: ./gradlew check
+        run: chmod +x ./gradlew
+
+      - name: Run Gradle check
+        run: ./gradlew check --no-daemon
         env:
           BITRISE: 'true'
           BITRISEIO_ANDROID_KEYSTORE_ALIAS: ${{ secrets.BITRISEIO_ANDROID_KEYSTORE_ALIAS }}
