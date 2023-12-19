@@ -1,6 +1,4 @@
-# Cat News
-
-[![Build Status](https://app.bitrise.io/app/a0e8541b47b30002/status.svg?token=Q40Sl8puw7pk7BT7AbF_8w&branch=main)](https://app.bitrise.io/app/a0e8541b47b30002) [![codecov](https://codecov.io/github/ryanw-mobile/cat-news/graph/badge.svg?token=UG926FRXVG)](https://codecov.io/github/ryanw-mobile/cat-news)
+# Cat News ![Gradle Check on Main](https://github.com/ryanw-mobile/cat-news/actions/workflows/main_check.yml/badge.svg) [![codecov](https://codecov.io/github/ryanw-mobile/cat-news/graph/badge.svg?token=UG926FRXVG)](https://codecov.io/github/ryanw-mobile/cat-news)
 
 <p align="center">
   <img src="screenshot_20220907_1.jpg" width="200" />
@@ -16,9 +14,13 @@
 
 ## Scenario
 
-Sky has recently decided to move into the local cat news industry. To enable this, we need to build a prototype app to demonstrate to stakeholders. The basic premise of the app is to allow users to look at stories of cute cats nearby.
+Sky has recently decided to move into the local cat news industry. To enable this, we need to build
+a prototype app to demonstrate to stakeholders. The basic premise of the app is to allow users to
+look at stories of cute cats nearby.
 
-This is a prototype of the app. As the backend isn't developed yet, this prototype currently mocks out the feed locally, with an option in place to switch to the real feed later. Please refer to the "Building the App" section below for details.
+This is a prototype of the app. As the backend isn't developed yet, this prototype currently mocks
+out the feed locally, with an option in place to switch to the real feed later. Please refer to
+the "Building the App" section below for details.
 
 ## TL;DR - Status
 
@@ -36,9 +38,12 @@ The project now requires no initial keystore setup to run the debug build.
 * 87 Unit tests for view models, repositories, models, and Ktor API services have been written.
 * 18 Unit tests for RoomDB DAOs have been written.
 * 2 Composable UI unit tests have been written.
-* 3 Espresso UI tests covering basic layout check for news list, story detail and weblink screens have been written.
-* News list screen: on the `FakeDebug` and `FakeRelease` builds, pull-to-refresh can trigger a simulated random server response.
-* Story detail screen: on the `FakeDebug` and `FakeRelease` builds, it shows the same layout with random images.
+* 3 Espresso UI tests covering basic layout check for news list, story detail and weblink screens
+  have been written.
+* News list screen: on the `FakeDebug` and `FakeRelease` builds, pull-to-refresh can trigger a
+  simulated random server response.
+* Story detail screen: on the `FakeDebug` and `FakeRelease` builds, it shows the same layout with
+  random images.
 * Basic dark mode supported.
 * Gradle build scripts in Kotlin DSL instead of Groovy
 * Renovate plugin with Github Actions to run automated tests for automatic dependency upgrades
@@ -67,25 +72,28 @@ The project now requires no initial keystore setup to run the debug build.
 * [`Espresso`](https://developer.android.com/training/testing/espresso) - Instrumented tests
 * [`KOTest`](https://kotest.io/) - Test framework and assertion
 * [`MockK`](https://mockk.io/) - Mocking
-* [`Bitrise`](https://app.bitrise.io/) - CI
+* [`Github Actions`](https://github.com/features/actions) - CI
 * [`Kover`](https://github.com/Kotlin/kotlinx-kover) - code coverage
 * [`codecov`](https://codecov.io/) - code coverage
 * [`Ktlint Gradle`](https://github.com/jlleitschuh/ktlint-gradle) - lint and automatic formatting
-* [`Mend Renovate`](https://www.mend.io/free-developer-tools/renovate/) - automatic dependency updates 
+* [`Mend Renovate`](https://www.mend.io/free-developer-tools/renovate/) - automatic dependency
+  updates
 
 ## Requirements
 
-* Android Studio Hedgehog | 2023.1.1 Beta 5
+* Android Studio Iguana | 2023.2.1 Canary 18
 * Android device or simulator running Android 8.0+ (API 26)
 
 ## Setting up the Keystore
 
-Debug builds now are not signed. 
-This means you do not have to set up a keystore to run the debug builds, and Gradle will show no errors during the initial sync when the `keystore.properties` does not exist.
+Debug builds now are not signed.
+This means you do not have to set up a keystore to run the debug builds, and Gradle will show no
+errors during the initial sync when the `keystore.properties` does not exist.
 
 ### Local
 
-* Android Keystore is not being stored in this repository. You need your own Keystore to generate the apk / App Bundle
+* Android Keystore is not being stored in this repository. You need your own Keystore to generate
+  the apk / App Bundle
 
 * If your project folder is at `/app/catnews/`, the Keystore file and `keystore.properties`
   should be placed at `/app/`
@@ -115,7 +123,8 @@ This means you do not have to set up a keystore to run the debug builds, and Gra
 
 ## Building the App
 
-This project can be built using the options provided under the Android Studio `Build` menu or using the Gradle commands. Some common Gradle command line tasks are:
+This project can be built using the options provided under the Android Studio `Build` menu or using
+the Gradle commands. Some common Gradle command line tasks are:
 
 ./gradlew `<task>`:
 
@@ -140,16 +149,22 @@ This project can be built using the options provided under the Android Studio `B
 
 #### /news-list
 
-* It is unclear for the purpose of supplying `title` - are we supposed to show that on the UI, so we support different titles managed by the backend?
-* `teaserImage` appears to be over complicated. Probably `_links` (the underscore here is a bit unusual) and `url` can be safely removed?
-* The key `url` exhibits different behaviour for `teaserImage` and `advert` which can be error-prone.
+* It is unclear for the purpose of supplying `title` - are we supposed to show that on the UI, so we
+  support different titles managed by the backend?
+* `teaserImage` appears to be over complicated. Probably `_links` (the underscore here is a bit
+  unusual) and `url` can be safely removed?
+* The key `url` exhibits different behaviour for `teaserImage` and `advert` which can be
+  error-prone.
 * `weblink` does not have the `teaserText` kay pair which is required by the proposed wireframe.
-* If the API is for the mobile application, it would work more perfectly if we could simplify and flatten the nested structure.
+* If the API is for the mobile application, it would work more perfectly if we could simplify and
+  flatten the nested structure.
 
 #### /story/&lt;id&gt;
 
-* The data returned by `/news-list` does not contain a dedicated `id` for the story. Here I assume the `id` from `/new-list` also refers to the story Id.
-* The entries within `contents` implicitly assume the ordering is preserved. It might be safer if we could add something like `sequenceId` so the App can always present them in proper order.
+* The data returned by `/news-list` does not contain a dedicated `id` for the story. Here I assume
+  the `id` from `/new-list` also refers to the story Id.
+* The entries within `contents` implicitly assume the ordering is preserved. It might be safer if we
+  could add something like `sequenceId` so the App can always present them in proper order.
 * Again, how we name the URLs for links and images could be improved. The keys like `url`
   , `imageUrl`, `href` carries different meanings everywhere, which again can be error-prone.
 
@@ -157,9 +172,12 @@ This project can be built using the options provided under the Android Studio `B
 
 #### news-list
 
-* Changed to use an image rather than plain text for the App Bar title. Applying a branded logo instead of plain text would help present a more genuine look and feel to users.
-* Moved to show the date at the bottom of the regular headline entries. This frees up more spaces for the headline, which brings more value to the users.
+* Changed to use an image rather than plain text for the App Bar title. Applying a branded logo
+  instead of plain text would help present a more genuine look and feel to users.
+* Moved to show the date at the bottom of the regular headline entries. This frees up more spaces
+  for the headline, which brings more value to the users.
 * Applied accent background colour to the top headline entry for a better visual cue.
 * Changed to show headline entries using Card View to better separate each entry.
 * Added a new "try again" layout when there is nothing to show.
-* Added App Bar to all screens, with a back button showing when user can go back to the previous screen.
+* Added App Bar to all screens, with a back button showing when user can go back to the previous
+  screen.
