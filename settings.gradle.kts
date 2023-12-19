@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         maven("https://jitpack.io")
     }
 }
-rootProject.name = "Sky Cat News"
+rootProject.name = "Cat News"
 include(":app")

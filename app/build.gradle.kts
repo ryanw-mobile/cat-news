@@ -14,11 +14,10 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.gradle.ktlint)
     alias(libs.plugins.devtools.ksp)
-    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
-    namespace = "uk.ryanwong.skycatnews"
+    namespace = "uk.ryanwong.catnews"
 
     signingConfigs {
         create("release") {
@@ -49,20 +48,20 @@ android {
 
     compileSdk = libs.versions.compilesdk.get().toInt()
     defaultConfig {
-        applicationId = "uk.ryanwong.skycatnews"
+        applicationId = "uk.ryanwong.catnews"
         minSdk = libs.versions.minsdk.get().toInt()
         targetSdk = libs.versions.targetsdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "uk.ryanwong.skycatnews.app.ui.CustomTestRunner"
+        testInstrumentationRunner = "uk.ryanwong.catnews.app.ui.CustomTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
 
         // Bundle output filename
         val timestamp = SimpleDateFormat("yyyyMMdd-HHmmss").format(Date())
-        setProperty("archivesBaseName", "skycatnews-$versionName-$timestamp")
+        setProperty("archivesBaseName", "catnews-$versionName-$timestamp")
     }
 
     buildTypes {
@@ -78,7 +77,7 @@ android {
                     .forEach { output ->
                         val timestamp = SimpleDateFormat("yyyyMMdd-HHmmss").format(Date())
                         val outputFileName =
-                            "skycatnews-${variant.name}-${variant.versionName}-$timestamp.apk"
+                            "catnews-${variant.name}-${variant.versionName}-$timestamp.apk"
                         output.outputFileName = outputFileName
                     }
             }
@@ -104,7 +103,7 @@ android {
                     .forEach { output ->
                         val timestamp = SimpleDateFormat("yyyyMMdd-HHmmss").format(Date())
                         val outputFileName =
-                            "skycatnews-${variant.name}-${variant.versionName}-$timestamp.apk"
+                            "catnews-${variant.name}-${variant.versionName}-$timestamp.apk"
                         output.outputFileName = outputFileName
                     }
             }
@@ -199,9 +198,9 @@ dependencies {
     // Dagger-Hilt
     // Hilt does not support ksp yet https://issuetracker.google.com/issues/179057202?pli=1
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
-    kaptAndroidTest(libs.hilt.android.compiler)
+    kspAndroidTest(libs.hilt.android.compiler)
     androidTestImplementation(libs.hilt.android.testing)
 
     // Ktor
@@ -252,20 +251,20 @@ koverReport {
             classes(
                 "dagger.hilt.internal.aggregatedroot.codegen.*",
                 "hilt_aggregated_deps.*",
-                "uk.ryanwong.skycatnews.app.ui.*",
-                "uk.ryanwong.skycatnews.*.ui.screen.*",
-                "uk.ryanwong.skycatnews.*.di.*",
-                "uk.ryanwong.skycatnews.*.Hilt_*",
-                "uk.ryanwong.skycatnews.*.*_Factory*",
-                "uk.ryanwong.skycatnews.*.*_HiltModules*",
-                "uk.ryanwong.skycatnews.*.*Module_*",
-                "uk.ryanwong.skycatnews.*.*MembersInjector*",
-                "uk.ryanwong.skycatnews.*.*_Impl*",
-                "uk.ryanwong.skycatnews.ComposableSingletons*",
-                "uk.ryanwong.skycatnews.BuildConfig*",
-                "uk.ryanwong.skycatnews.*.Fake*",
-                "uk.ryanwong.skycatnews.*.previewparameter*",
-                "uk.ryanwong.skycatnews.app.ComposableSingletons*",
+                "uk.ryanwong.catnews.app.ui.*",
+                "uk.ryanwong.catnews.*.ui.screen.*",
+                "uk.ryanwong.catnews.*.di.*",
+                "uk.ryanwong.catnews.*.Hilt_*",
+                "uk.ryanwong.catnews.*.*_Factory*",
+                "uk.ryanwong.catnews.*.*_HiltModules*",
+                "uk.ryanwong.catnews.*.*Module_*",
+                "uk.ryanwong.catnews.*.*MembersInjector*",
+                "uk.ryanwong.catnews.*.*_Impl*",
+                "uk.ryanwong.catnews.ComposableSingletons*",
+                "uk.ryanwong.catnews.BuildConfig*",
+                "uk.ryanwong.catnews.*.Fake*",
+                "uk.ryanwong.catnews.*.previewparameter*",
+                "uk.ryanwong.catnews.app.ComposableSingletons*",
             )
         }
     }

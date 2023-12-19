@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sky Cat News</string>
+    <string name="app_name">Cat News</string>
     <string name="nothing_to_show">Nothing to show. Please try again.</string>
     <string name="error_loading_news_list">Error loading news list</string>
     <string name="ok">OK</string>
