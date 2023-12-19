@@ -1,4 +1,4 @@
-# Sky Cat News
+# Cat News
 
 [![Build Status](https://app.bitrise.io/app/a0e8541b47b30002/status.svg?token=Q40Sl8puw7pk7BT7AbF_8w&branch=main)](https://app.bitrise.io/app/a0e8541b47b30002) [![codecov](https://codecov.io/github/ryanw-mobile/cat-news/graph/badge.svg?token=UG926FRXVG)](https://codecov.io/github/ryanw-mobile/cat-news)
 
@@ -80,14 +80,14 @@ The project now requires no initial keystore setup to run the debug build.
 
 ## Setting up the Keystore
 
-Thanks to the feedback from MSMG, debug builds now are not signed. 
+Debug builds now are not signed. 
 This means you do not have to set up a keystore to run the debug builds, and Gradle will show no errors during the initial sync when the `keystore.properties` does not exist.
 
 ### Local
 
 * Android Keystore is not being stored in this repository. You need your own Keystore to generate the apk / App Bundle
 
-* If your project folder is at `/app/skycatnews/`, the Keystore file and `keystore.properties`
+* If your project folder is at `/app/catnews/`, the Keystore file and `keystore.properties`
   should be placed at `/app/`
 
 * The format of `keystore.properties` is:
