@@ -12,7 +12,7 @@ import uk.ryanwong.catnews.newslist.data.remote.model.UrlDto
 
 internal object NewsListServiceTestData {
 
-    const val mockJsonResponse = """{
+    const val MOCK_JSON_RESPONSE = """{
    "title":"Cat News",
    "data":[
       {

@@ -54,7 +54,7 @@ internal class StoryServiceImplTest : FreeSpec() {
                     setupDataSource(
                         status = HttpStatusCode.OK,
                         contentType = "application/json",
-                        payload = StoryServiceTestData.mockJsonResponse,
+                        payload = StoryServiceTestData.MOCK_JAPANESE_RESPONSE,
                     )
 
                     // When

@@ -55,7 +55,7 @@ internal class NewsListServiceImplTest : FreeSpec() {
                     setupDataSource(
                         status = HttpStatusCode.OK,
                         contentType = "application/json",
-                        payload = NewsListServiceTestData.mockJsonResponse,
+                        payload = NewsListServiceTestData.MOCK_JSON_RESPONSE,
                     )
 
                     // When

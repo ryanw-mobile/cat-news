@@ -10,7 +10,7 @@ import uk.ryanwong.catnews.storydetail.data.remote.model.StoryDto
 
 internal object StoryServiceTestData {
 
-    const val mockJsonResponse = """{
+    const val MOCK_JAPANESE_RESPONSE = """{
    "id":"1",
    "headline":"Cat story headline",
    "heroImage":{
