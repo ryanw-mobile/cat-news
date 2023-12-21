@@ -1,4 +1,4 @@
-# Cat News ![Gradle Check on Main](https://github.com/ryanw-mobile/cat-news/actions/workflows/main_check.yml/badge.svg) [![codecov](https://codecov.io/github/ryanw-mobile/cat-news/graph/badge.svg?token=UG926FRXVG)](https://codecov.io/github/ryanw-mobile/cat-news)
+# Cat News ![Gradle Check on Main](https://github.com/ryanw-mobile/cat-news/actions/workflows/main_build.yml/badge.svg) [![codecov](https://codecov.io/github/ryanw-mobile/cat-news/graph/badge.svg?token=UG926FRXVG)](https://codecov.io/github/ryanw-mobile/cat-news)
 
 <p align="center">
   <img src="screenshot_20220907_1.jpg" width="200" />
