@@ -45,4 +45,4 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: app/build/reports/kover/reportFakeRelease.xml
           fail_ci_if_error: true
-          verbose: true
+          verbose: false
