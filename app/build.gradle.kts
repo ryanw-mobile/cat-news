@@ -12,8 +12,8 @@ plugins {
     alias(libs.plugins.hilt.android.plugin)
     alias(libs.plugins.kotlinx.kover)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.gradle.ktlint)
     alias(libs.plugins.devtools.ksp)
+    alias(libs.plugins.gradle.ktlint)
 }
 
 android {
@@ -241,9 +241,6 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-/*
- * Kover configs
- */
 koverReport {
     // filters for all report types of all build variants
     filters {
