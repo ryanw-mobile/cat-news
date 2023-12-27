@@ -1,4 +1,4 @@
-name: Renovate build check
+name: Renovate Check
 
 on:
   merge_group:

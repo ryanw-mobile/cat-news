@@ -1,4 +1,4 @@
-name: Gradle Check on Main
+name: Gradle Build on Main
 
 on:
   push:
