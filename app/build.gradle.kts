@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Properties
 
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -25,11 +24,13 @@ android {
             val keystorePropertiesFile = file("../../keystore.properties")
 
             if (isRunningOnCI || !keystorePropertiesFile.exists()) {
+                println("Signing Config: using environment variables")
                 keyAlias = System.getenv("BITRISEIO_ANDROID_KEYSTORE_ALIAS")
                 keyPassword = System.getenv("BITRISEIO_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD")
                 storeFile = file(System.getenv("KEYSTORE_LOCATION"))
                 storePassword = System.getenv("BITRISEIO_ANDROID_KEYSTORE_PASSWORD")
             } else {
+                println("Signing Config: using keystore properties")
                 val properties = Properties()
                 InputStreamReader(
                     FileInputStream(keystorePropertiesFile),
@@ -65,11 +66,7 @@ android {
     }
 
     buildTypes {
-        getByName("debug") {
-            applicationIdSuffix = ".debug"
-            isMinifyEnabled = false
-            isDebuggable = true
-
+        fun setOutputFileName() {
             applicationVariants.all {
                 val variant = this
                 variant.outputs
@@ -77,36 +74,31 @@ android {
                     .forEach { output ->
                         val timestamp = SimpleDateFormat("yyyyMMdd-HHmmss").format(Date())
                         val outputFileName =
-                            "catnews-${variant.name}-${variant.versionName}-$timestamp.apk"
+                            "tmoney-${variant.name}-${variant.versionName}-$timestamp.apk"
                         output.outputFileName = outputFileName
                     }
             }
+        }
+
+        getByName("debug") {
+            applicationIdSuffix = ".debug"
+            isMinifyEnabled = false
+            isDebuggable = true
+            setOutputFileName()
         }
 
         getByName("release") {
             isShrinkResources = true
             isMinifyEnabled = true
             isDebuggable = false
-
             setProguardFiles(
                 listOf(
                     getDefaultProguardFile("proguard-android-optimize.txt"),
                     "proguard-rules.pro",
                 ),
             )
-
             signingConfig = signingConfigs.getByName("release")
-            applicationVariants.all {
-                val variant = this
-                variant.outputs
-                    .map { it as com.android.build.gradle.internal.api.BaseVariantOutputImpl }
-                    .forEach { output ->
-                        val timestamp = SimpleDateFormat("yyyyMMdd-HHmmss").format(Date())
-                        val outputFileName =
-                            "catnews-${variant.name}-${variant.versionName}-$timestamp.apk"
-                        output.outputFileName = outputFileName
-                    }
-            }
+            setOutputFileName()
         }
     }
 
