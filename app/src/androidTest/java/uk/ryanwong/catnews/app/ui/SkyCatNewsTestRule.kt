@@ -5,6 +5,7 @@
 package uk.ryanwong.catnews.app.ui
 
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
+import androidx.navigation.compose.rememberNavController
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import uk.ryanwong.catnews.app.MainActivity
 import uk.ryanwong.catnews.app.ui.theme.CatNewsTheme
@@ -15,7 +16,7 @@ fun catnewsTestRule.loadMainScreen(): catnewsTestRule {
     with(this) {
         setContent {
             CatNewsTheme {
-                CatNewsApp()
+                CatNewsApp(navController = rememberNavController())
             }
         }
         waitForIdle()
