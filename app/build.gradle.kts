@@ -236,44 +236,40 @@ tasks.withType<Test> {
 koverReport {
     // filters for all report types of all build variants
     filters {
+        // exclusions for reports
         excludes {
+            // excludes class by fully-qualified JVM class name, wildcards '*' and '?' are available
             classes(
-                "dagger.hilt.internal.aggregatedroot.codegen.*",
-                "hilt_aggregated_deps.*",
-                "uk.ryanwong.catnews.app.ui.*",
-                "uk.ryanwong.catnews.*.ui.screen.*",
-                "uk.ryanwong.catnews.*.di.*",
-                "uk.ryanwong.catnews.*.Hilt_*",
-                "uk.ryanwong.catnews.*.*_Factory*",
-                "uk.ryanwong.catnews.*.*_HiltModules*",
-                "uk.ryanwong.catnews.*.*Module_*",
-                "uk.ryanwong.catnews.*.*MembersInjector*",
-                "uk.ryanwong.catnews.*.*_Impl*",
-                "uk.ryanwong.catnews.ComposableSingletons*",
-                "uk.ryanwong.catnews.BuildConfig*",
-                "uk.ryanwong.catnews.*.Fake*",
-                "uk.ryanwong.catnews.*.previewparameter*",
-                "uk.ryanwong.catnews.app.ComposableSingletons*",
-            )
-        }
-    }
-
-    androidReports("fakeRelease") {
-        // filters for all report types only of 'release' build type
-        filters {
-            excludes {
-                classes(
+                listOf(
+                    "uk.ryanwong.catnews.*.Hilt_*",
+                    "uk.ryanwong.catnews.*.*_Factory*",
+                    "uk.ryanwong.catnews.*.*_HiltModules*",
+                    "uk.ryanwong.catnews.*.*Module_*",
+                    "uk.ryanwong.catnews.*.*MembersInjector*",
+                    "uk.ryanwong.catnews.*.*_Impl*",
+                    "uk.ryanwong.catnews.ComposableSingletons*",
+                    "uk.ryanwong.catnews.BuildConfig*",
+                    "uk.ryanwong.catnews.*.Fake*",
+                    "uk.ryanwong.catnews.*.previewparameter*",
+                    "uk.ryanwong.catnews.app.ComposableSingletons*",
                     "*Fragment",
                     "*Fragment\$*",
                     "*Activity",
                     "*Activity\$*",
-                    "*.databinding.*",
                     "*.BuildConfig",
-
-                    // excludes debug classes
                     "*.DebugUtil",
-                )
-            }
+                ),
+            )
+            // excludes all classes located in specified package and it subpackages, wildcards '*' and '?' are available
+            packages(
+                listOf(
+                    "dagger.hilt.internal.aggregatedroot.codegen",
+                    "hilt_aggregated_deps",
+                    "uk.ryanwong.catnews.app.ui",
+                    "uk.ryanwong.catnews.*.ui.screen",
+                    "uk.ryanwong.catnews.*.di",
+                ),
+            )
         }
     }
 }
