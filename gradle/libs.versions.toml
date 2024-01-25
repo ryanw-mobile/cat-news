@@ -4,7 +4,7 @@ minsdk = "26"
 targetsdk = "34"
 compilesdk = "34"
 
-accompanist = "0.32.0"
+accompanist = "0.34.0"
 androidx-activity-compose = "1.8.2"
 androidx-compose-bom = "2024.01.00"
 androidx-core-ktx = "1.12.0"
