@@ -30,7 +30,7 @@ test-ext = "1.1.5"
 timber = "5.0.1"
 kotlin = "1.9.22"
 # Compose compiler dependency: https://developer.android.com/jetpack/androidx/releases/compose-kotlin
-compose-kotlin-compiler-extension = "1.5.9"
+compose-kotlin-compiler-extension = "1.5.10"
 # ksp is linked to Kotlin version https://github.com/google/ksp/releases
 devtoolsksp = "1.9.22-1.0.17"
 
