@@ -18,9 +18,8 @@ Sky has recently decided to move into the local cat news industry. To enable thi
 a prototype app to demonstrate to stakeholders. The basic premise of the app is to allow users to
 look at stories of cute cats nearby.
 
-This is a prototype of the app. As the backend isn't developed yet, this prototype currently mocks
-out the feed locally, with an option in place to switch to the real feed later. Please refer to
-the "Building the App" section below for details.
+This is a prototype of the app. It provides build options to load either the mock feed locally, or 
+the real feed remotely. Please refer to the "Building the App" section below for details.
 
 ## TL;DR - Status
 
