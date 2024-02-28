@@ -110,7 +110,7 @@ android {
         }
         create("prod") {
             dimension = "datasource"
-            buildConfigField("String", "DEFAULT_BASE_URL", "\"https://ryanwong.co.uk/restapis\"")
+            buildConfigField("String", "DEFAULT_BASE_URL", "\"https://ryanwong.co.uk/restapis/catnews\"")
         }
     }
     packaging {
