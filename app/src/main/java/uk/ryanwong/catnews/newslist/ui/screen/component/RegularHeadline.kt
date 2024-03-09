@@ -5,13 +5,13 @@
 package uk.ryanwong.catnews.newslist.ui.screen.component
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.Card
@@ -40,6 +40,8 @@ fun RegularStoryHeadline(
     story: NewsItem.Story,
     onItemClicked: () -> Unit,
 ) {
+    val dimension = LocalConfiguration.current.getDimension()
+
     RegularHeadline(
         imageUrl = story.teaserImageUrl,
         imageAccessibilityText = story.teaserImageAccessibilityText,
@@ -47,7 +49,9 @@ fun RegularStoryHeadline(
         teaserText = story.teaserText,
         date = story.niceDate,
         onItemClicked = onItemClicked,
-        modifier = modifier,
+        modifier = modifier
+            .padding(horizontal = dimension.grid_2)
+            .padding(bottom = dimension.grid_2),
     )
 }
 
@@ -57,6 +61,8 @@ fun RegularWebLinkHeadline(
     webLink: NewsItem.WebLink,
     onItemClicked: () -> Unit,
 ) {
+    val dimension = LocalConfiguration.current.getDimension()
+
     RegularHeadline(
         headline = webLink.headline,
         teaserText = null,
@@ -64,7 +70,9 @@ fun RegularWebLinkHeadline(
         imageUrl = webLink.teaserImageUrl,
         imageAccessibilityText = webLink.teaserImageAccessibilityText,
         onItemClicked = onItemClicked,
-        modifier = modifier,
+        modifier = modifier
+            .padding(horizontal = dimension.grid_2)
+            .padding(bottom = dimension.grid_2),
     )
 }
 
@@ -82,8 +90,6 @@ fun RegularHeadline(
 
     Card(
         modifier = modifier
-            .padding(horizontal = dimension.grid_2)
-            .padding(bottom = dimension.grid_2)
             .fillMaxWidth()
             .wrapContentHeight()
             .defaultMinSize(minHeight = dimension.minListItemHeight),
@@ -109,46 +115,52 @@ fun RegularHeadline(
                 error = painterResource(R.drawable.placeholder),
                 placeholder = painterResource(R.drawable.placeholder),
                 contentDescription = imageAccessibilityText,
-                contentScale = ContentScale.FillWidth,
+                contentScale = ContentScale.Crop,
+                alignment = Alignment.Center,
                 modifier = Modifier
                     .weight(0.3f)
+                    .aspectRatio(1f)
+                    .fillMaxHeight()
                     .padding(all = dimension.grid_0_5),
             )
 
             Column(
-                verticalArrangement = Arrangement.Center,
-                modifier = modifier
+                modifier = Modifier
                     .weight(0.7f)
-                    .height(intrinsicSize = IntrinsicSize.Max),
+                    .fillMaxHeight(),
             ) {
                 Text(
                     text = headline,
-                    maxLines = 1,
+                    maxLines = teaserText?.let { 1 } ?: 2,
                     style = CustomTextStyle.regularHeadline,
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .wrapContentHeight()
                         .padding(horizontal = dimension.grid_2, vertical = dimension.grid_0_5),
                 )
-                Text(
-                    text = teaserText ?: "",
-                    maxLines = 2,
-                    style = CustomTextStyle.regularHeadlineTeaserText,
-                    overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .wrapContentHeight()
-                        .weight(weight = 1.0f)
-                        .padding(horizontal = dimension.grid_2),
-                )
+
+                Spacer(modifier = Modifier.weight(1f))
+
+                teaserText?.let {
+                    Text(
+                        text = it,
+                        maxLines = 2,
+                        style = CustomTextStyle.regularHeadlineTeaserText,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = dimension.grid_2),
+                    )
+                }
+
+                Spacer(modifier = Modifier.weight(1f))
+
                 Text(
                     text = date,
                     maxLines = 1,
                     style = CustomTextStyle.regularHeadlineDate,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .wrapContentHeight()
                         .padding(horizontal = dimension.grid_2, vertical = dimension.grid_1),
                 )
             }
@@ -159,6 +171,7 @@ fun RegularHeadline(
 @Preview(
     name = "Regular Story Headline",
     showBackground = true,
+    heightDp = 120,
 )
 @Composable
 private fun RegularStoryHeadlinePreview() {
@@ -181,6 +194,7 @@ private fun RegularStoryHeadlinePreview() {
 @Preview(
     name = "Regular WebLink Headline",
     showBackground = true,
+    heightDp = 120,
 )
 @Composable
 private fun RegularWebLinkHeadlinePreview() {
