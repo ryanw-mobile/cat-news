@@ -52,8 +52,8 @@ android {
         applicationId = "uk.ryanwong.catnews"
         minSdk = libs.versions.minsdk.get().toInt()
         targetSdk = libs.versions.targetsdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
 
         testInstrumentationRunner = "uk.ryanwong.catnews.app.ui.CustomTestRunner"
         vectorDrawables {
