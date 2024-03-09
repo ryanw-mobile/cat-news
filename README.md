@@ -1,15 +1,15 @@
 # Cat News ![Gradle Build](https://github.com/ryanw-mobile/cat-news/actions/workflows/main_build.yml/badge.svg) [![codecov](https://codecov.io/github/ryanw-mobile/cat-news/graph/badge.svg?token=UG926FRXVG)](https://codecov.io/github/ryanw-mobile/cat-news)
 
 <p align="center">
-  <img src="screenshot_20220907_1.jpg" width="200" />
-  <img src="screenshot_20220907_2.jpg" width="200" />
-  <img src="screenshot_20220907_6.jpg" width="200" />
+  <img src="screenshot_20240309_1.png" width="200" />
+  <img src="screenshot_20240309_2.png" width="200" />
+  <img src="screenshot_20240309_3.png" width="200" />
 </p>
 
 <p align="center">
-  <img src="screenshot_20220907_4.jpg" width="200" />
-  <img src="screenshot_20220907_5.jpg" width="200" />
-  <img src="screenshot_20220907_3.jpg" width="200" />
+  <img src="screenshot_20240309_4.png" width="200" />
+  <img src="screenshot_20240309_5.png" width="200" />
+  <img src="screenshot_20240309_6.png" width="200" />
 </p>
 
 ## Scenario
@@ -18,7 +18,7 @@ Sky has recently decided to move into the local cat news industry. To enable thi
 a prototype app to demonstrate to stakeholders. The basic premise of the app is to allow users to
 look at stories of cute cats nearby.
 
-This is a prototype of the app. It provides build options to load either the mock feed locally, or 
+This is a prototype of the app. It provides build options to load either the mock feed locally, or
 the real feed remotely. Please refer to the "Building the App" section below for details.
 
 ## TL;DR - Status
