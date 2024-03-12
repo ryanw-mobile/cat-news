@@ -74,7 +74,7 @@ android {
                     .forEach { output ->
                         val timestamp = SimpleDateFormat("yyyyMMdd-HHmmss").format(Date())
                         val outputFileName =
-                            "catnews-${variant.name}-${variant.versionName}-$timestamp.apk"
+                            "catnews-${variant.versionName}-$timestamp-${variant.name}.apk"
                         output.outputFileName = outputFileName
                     }
             }
