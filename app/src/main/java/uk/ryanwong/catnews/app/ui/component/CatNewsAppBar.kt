@@ -20,7 +20,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.ArrowBack
+import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.mutableStateOf
@@ -66,10 +66,12 @@ fun CatNewsAppBar(
                     CompositionLocalProvider(
                         LocalContentAlpha provides ContentAlpha.high,
                     ) {
-                        IconButton(onClick = {
-                            navController.navigateUp()
-                        }) {
-                            Icon(Icons.Rounded.ArrowBack, "")
+                        IconButton(
+                            onClick = {
+                                navController.navigateUp()
+                            },
+                        ) {
+                            Icon(Icons.AutoMirrored.Rounded.ArrowBack, "")
                         }
                     }
                 }
