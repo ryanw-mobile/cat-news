@@ -44,15 +44,14 @@ jobs:
         with:
           name: app-build-artifacts
           path: |
-            cat-news/app/build/outputs/apk/release/*.apk
-            cat-news/app/build/outputs/bundle/release/*.aab
+            app/build/outputs/apk/release/*.apk
+            app/build/outputs/bundle/release/*.aab
 
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_FOR_RELEASES }}
         with:
+          token: ${{ secrets.PAT_FOR_RELEASES }}
           tag_name: ${{ github.ref_name }}
           release_name: Release ${{ env.version }}
           draft: false
