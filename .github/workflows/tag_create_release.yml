@@ -44,8 +44,8 @@ jobs:
         with:
           name: app-build-artifacts
           path: |
-            app/build/outputs/apk/release/*.apk
-            app/build/outputs/bundle/release/*.aab
+            cat-news/app/build/outputs/apk/release/*.apk
+            cat-news/app/build/outputs/bundle/release/*.aab
 
       - name: Create Release
         id: create_release
@@ -62,7 +62,7 @@ jobs:
 
       - name: Find APK file
         run: |
-          apk_path=$(find ./app/build/outputs/apk/release -name "catnews-*.apk" | head -n 1)
+          apk_path=$(find ./cat-news/app/build/outputs/apk/release -name "catnews-*.apk" | head -n 1)
           echo "apk_path=$apk_path" >> $GITHUB_ENV
 
       - name: Upload Release Asset APK
@@ -77,7 +77,7 @@ jobs:
 
       - name: Find AAB file
         run: |
-          aab_path=$(find ./app/build/outputs/bundle/release -name "catnews-*.aab" | head -n 1)
+          aab_path=$(find ./cat-news/app/build/outputs/bundle/release -name "catnews-*.aab" | head -n 1)
           echo "aab_path=$aab_path" >> $GITHUB_ENV
 
       - name: Upload Release Asset AAB
