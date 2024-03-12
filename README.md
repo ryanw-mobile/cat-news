@@ -80,7 +80,7 @@ The project now requires no initial keystore setup to run the debug build.
 
 ## Binaries download
 
-If you want to try out the app without building it, check out the [`Releases section`](https://github.com/KevinnZou/compose-webview/releases) where you can find the APK and App Bundles for each major version. They were built to connect to real API endpoints, thus you need a data connection to run the app.
+If you want to try out the app without building it, check out the [`Releases section`](https://github.com/ryanw-mobile/cat-news/releases) where you can find the APK and App Bundles for each major version. They were built to connect to real API endpoints, thus you need a data connection to run the app.
 
 ## Requirements
 
