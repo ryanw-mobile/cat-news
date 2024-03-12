@@ -61,7 +61,7 @@ The project now requires no initial keystore setup to run the debug build.
 * [`Kotlin Coroutines`](https://github.com/Kotlin/kotlinx.coroutines)
 * [`Kotlin Flow`](https://kotlinlang.org/docs/flow.html)
 * [`Jetpack Room`](https://developer.android.com/jetpack/androidx/releases/room) - Database
-* [`Accompanist - WebView wrapper for Jetpack Compose`](https://github.com/google/accompanist/tree/main/web)
+* [`WebView wrapper for Jetpack Compose`](https://github.com/KevinnZou/compose-webview)
 * [`Coil`](https://coil-kt.github.io/coil/) - Image loading
 * [`Ktor`](https://ktor.io/) - HTTP Client
 * [`Kotlin Serialization`](https://kotlinlang.org/docs/serialization.html) - For JSON parsing
@@ -77,6 +77,10 @@ The project now requires no initial keystore setup to run the debug build.
 * [`Ktlint Gradle`](https://github.com/jlleitschuh/ktlint-gradle) - lint and automatic formatting
 * [`Mend Renovate`](https://www.mend.io/free-developer-tools/renovate/) - automatic dependency
   updates
+
+## Binaries download
+
+If you want to try out the app without building it, check out the [`Releases section`](https://github.com/KevinnZou/compose-webview/releases) where you can find the APK and App Bundles for each major version. They were built to connect to real API endpoints, thus you need a data connection to run the app.
 
 ## Requirements
 

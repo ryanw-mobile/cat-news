@@ -18,8 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import com.google.accompanist.web.WebView
-import com.google.accompanist.web.rememberWebViewState
+import com.kevinnzou.web.WebView
+import com.kevinnzou.web.rememberWebViewState
 import uk.ryanwong.catnews.R
 import uk.ryanwong.catnews.weblink.ui.WebLinkUIEvent
 import uk.ryanwong.catnews.weblink.ui.WebLinkUIState

@@ -4,7 +4,7 @@ minsdk = "26"
 targetsdk = "34"
 compilesdk = "34"
 
-accompanist = "0.34.0"
+compose-webview = "0.33.4"
 androidx-activity-compose = "1.8.2"
 androidx-compose-bom = "2024.02.02"
 androidx-core-ktx = "1.12.0"
@@ -93,7 +93,7 @@ hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-com
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 mockk-agent-jvm = { group = "io.mockk", name = "mockk-agent-jvm", version.ref = "mockk" }
 mockk-android = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
-accompanist-webview = { group = "com.google.accompanist", name = "accompanist-webview", version.ref = "accompanist" }
+compose-webview = { module = "io.github.kevinnzou:compose-webview", version.ref = "compose-webview" }
 leakcanary-android = { group = "com.squareup.leakcanary", name = "leakcanary-android", version.ref = "leakcanary" }
 ktlint-gradle = { group = "org.jlleitschuh.gradle", name = "ktlint-gradle", version.ref = "ktlint" }
 
