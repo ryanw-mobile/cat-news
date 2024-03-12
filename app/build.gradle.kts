@@ -165,7 +165,7 @@ dependencies {
     debugImplementation(libs.leakcanary.android)
     implementation(libs.bundles.coil)
     implementation(libs.bundles.coroutines)
-    implementation(libs.accompanist.webview)
+    implementation(libs.compose.webview)
 
     // compose
     val composeBom = platform(libs.androidx.compose.bom)
