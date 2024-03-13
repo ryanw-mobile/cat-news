@@ -80,7 +80,10 @@ The project now requires no initial keystore setup to run the debug build.
 
 ## Binaries download
 
-If you want to try out the app without building it, check out the [`Releases section`](https://github.com/ryanw-mobile/cat-news/releases) where you can find the APK and App Bundles for each major version. They were built to connect to real API endpoints, thus you need a data connection to run the app.
+If you want to try out the app without building it, check out
+the [Releases section](https://github.com/ryanw-mobile/cat-news/releases) where you can find the APK
+and App Bundles for each major version. They were built to connect to real API endpoints, thus you
+need a data connection to run the app.
 
 ## Requirements
 
@@ -89,9 +92,9 @@ If you want to try out the app without building it, check out the [`Releases sec
 
 ## Setting up the Keystore
 
-Debug builds now are not signed.
-This means you do not have to set up a keystore to run the debug builds, and Gradle will show no
-errors during the initial sync when the `keystore.properties` does not exist.
+Keystore is completely optional. Debug builds now are not signed.
+Release builds will be signed if either the keystore file or environment variables are set.
+Otherwise, the app will be built unsigned.
 
 ### Local
 
