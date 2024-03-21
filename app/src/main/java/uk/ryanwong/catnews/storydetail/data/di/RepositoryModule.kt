@@ -10,7 +10,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.CoroutineDispatcher
-import uk.ryanwong.catnews.app.di.DispatcherModule
+import uk.ryanwong.catnews.di.DispatcherModule
 import uk.ryanwong.catnews.storydetail.data.local.StoryDao
 import uk.ryanwong.catnews.storydetail.data.remote.StoryService
 import uk.ryanwong.catnews.storydetail.data.repository.StoryDetailRepository

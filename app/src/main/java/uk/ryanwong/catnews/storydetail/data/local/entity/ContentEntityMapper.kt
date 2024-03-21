@@ -2,12 +2,11 @@
  * Copyright (c) 2023. Ryan Wong (hello@ryanwong.co.uk)
  */
 
-package uk.ryanwong.catnews.uk.ryanwong.catnews.storydetail.data.local.entity
+package uk.ryanwong.catnews.storydetail.data.local.entity
 
 import timber.log.Timber
 import uk.ryanwong.catnews.domain.model.storydetail.Content
 import uk.ryanwong.catnews.domain.model.storydetail.StoryContentType
-import uk.ryanwong.catnews.storydetail.data.local.entity.ContentEntity
 
 fun ContentEntity.toDomainModel(): Content? {
     val storyContentType = StoryContentType.parse(type)

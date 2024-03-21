@@ -4,7 +4,6 @@ import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
 import uk.ryanwong.catnews.domain.model.storydetail.Content
 import uk.ryanwong.catnews.domain.model.storydetail.Story
-import uk.ryanwong.catnews.uk.ryanwong.catnews.storydetail.data.local.entity.toDomainModel
 
 internal class StoryEntityMapperTest : FreeSpec() {
 
