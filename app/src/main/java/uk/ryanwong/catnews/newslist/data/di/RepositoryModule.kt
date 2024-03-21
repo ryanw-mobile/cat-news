@@ -10,8 +10,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.CoroutineDispatcher
-import uk.ryanwong.catnews.app.di.DispatcherModule
 import uk.ryanwong.catnews.app.util.nicedateformatter.NiceDateFormatter
+import uk.ryanwong.catnews.di.DispatcherModule
 import uk.ryanwong.catnews.newslist.data.local.NewsListDao
 import uk.ryanwong.catnews.newslist.data.remote.NewsListService
 import uk.ryanwong.catnews.newslist.data.repository.NewsListRepository

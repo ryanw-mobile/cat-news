@@ -8,10 +8,10 @@ import io.ktor.client.plugins.HttpRequestTimeoutException
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
-import uk.ryanwong.catnews.app.di.DispatcherModule
 import uk.ryanwong.catnews.app.exception.RemoteSourceFailedWithNoCacheException
 import uk.ryanwong.catnews.app.util.except
 import uk.ryanwong.catnews.app.util.nicedateformatter.NiceDateFormatter
+import uk.ryanwong.catnews.di.DispatcherModule
 import uk.ryanwong.catnews.domain.model.newslist.NewsItem
 import uk.ryanwong.catnews.domain.model.newslist.NewsList
 import uk.ryanwong.catnews.newslist.data.local.NewsListDao

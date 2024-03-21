@@ -14,8 +14,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import uk.ryanwong.catnews.R
-import uk.ryanwong.catnews.app.di.DispatcherModule
 import uk.ryanwong.catnews.app.util.ErrorMessage
+import uk.ryanwong.catnews.di.DispatcherModule
 import uk.ryanwong.catnews.domain.model.newslist.NewsItem
 import uk.ryanwong.catnews.newslist.data.repository.NewsListRepository
 import uk.ryanwong.catnews.weblink.ui.WebLinkUIState
@@ -35,7 +35,7 @@ class WebLinkViewModel @Inject constructor(
     private var newsId = 0
 
     private val _uiState = MutableStateFlow(WebLinkUIState())
-    var uiState = _uiState.asStateFlow()
+    val uiState = _uiState.asStateFlow()
 
     init {
         newsId = stateHandle.get<Int>("list_id") ?: 0

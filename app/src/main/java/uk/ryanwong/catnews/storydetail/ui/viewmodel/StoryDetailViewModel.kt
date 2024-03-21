@@ -14,8 +14,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import uk.ryanwong.catnews.R
-import uk.ryanwong.catnews.app.di.DispatcherModule
 import uk.ryanwong.catnews.app.util.ErrorMessage
+import uk.ryanwong.catnews.di.DispatcherModule
 import uk.ryanwong.catnews.storydetail.data.repository.StoryDetailRepository
 import uk.ryanwong.catnews.storydetail.ui.StoryDetailUIState
 import java.util.UUID

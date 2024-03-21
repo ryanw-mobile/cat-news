@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2024. Ryan Wong (hello@ryanwong.co.uk)
  */
 
-package uk.ryanwong.catnews.app.di
+package uk.ryanwong.catnews.di
 
 import dagger.Module
 import dagger.Provides
