@@ -194,7 +194,6 @@ dependencies {
     }
 
     // Dagger-Hilt
-    // Hilt does not support ksp yet https://issuetracker.google.com/issues/179057202?pli=1
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
