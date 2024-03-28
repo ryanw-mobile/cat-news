@@ -4,7 +4,7 @@ minsdk = "26"
 targetsdk = "34"
 compilesdk = "34"
 
-compose-webview = "0.33.4"
+compose-webview = "0.33.6"
 androidx-activity-compose = "1.8.2"
 androidx-compose-bom = "2024.03.00"
 androidx-core-ktx = "1.12.0"
