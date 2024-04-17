@@ -71,10 +71,7 @@ kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", vers
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
-
-kotest-runner-junit5 = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
 kotest-assertions-core = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
-kotest-property = { group = "io.kotest", name = "kotest-property", version.ref = "kotest" }
 
 ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
 ktor-client-serialization = { group = "io.ktor", name = "ktor-client-serialization", version.ref = "ktor" }
@@ -101,7 +98,6 @@ ktlint-gradle = { group = "org.jlleitschuh.gradle", name = "ktlint-gradle", vers
 # Define bundles/groups of libraries
 coil = ["coil-kt", "coil-kt-compose"]
 room = ["androidx-room-ktx", "androidx-room-runtime"]
-kotest = ["kotest-runner-junit5", "kotest-assertions-core", "kotest-property"]
 ktor = ["ktor-client-android", "ktor-client-serialization", "ktor-client-cio", "ktor-client-content-negotiation", "ktor-client-logging-jvm", "ktor-serialization-kotlinx-json"]
 coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]
 
