@@ -67,9 +67,9 @@ The project now requires no initial keystore setup to run the debug build.
 * [`Kotlin Serialization`](https://kotlinlang.org/docs/serialization.html) - For JSON parsing
 * [`Timber`](https://github.com/JakeWharton/timber) - Logging
 * [`LeakCanary`](https://github.com/square/leakcanary) - Memory leak detection
-* [`JUnit 4`](https://github.com/junit-team/junit4) - tests
+* [`JUnit 4`](https://github.com/junit-team/junit4) - unit test runner
 * [`Espresso`](https://developer.android.com/training/testing/espresso) - Instrumented tests
-* [`KOTest`](https://kotest.io/) - Test framework and assertion
+* [`KOTest`](https://kotest.io/) - Assertion library (we don't use it as a runner)
 * [`MockK`](https://mockk.io/) - Mocking
 * [`Github Actions`](https://github.com/features/actions) - CI
 * [`Kover`](https://github.com/Kotlin/kotlinx-kover) - code coverage

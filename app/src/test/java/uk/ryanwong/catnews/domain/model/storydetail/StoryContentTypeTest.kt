@@ -4,76 +4,50 @@
 
 package uk.ryanwong.catnews.domain.model.storydetail
 
-import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
+import org.junit.Test
 
-internal class StoryContentTypeTest : FreeSpec() {
+internal class StoryContentTypeTest {
 
-    init {
-        "Should correctly parse the string image as StoryContentType.IMAGE" {
-            // Given
-            val jsonValue = "image"
+    @Test
+    fun `Should correctly parse the string image as StoryContentType_IMAGE`() {
+        val jsonValue = "image"
+        val storyContentType = StoryContentType.parse(storyContentType = jsonValue)
+        storyContentType shouldBe StoryContentType.IMAGE
+    }
 
-            // When
-            val storyContentType = StoryContentType.parse(storyContentType = jsonValue)
+    @Test
+    fun `Should correctly parse the string IMAGE as StoryContentType_IMAGE`() {
+        val jsonValue = "IMAGE"
+        val storyContentType = StoryContentType.parse(storyContentType = jsonValue)
+        storyContentType shouldBe StoryContentType.IMAGE
+    }
 
-            // Then
-            storyContentType shouldBe StoryContentType.IMAGE
-        }
+    @Test
+    fun `Should correctly parse the string paragraph as StoryContentType_PARAGRAPH`() {
+        val jsonValue = "paragraph"
+        val storyContentType = StoryContentType.parse(storyContentType = jsonValue)
+        storyContentType shouldBe StoryContentType.PARAGRAPH
+    }
 
-        "Should correctly parse the string IMAGE as StoryContentType.IMAGE" {
-            // Given
-            val jsonValue = "IMAGE"
+    @Test
+    fun `Should correctly parse the string PARAGRAPH as StoryContentType_PARAGRAPH`() {
+        val jsonValue = "PARAGRAPH"
+        val storyContentType = StoryContentType.parse(storyContentType = jsonValue)
+        storyContentType shouldBe StoryContentType.PARAGRAPH
+    }
 
-            // When
-            val storyContentType = StoryContentType.parse(storyContentType = jsonValue)
+    @Test
+    fun `Should correctly parse unknown strings as StoryContentType_UNKNOWN`() {
+        val jsonValue = "some-very-strange-value"
+        val storyContentType = StoryContentType.parse(storyContentType = jsonValue)
+        storyContentType shouldBe StoryContentType.UNKNOWN
+    }
 
-            // Then
-            storyContentType shouldBe StoryContentType.IMAGE
-        }
-
-        "Should correctly parse the string paragraph as StoryContentType.PARAGRAPH" {
-            // Given
-            val jsonValue = "paragraph"
-
-            // When
-            val storyContentType = StoryContentType.parse(storyContentType = jsonValue)
-
-            // Then
-            storyContentType shouldBe StoryContentType.PARAGRAPH
-        }
-
-        "Should correctly parse the string PARAGRAPH as StoryContentType.PARAGRAPH" {
-            // Given
-            val jsonValue = "PARAGRAPH"
-
-            // When
-            val storyContentType = StoryContentType.parse(storyContentType = jsonValue)
-
-            // Then
-            storyContentType shouldBe StoryContentType.PARAGRAPH
-        }
-
-        "Should correctly parse unknown strings as StoryContentType.UNKNOWN" {
-            // Given
-            val jsonValue = "some-very-string-value"
-
-            // When
-            val storyContentType = StoryContentType.parse(storyContentType = jsonValue)
-
-            // Then
-            storyContentType shouldBe StoryContentType.UNKNOWN
-        }
-
-        "Should correctly parse null value as StoryContentType.UNKNOWN" {
-            // Given
-            val jsonValue = null
-
-            // When
-            val storyContentType = StoryContentType.parse(storyContentType = jsonValue)
-
-            // Then
-            storyContentType shouldBe StoryContentType.UNKNOWN
-        }
+    @Test
+    fun `Should correctly parse null value as StoryContentType_UNKNOWN`() {
+        val jsonValue = null
+        val storyContentType = StoryContentType.parse(storyContentType = jsonValue)
+        storyContentType shouldBe StoryContentType.UNKNOWN
     }
 }

@@ -4,37 +4,25 @@
 
 package uk.ryanwong.catnews.domain.model.newslist
 
-import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
+import org.junit.Test
 import uk.ryanwong.catnews.newslist.data.local.entity.NewsListEntityMapperTestData
 
-internal class NewsListTest : FreeSpec() {
-    init {
-        "isEmpty" - {
-            "Should return true if it contains title but no newsItems" {
-                // Given
-                val newsList = NewsList(title = "some-title", newsItems = emptyList())
+internal class NewsListTest {
+    @Test
+    fun `isEmpty should return true if it contains title but no newsItems`() {
+        val newsList = NewsList(title = "some-title", newsItems = emptyList())
+        val isEmpty = newsList.isEmpty()
+        isEmpty shouldBe true
+    }
 
-                // When
-                val isEmpty = newsList.isEmpty()
-
-                // Then
-                isEmpty shouldBe true
-            }
-
-            "Should return false if newsItems is not empty" {
-                // Given
-                val newsList = NewsList(
-                    title = "some-title",
-                    newsItems = listOf(NewsListEntityMapperTestData.mockNewsItemStory),
-                )
-
-                // When
-                val isEmpty = newsList.isEmpty()
-
-                // Then
-                isEmpty shouldBe false
-            }
-        }
+    @Test
+    fun `isEmpty should return false if newsItems is not empty`() {
+        val newsList = NewsList(
+            title = "some-title",
+            newsItems = listOf(NewsListEntityMapperTestData.newsItemStory),
+        )
+        val isEmpty = newsList.isEmpty()
+        isEmpty shouldBe false
     }
 }

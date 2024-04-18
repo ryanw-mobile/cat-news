@@ -50,7 +50,6 @@ internal class StoryDaoTest {
      */
     @Test
     fun emptyTable_InsertStory_ReturnStory() = runTest {
-        // Given
         val storyId = 1
         val story = StoryEntity(
             storyId = storyId,
@@ -62,17 +61,14 @@ internal class StoryDaoTest {
         )
         storyDao.getStory(storyId = storyId) shouldBe null
 
-        // When
         storyDao.insertStory(story = story)
 
-        // Then
         val returnedStory = storyDao.getStory(storyId = storyId)
         returnedStory shouldBe story
     }
 
     @Test
     fun existingStory_UpdateStory_ReturnUpdatedStory() = runTest {
-        // Given
         val storyId = 1
         val existingStory = StoryEntity(
             storyId = storyId,
@@ -92,17 +88,14 @@ internal class StoryDaoTest {
         )
         storyDao.insertStory(story = existingStory)
 
-        // When
         storyDao.insertStory(story = newStory)
 
-        // Then
         val returnedStory = storyDao.getStory(storyId = storyId)
         returnedStory shouldBe newStory
     }
 
     @Test
     fun existingStory_DeleteStory_ReturnNullTitle() = runTest {
-        // Given
         val storyId = 1
         val story = StoryEntity(
             storyId = storyId,
@@ -114,10 +107,8 @@ internal class StoryDaoTest {
         )
         storyDao.insertStory(story = story)
 
-        // When
         storyDao.deleteStory(storyId = storyId)
 
-        // Then
         val returnedStory = storyDao.getStory(storyId = storyId)
         returnedStory shouldBe null
     }
@@ -127,22 +118,18 @@ internal class StoryDaoTest {
      */
     @Test
     fun emptyTable_InsertEmptyContentsList_ReturnEmptyList() = runTest {
-        // Given
         val storyId = 1
         val contents = emptyList<ContentEntity>()
         storyDao.getContents(storyId = storyId) shouldBe emptyList()
 
-        // When
         storyDao.insertContents(contents = contents)
 
-        // Then
         val returnedContents = storyDao.getContents(storyId = storyId)
         returnedContents shouldBe emptyList()
     }
 
     @Test
     fun emptyTable_InsertOneContentEntity_ReturnOneContentEntity() = runTest {
-        // Given
         val storyId = 1
         val contents = listOf(
             ContentEntity(
@@ -156,17 +143,14 @@ internal class StoryDaoTest {
         )
         storyDao.getContents(storyId = storyId) shouldBe emptyList()
 
-        // When
         storyDao.insertContents(contents = contents)
 
-        // Then
         val returnedContents = storyDao.getContents(storyId = storyId)
         returnedContents shouldBe contents
     }
 
     @Test
     fun emptyTable_InsertMultipleContentEntities_ReturnMultipleContentEntities() = runTest {
-        // Given
         val storyId = 1
         val contents = listOf(
             ContentEntity(
@@ -196,17 +180,14 @@ internal class StoryDaoTest {
         )
         storyDao.getContents(storyId = storyId) shouldBe emptyList()
 
-        // When
         storyDao.insertContents(contents = contents)
 
-        // Then
         val returnedContents = storyDao.getContents(storyId = storyId)
         returnedContents shouldContainExactlyInAnyOrder contents
     }
 
     @Test
     fun existingContents_ReplaceContentEntity_ReturnUpdatedContents() = runTest {
-        // Given
         val storyId = 1
         val contentEntityOne = ContentEntity(
             sequenceId = 1,
@@ -235,10 +216,8 @@ internal class StoryDaoTest {
         val contents = listOf(contentEntityOne, contentEntityTwo)
         storyDao.insertContents(contents = contents)
 
-        // When
         storyDao.insertContents(contents = listOf(contentEntityOneModified))
 
-        // Then
         val returnedContents = storyDao.getContents(storyId = storyId)
         returnedContents shouldContainExactlyInAnyOrder listOf(
             contentEntityOneModified,
@@ -248,7 +227,6 @@ internal class StoryDaoTest {
 
     @Test
     fun existingContents_DeleteByStoryId_ReturnEmptyContents() = runTest {
-        // Given
         val storyId = 1
         val contentEntityOne = ContentEntity(
             sequenceId = 1,
@@ -269,10 +247,8 @@ internal class StoryDaoTest {
         val contents = listOf(contentEntityOne, contentEntityTwo)
         storyDao.insertContents(contents = contents)
 
-        // When
         storyDao.deleteContents(storyId = storyId)
 
-        // Then
         val returnedContents = storyDao.getContents(storyId = storyId)
         returnedContents shouldBe emptyList()
     }

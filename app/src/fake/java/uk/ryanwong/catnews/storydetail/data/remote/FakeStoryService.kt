@@ -10,7 +10,7 @@ import uk.ryanwong.catnews.storydetail.data.remote.model.HeroImageDto
 import uk.ryanwong.catnews.storydetail.data.remote.model.StoryDto
 
 class FakeStoryService : StoryService {
-    private val mockImageUrl = listOf(
+    private val imageUrls = listOf(
         "https://ryanwong.co.uk/sample-resources/catnews/cat1_hero.jpg",
         "https://ryanwong.co.uk/sample-resources/catnews/cat2_hero.jpg",
         "https://ryanwong.co.uk/sample-resources/catnews/cat3_hero.jpg",
@@ -42,7 +42,7 @@ class FakeStoryService : StoryService {
                         accessibilityText = "some-accessibility-text-1",
                         text = null,
                         type = "image",
-                        url = mockImageUrl.random(),
+                        url = imageUrls.random(),
                     ),
                     ContentDto(
                         accessibilityText = null,
@@ -54,7 +54,7 @@ class FakeStoryService : StoryService {
                         accessibilityText = "some-accessibility-text-2",
                         text = null,
                         type = "image",
-                        url = mockImageUrl.random(),
+                        url = imageUrls.random(),
                     ),
                     ContentDto(
                         accessibilityText = null,
@@ -67,7 +67,7 @@ class FakeStoryService : StoryService {
                 headline = "Cat story headline",
                 heroImage = HeroImageDto(
                     accessibilityText = "some-hero-image-accessibility-text",
-                    imageUrl = mockImageUrl.random(),
+                    imageUrl = imageUrls.random(),
                 ),
                 id = storyId,
                 modifiedDate = "2020-11-19T00:00:00Z",

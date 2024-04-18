@@ -4,23 +4,15 @@
 
 package uk.ryanwong.catnews.storydetail.data.local.entity
 
-import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
+import org.junit.Test
 
-internal class StoryEntityTest : FreeSpec() {
+internal class StoryEntityTest {
 
-    init {
-        "fromDto" - {
-            "Should return StoryEntity correctly" {
-                // Given
-                val storyDto = StoryEntityTestData.mockStoryDto
-
-                // When
-                val storyEntity = StoryEntity.fromDto(storyDto = storyDto)
-
-                // Then
-                storyEntity shouldBe StoryEntityTestData.mockStoryEntity
-            }
-        }
+    @Test
+    fun `fromDto should return StoryEntity correctly`() {
+        val storyDto = StoryEntityTestData.storyDto
+        val storyEntity = StoryEntity.fromDto(storyDto = storyDto)
+        storyEntity shouldBe StoryEntityTestData.storyEntity
     }
 }

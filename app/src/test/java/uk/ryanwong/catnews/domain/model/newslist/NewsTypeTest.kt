@@ -4,98 +4,63 @@
 
 package uk.ryanwong.catnews.domain.model.newslist
 
-import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
+import org.junit.Test
 
-internal class NewsTypeTest : FreeSpec() {
+internal class NewsTypeTest {
+    @Test
+    fun `Should correctly parse the string story as NewsType_STORY`() {
+        val jsonValue = "story"
+        val newsType = NewsType.parse(newsType = jsonValue)
+        newsType shouldBe NewsType.STORY
+    }
 
-    init {
-        "Should correctly parse the string story as NewsType.STORY" {
-            // Given
-            val jsonValue = "story"
+    @Test
+    fun `Should correctly parse the string STORY as NewsType_STORY`() {
+        val jsonValue = "STORY"
+        val newsType = NewsType.parse(newsType = jsonValue)
+        newsType shouldBe NewsType.STORY
+    }
 
-            // When
-            val newsType = NewsType.parse(newsType = jsonValue)
+    @Test
+    fun `Should correctly parse the string advert as NewsType_ADVERT`() {
+        val jsonValue = "advert"
+        val newsType = NewsType.parse(newsType = jsonValue)
+        newsType shouldBe NewsType.ADVERT
+    }
 
-            // Then
-            newsType shouldBe NewsType.STORY
-        }
+    @Test
+    fun `Should correctly parse the string ADVERT as NewsType_ADVERT`() {
+        val jsonValue = "ADVERT"
+        val newsType = NewsType.parse(newsType = jsonValue)
+        newsType shouldBe NewsType.ADVERT
+    }
 
-        "Should correctly parse the string STORY as NewsType.STORY" {
-            // Given
-            val jsonValue = "STORY"
+    @Test
+    fun `Should correctly parse the string weblink as NewsType_WEBLINK`() {
+        val jsonValue = "weblink"
+        val newsType = NewsType.parse(newsType = jsonValue)
+        newsType shouldBe NewsType.WEBLINK
+    }
 
-            // When
-            val newsType = NewsType.parse(newsType = jsonValue)
+    @Test
+    fun `Should correctly parse the string WEBLINK as NewsType_WEBLINK`() {
+        val jsonValue = "WEBLINK"
+        val newsType = NewsType.parse(newsType = jsonValue)
+        newsType shouldBe NewsType.WEBLINK
+    }
 
-            // Then
-            newsType shouldBe NewsType.STORY
-        }
+    @Test
+    fun `Should correctly parse unknown strings as NewsType_UNKNOWN`() {
+        val jsonValue = "some-very-strange-value"
+        val newsType = NewsType.parse(newsType = jsonValue)
+        newsType shouldBe NewsType.UNKNOWN
+    }
 
-        "Should correctly parse the string advert as NewsType.ADVERT" {
-            // Given
-            val jsonValue = "advert"
-
-            // When
-            val newsType = NewsType.parse(newsType = jsonValue)
-
-            // Then
-            newsType shouldBe NewsType.ADVERT
-        }
-
-        "Should correctly parse the string ADVERT as NewsType.ADVERT" {
-            // Given
-            val jsonValue = "ADVERT"
-
-            // When
-            val newsType = NewsType.parse(newsType = jsonValue)
-
-            // Then
-            newsType shouldBe NewsType.ADVERT
-        }
-
-        "Should correctly parse the string weblink as NewsType.WEBLINK" {
-            // Given
-            val jsonValue = "weblink"
-
-            // When
-            val newsType = NewsType.parse(newsType = jsonValue)
-
-            // Then
-            newsType shouldBe NewsType.WEBLINK
-        }
-
-        "Should correctly parse the string WEBLINK as NewsType.WEBLINK" {
-            // Given
-            val jsonValue = "WEBLINK"
-
-            // When
-            val newsType = NewsType.parse(newsType = jsonValue)
-
-            // Then
-            newsType shouldBe NewsType.WEBLINK
-        }
-
-        "Should correctly parse unknown strings as NewsType.UNKNOWN" {
-            // Given
-            val jsonValue = "some-very-string-value"
-
-            // When
-            val newsType = NewsType.parse(newsType = jsonValue)
-
-            // Then
-            newsType shouldBe NewsType.UNKNOWN
-        }
-
-        "Should correctly parse null value as NewsType.UNKNOWN" {
-            // Given
-            val jsonValue = null
-
-            // When
-            val newsType = NewsType.parse(newsType = jsonValue)
-
-            // Then
-            newsType shouldBe NewsType.UNKNOWN
-        }
+    @Test
+    fun `Should correctly parse null value as NewsType_UNKNOWN`() {
+        val jsonValue = null
+        val newsType = NewsType.parse(newsType = jsonValue)
+        newsType shouldBe NewsType.UNKNOWN
     }
 }
