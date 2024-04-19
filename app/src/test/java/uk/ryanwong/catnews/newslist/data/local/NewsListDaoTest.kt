@@ -1,14 +1,13 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2024. Ryan Wong (hello@ryanwong.co.uk)
  */
 
 package uk.ryanwong.catnews.newslist.data.local
 
 import android.content.Context
+import android.os.Build
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.filters.MediumTest
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -17,13 +16,15 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 import uk.ryanwong.catnews.app.database.LocalDatabaseImpl
 import uk.ryanwong.catnews.newslist.data.local.entity.NewsItemEntity
 import uk.ryanwong.catnews.newslist.data.local.entity.NewsListEntity
 
 @ExperimentalCoroutinesApi
-@RunWith(AndroidJUnit4::class)
-@MediumTest
+@RunWith(RobolectricTestRunner::class)
+@Config(sdk = [Build.VERSION_CODES.P])
 internal class NewsListDaoTest {
     private lateinit var localDatabase: LocalDatabaseImpl
     private lateinit var newsListDao: NewsListDao

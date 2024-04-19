@@ -185,7 +185,9 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.androidx.test.core.ktx)
     testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.robolectric)
     with(libs.androidx.test) {
         androidTestImplementation(junit4)
         androidTestImplementation(rules)
