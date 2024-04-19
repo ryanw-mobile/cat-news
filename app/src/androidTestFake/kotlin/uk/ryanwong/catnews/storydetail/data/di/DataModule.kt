@@ -9,7 +9,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
-import uk.ryanwong.catnews.storydetail.data.remote.MockStoryService
+import uk.ryanwong.catnews.storydetail.data.remote.FakeStoryService
 import uk.ryanwong.catnews.storydetail.data.remote.StoryService
 
 @Module
@@ -19,6 +19,6 @@ object DataModule {
     @Provides
     @ViewModelScoped
     fun provideStoryService(): StoryService {
-        return MockStoryService()
+        return FakeStoryService()
     }
 }

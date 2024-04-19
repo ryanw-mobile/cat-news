@@ -12,7 +12,7 @@ import uk.ryanwong.catnews.newslist.data.remote.model.UrlDto
 
 internal object NewsListServiceTestData {
 
-    const val MOCK_JSON_RESPONSE = """{
+    const val JSON_RESPONSE = """{
    "title":"Cat News",
    "data":[
       {
@@ -113,122 +113,120 @@ internal object NewsListServiceTestData {
 }
 """
 
-    val mockNewsListDto by lazy {
-        NewsListDto(
-            news = listOf(
-                NewsItemDto(
-                    creationDate = "2020-11-18T00:00:00Z",
-                    headline = "Story Headline",
-                    id = 1,
-                    modifiedDate = "2020-11-19T00:00:00Z",
-                    teaserImage = TeaserImageDto(
-                        links = LinksDto(
-                            url = UrlDto(
-                                href = "",
-                                templated = true,
-                                type = "image/jpeg",
-                            ),
+    val newsListDto = NewsListDto(
+        news = listOf(
+            NewsItemDto(
+                creationDate = "2020-11-18T00:00:00Z",
+                headline = "Story Headline",
+                id = 1,
+                modifiedDate = "2020-11-19T00:00:00Z",
+                teaserImage = TeaserImageDto(
+                    links = LinksDto(
+                        url = UrlDto(
+                            href = "",
+                            templated = true,
+                            type = "image/jpeg",
                         ),
-                        accessibilityText = "Image content description",
                     ),
-                    teaserText = "Story teaser text",
-                    type = "story",
-                    advertUrl = null,
-                    weblinkUrl = null,
+                    accessibilityText = "Image content description",
                 ),
-                NewsItemDto(
-                    creationDate = "2020-11-18T00:00:00Z",
-                    headline = "Story Headline",
-                    id = 2,
-                    modifiedDate = "2020-11-19T00:00:00Z",
-                    teaserImage = TeaserImageDto(
-                        links = LinksDto(
-                            url = UrlDto(
-                                href = "",
-                                templated = true,
-                                type = "image/jpeg",
-                            ),
-                        ),
-                        accessibilityText = "Image content description",
-                    ),
-                    teaserText = "Story teaser text",
-                    type = "story",
-                    advertUrl = null,
-                    weblinkUrl = null,
-                ),
-                NewsItemDto(
-                    creationDate = null,
-                    headline = null,
-                    id = null,
-                    modifiedDate = null,
-                    teaserImage = null,
-                    teaserText = null,
-                    type = "advert",
-                    advertUrl = "advert/url",
-                    weblinkUrl = null,
-                ),
-                NewsItemDto(
-                    creationDate = "2020-11-18T00:00:00Z",
-                    headline = "Weblink headline",
-                    id = 3,
-                    modifiedDate = "2020-11-19T00:00:00Z",
-                    teaserImage = TeaserImageDto(
-                        links = LinksDto(
-                            url = UrlDto(
-                                href = "",
-                                templated = true,
-                                type = "image/jpeg",
-                            ),
-                        ),
-                        accessibilityText = "Image content description",
-                    ),
-                    teaserText = null,
-                    type = "weblink",
-                    advertUrl = null,
-                    weblinkUrl = "weblink url",
-                ),
-                NewsItemDto(
-                    creationDate = "2020-11-18T00:00:00Z",
-                    headline = "Story headline",
-                    id = 4,
-                    modifiedDate = "2020-11-19T00:00:00Z",
-                    teaserImage = TeaserImageDto(
-                        links = LinksDto(
-                            url = UrlDto(
-                                href = "",
-                                templated = true,
-                                type = "image/jpeg",
-                            ),
-                        ),
-                        accessibilityText = "Image content description",
-                    ),
-                    teaserText = "Story teaser text",
-                    type = "story",
-                    advertUrl = null,
-                    weblinkUrl = null,
-                ),
-                NewsItemDto(
-                    creationDate = "2020-11-18T00:00:00Z",
-                    headline = "Weblink headline",
-                    id = 5,
-                    modifiedDate = "2020-11-19T00:00:00Z",
-                    teaserImage = TeaserImageDto(
-                        links = LinksDto(
-                            url = UrlDto(
-                                href = "",
-                                templated = true,
-                                type = "image/jpeg",
-                            ),
-                        ),
-                        accessibilityText = "Image content description",
-                    ),
-                    teaserText = null,
-                    type = "weblink",
-                    advertUrl = null,
-                    weblinkUrl = "",
-                ),
+                teaserText = "Story teaser text",
+                type = "story",
+                advertUrl = null,
+                weblinkUrl = null,
             ),
-            title = "Cat News",
-        )
-    }
+            NewsItemDto(
+                creationDate = "2020-11-18T00:00:00Z",
+                headline = "Story Headline",
+                id = 2,
+                modifiedDate = "2020-11-19T00:00:00Z",
+                teaserImage = TeaserImageDto(
+                    links = LinksDto(
+                        url = UrlDto(
+                            href = "",
+                            templated = true,
+                            type = "image/jpeg",
+                        ),
+                    ),
+                    accessibilityText = "Image content description",
+                ),
+                teaserText = "Story teaser text",
+                type = "story",
+                advertUrl = null,
+                weblinkUrl = null,
+            ),
+            NewsItemDto(
+                creationDate = null,
+                headline = null,
+                id = null,
+                modifiedDate = null,
+                teaserImage = null,
+                teaserText = null,
+                type = "advert",
+                advertUrl = "advert/url",
+                weblinkUrl = null,
+            ),
+            NewsItemDto(
+                creationDate = "2020-11-18T00:00:00Z",
+                headline = "Weblink headline",
+                id = 3,
+                modifiedDate = "2020-11-19T00:00:00Z",
+                teaserImage = TeaserImageDto(
+                    links = LinksDto(
+                        url = UrlDto(
+                            href = "",
+                            templated = true,
+                            type = "image/jpeg",
+                        ),
+                    ),
+                    accessibilityText = "Image content description",
+                ),
+                teaserText = null,
+                type = "weblink",
+                advertUrl = null,
+                weblinkUrl = "weblink url",
+            ),
+            NewsItemDto(
+                creationDate = "2020-11-18T00:00:00Z",
+                headline = "Story headline",
+                id = 4,
+                modifiedDate = "2020-11-19T00:00:00Z",
+                teaserImage = TeaserImageDto(
+                    links = LinksDto(
+                        url = UrlDto(
+                            href = "",
+                            templated = true,
+                            type = "image/jpeg",
+                        ),
+                    ),
+                    accessibilityText = "Image content description",
+                ),
+                teaserText = "Story teaser text",
+                type = "story",
+                advertUrl = null,
+                weblinkUrl = null,
+            ),
+            NewsItemDto(
+                creationDate = "2020-11-18T00:00:00Z",
+                headline = "Weblink headline",
+                id = 5,
+                modifiedDate = "2020-11-19T00:00:00Z",
+                teaserImage = TeaserImageDto(
+                    links = LinksDto(
+                        url = UrlDto(
+                            href = "",
+                            templated = true,
+                            type = "image/jpeg",
+                        ),
+                    ),
+                    accessibilityText = "Image content description",
+                ),
+                teaserText = null,
+                type = "weblink",
+                advertUrl = null,
+                weblinkUrl = "",
+            ),
+        ),
+        title = "Cat News",
+    )
 }

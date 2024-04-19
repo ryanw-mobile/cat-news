@@ -4,135 +4,107 @@
 
 package uk.ryanwong.catnews.newslist.data.local.entity
 
-import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.shouldBe
+import org.junit.Test
 import uk.ryanwong.catnews.newslist.data.remote.model.NewsItemDto
 
-internal class NewsItemEntityTest : FreeSpec() {
+internal class NewsItemEntityTest {
 
-    init {
-        "fromDto" - {
-            "Should skip processing NewsItemDto in the list if id is null" {
-                // Given
-                val newsItemDtoList = listOf(
-                    NewsItemEntityTestData.mockNewsItemDto.copy(
-                        id = null,
-                    ),
-                )
+    @Test
+    fun `fromDto should skip processing NewsItemDto in the list if id is null`() {
+        val newsItemDtoList = listOf(
+            NewsItemEntityTestData.newsItemDto.copy(
+                id = null,
+            ),
+        )
 
-                // When
-                val newsItemEntity =
-                    NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
+        val newsItemEntity = NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
 
-                // Then
-                newsItemEntity shouldBe emptyList()
-            }
+        newsItemEntity shouldBe emptyList()
+    }
 
-            "Should skip processing NewsItemDto in the list if creationDate is null" {
-                // Given
-                val newsItemDtoList = listOf(
-                    NewsItemEntityTestData.mockNewsItemDto.copy(
-                        creationDate = null,
-                    ),
-                )
+    @Test
+    fun `fromDto should skip processing NewsItemDto in the list if creationDate is null`() {
+        val newsItemDtoList = listOf(
+            NewsItemEntityTestData.newsItemDto.copy(
+                creationDate = null,
+            ),
+        )
 
-                // When
-                val newsItemEntity =
-                    NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
+        val newsItemEntity = NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
 
-                // Then
-                newsItemEntity shouldBe emptyList()
-            }
+        newsItemEntity shouldBe emptyList()
+    }
 
-            "Should skip processing NewsItemDto in the list if modifiedDate is null" {
-                // Given
-                val newsItemDtoList = listOf(
-                    NewsItemEntityTestData.mockNewsItemDto.copy(
-                        modifiedDate = null,
-                    ),
-                )
+    @Test
+    fun `fromDto should skip processing NewsItemDto in the list if modifiedDate is null`() {
+        val newsItemDtoList = listOf(
+            NewsItemEntityTestData.newsItemDto.copy(
+                modifiedDate = null,
+            ),
+        )
 
-                // When
-                val newsItemEntity =
-                    NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
+        val newsItemEntity =
+            NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
+        newsItemEntity shouldBe emptyList()
+    }
 
-                // Then
-                newsItemEntity shouldBe emptyList()
-            }
+    @Test
+    fun `fromDto should only ignore skipped item while retaining valid items`() {
+        val newsItemDtoList = listOf(
+            NewsItemEntityTestData.newsItemDto.copy(
+                modifiedDate = null,
+            ),
+            NewsItemEntityTestData.newsItemDto2,
+        )
 
-            "Should only ignore skipped item while retaining valid items" {
-                // Given
-                val newsItemDtoList = listOf(
-                    NewsItemEntityTestData.mockNewsItemDto.copy(
-                        modifiedDate = null,
-                    ),
-                    NewsItemEntityTestData.mockNewsItemDto2,
-                )
+        val newsItemEntity = NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
 
-                // When
-                val newsItemEntity =
-                    NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
+        newsItemEntity shouldBe listOf(NewsItemEntityTestData.newsItemEntity2)
+    }
 
-                // Then
-                newsItemEntity shouldBe listOf(NewsItemEntityTestData.mockNewsItemEntity2)
-            }
+    @Test
+    fun `fromDto should return empty list if newsItemDtoList is null`() {
+        val newsItemDtoList = null
 
-            "Should return empty list if newsItemDtoList is null" {
-                // Given
-                val newsItemDtoList = null
+        val newsItemEntity = NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
 
-                // When
-                val newsItemEntity =
-                    NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
+        newsItemEntity shouldBe emptyList()
+    }
 
-                // Then
-                newsItemEntity shouldBe emptyList()
-            }
+    @Test
+    fun `fromDto should return empty list if newsItemDtoList is empty`() {
+        val newsItemDtoList = emptyList<NewsItemDto>()
 
-            "Should return empty list if newsItemDtoList is empty" {
-                // Given
-                val newsItemDtoList = emptyList<NewsItemDto>()
+        val newsItemEntity = NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
 
-                // When
-                val newsItemEntity =
-                    NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
+        newsItemEntity shouldBe emptyList()
+    }
 
-                // Then
-                newsItemEntity shouldBe emptyList()
-            }
+    @Test
+    fun `fromDto should correctly convert a newsItemDtoList with one item`() {
+        val newsItemDtoList = listOf(NewsItemEntityTestData.newsItemDto)
 
-            "Should correctly convert a newsItemDtoList with one item" {
-                // Given
-                val newsItemDtoList = listOf(NewsItemEntityTestData.mockNewsItemDto)
+        val newsItemEntity = NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
 
-                // When
-                val newsItemEntity =
-                    NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
+        newsItemEntity shouldBe listOf(NewsItemEntityTestData.newsItemEntity)
+    }
 
-                // Then
-                newsItemEntity shouldBe listOf(NewsItemEntityTestData.mockNewsItemEntity)
-            }
+    @Test
+    fun `fromDto should correctly convert a newsItemDtoList with multiple items`() {
+        val newsItemDtoList = listOf(
+            NewsItemEntityTestData.newsItemDto,
+            NewsItemEntityTestData.newsItemDto2,
+            NewsItemEntityTestData.newsItemDto3,
+        )
 
-            "Should correctly convert a newsItemDtoList with multiple items" {
-                // Given
-                val newsItemDtoList = listOf(
-                    NewsItemEntityTestData.mockNewsItemDto,
-                    NewsItemEntityTestData.mockNewsItemDto2,
-                    NewsItemEntityTestData.mockNewsItemDto3,
-                )
+        val newsItemEntity = NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
 
-                // When
-                val newsItemEntity =
-                    NewsItemEntity.fromDto(listId = 1, newsItemDtoList = newsItemDtoList)
-
-                // Then
-                newsItemEntity shouldContainExactlyInAnyOrder listOf(
-                    NewsItemEntityTestData.mockNewsItemEntity,
-                    NewsItemEntityTestData.mockNewsItemEntity2,
-                    NewsItemEntityTestData.mockNewsItemEntity3,
-                )
-            }
-        }
+        newsItemEntity shouldContainExactlyInAnyOrder listOf(
+            NewsItemEntityTestData.newsItemEntity,
+            NewsItemEntityTestData.newsItemEntity2,
+            NewsItemEntityTestData.newsItemEntity3,
+        )
     }
 }

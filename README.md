@@ -57,25 +57,26 @@ The project now requires no initial keystore setup to run the debug build.
 
 ### Major libraries used
 
-* [`Dagger Hilt`](https://dagger.dev/hilt/) - DI
-* [`Kotlin Coroutines`](https://github.com/Kotlin/kotlinx.coroutines)
-* [`Kotlin Flow`](https://kotlinlang.org/docs/flow.html)
-* [`Jetpack Room`](https://developer.android.com/jetpack/androidx/releases/room) - Database
-* [`WebView wrapper for Jetpack Compose`](https://github.com/KevinnZou/compose-webview)
-* [`Coil`](https://coil-kt.github.io/coil/) - Image loading
-* [`Ktor`](https://ktor.io/) - HTTP Client
-* [`Kotlin Serialization`](https://kotlinlang.org/docs/serialization.html) - For JSON parsing
-* [`Timber`](https://github.com/JakeWharton/timber) - Logging
-* [`LeakCanary`](https://github.com/square/leakcanary) - Memory leak detection
-* [`JUnit 4`](https://github.com/junit-team/junit4) - tests
-* [`Espresso`](https://developer.android.com/training/testing/espresso) - Instrumented tests
-* [`KOTest`](https://kotest.io/) - Test framework and assertion
-* [`MockK`](https://mockk.io/) - Mocking
-* [`Github Actions`](https://github.com/features/actions) - CI
-* [`Kover`](https://github.com/Kotlin/kotlinx-kover) - code coverage
-* [`codecov`](https://codecov.io/) - code coverage
-* [`Ktlint Gradle`](https://github.com/jlleitschuh/ktlint-gradle) - lint and automatic formatting
-* [`Mend Renovate`](https://www.mend.io/free-developer-tools/renovate/) - automatic dependency
+* [Dagger Hilt](https://dagger.dev/hilt/) - DI
+* [Kotlin Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
+* [Kotlin Flow](https://kotlinlang.org/docs/flow.html)
+* [Jetpack Room](https://developer.android.com/jetpack/androidx/releases/room) - Database
+* [WebView wrapper for Jetpack Compose](https://github.com/KevinnZou/compose-webview)
+* [Coil](https://coil-kt.github.io/coil/) - Image loading
+* [Ktor](https://ktor.io/) - HTTP Client
+* [Kotlin Serialization](https://kotlinlang.org/docs/serialization.html) - For JSON parsing
+* [Timber](https://github.com/JakeWharton/timber) - Logging
+* [LeakCanary](https://github.com/square/leakcanary) - Memory leak detection
+* [JUnit 4](https://github.com/junit-team/junit4) - unit test runner
+* [Robolectric](https://robolectric.org/) - Testing framework for Android-JVM tests
+* [Espresso](https://developer.android.com/training/testing/espresso) - Instrumented tests
+* [KOTest](https://kotest.io/) - Assertion library (we don't use it as a runner)
+* [MockK](https://mockk.io/) - Mocking
+* [Github Actions](https://github.com/features/actions) - CI
+* [Kover](https://github.com/Kotlin/kotlinx-kover) - code coverage
+* [codecov](https://codecov.io/) - code coverage
+* [Ktlint Gradle](https://github.com/jlleitschuh/ktlint-gradle) - lint and automatic formatting
+* [Mend Renovate](https://www.mend.io/free-developer-tools/renovate/) - automatic dependency
   updates
 
 ## Binaries download

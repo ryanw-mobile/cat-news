@@ -4,7 +4,6 @@
 
 package uk.ryanwong.catnews.storydetail.data.remote
 
-import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
@@ -17,8 +16,9 @@ import io.ktor.serialization.kotlinx.json.json
 import io.ktor.utils.io.ByteReadChannel
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
+import org.junit.Test
 
-internal class StoryServiceImplTest : FreeSpec() {
+internal class StoryServiceImplTest {
 
     private lateinit var httpClient: HttpClient
     private lateinit var storyService: StoryService
@@ -46,59 +46,43 @@ internal class StoryServiceImplTest : FreeSpec() {
         storyService = StoryServiceImpl(httpClient = httpClient)
     }
 
-    init {
-        "getStory" - {
-            "Should return StoryDto if API request is successful" {
-                runTest {
-                    // Given
-                    setupDataSource(
-                        status = HttpStatusCode.OK,
-                        contentType = "application/json",
-                        payload = StoryServiceTestData.MOCK_JAPANESE_RESPONSE,
-                    )
+    @Test
+    fun `getStory should return StoryDto if API request is successful`() = runTest {
+        setupDataSource(
+            status = HttpStatusCode.OK,
+            contentType = "application/json",
+            payload = StoryServiceTestData.SAMPLE_JAPANESE_RESPONSE,
+        )
 
-                    // When
-                    val storyDto = storyService.getStory(storyId = 1)
+        val storyDto = storyService.getStory(storyId = 1)
 
-                    // Then
-                    storyDto shouldBe Result.success(StoryServiceTestData.mockStoryDto)
-                }
-            }
+        storyDto shouldBe Result.success(StoryServiceTestData.storyDto)
+    }
 
-            "Should return success with null DTO if API request is successful with empty body" {
-                runTest {
-                    // Given
-                    setupDataSource(
-                        status = HttpStatusCode.OK,
-                        contentType = "application/json",
-                        payload = "",
-                    )
+    @Test
+    fun `getStory should return success with null DTO if API request is successful with empty body`() = runTest {
+        setupDataSource(
+            status = HttpStatusCode.OK,
+            contentType = "application/json",
+            payload = "",
+        )
 
-                    // When
-                    val storyDto = storyService.getStory(storyId = 1)
+        val storyDto = storyService.getStory(storyId = 1)
 
-                    // Then
-                    storyDto shouldBe Result.success(null)
-                }
-            }
+        storyDto shouldBe Result.success(null)
+    }
 
-            "Should return failure if API request returns HTTP Error" {
-                runTest {
-                    // Given
-                    setupDataSource(
-                        status = HttpStatusCode.BadGateway,
-                        contentType = "text/plain",
-                        payload = "Bad Gateway",
-                    )
+    @Test
+    fun `getStory should return failure if API request returns HTTP Error`() = runTest {
+        setupDataSource(
+            status = HttpStatusCode.BadGateway,
+            contentType = "text/plain",
+            payload = "Bad Gateway",
+        )
 
-                    // When
-                    val storyDto = storyService.getStory(storyId = 1)
+        val storyDto = storyService.getStory(storyId = 1)
 
-                    // Then
-                    storyDto.isFailure shouldBe true
-                    storyDto.exceptionOrNull() shouldBe Exception("Bad Gateway")
-                }
-            }
-        }
+        storyDto.isFailure shouldBe true
+        storyDto.exceptionOrNull() shouldBe Exception("Bad Gateway")
     }
 }

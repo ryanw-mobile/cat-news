@@ -1,74 +1,68 @@
 package uk.ryanwong.catnews.newslist.data.local.entity
 
-import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
-import uk.ryanwong.catnews.app.util.nicedateformatter.MockNiceDateFormatter
+import org.junit.Before
+import org.junit.Test
+import uk.ryanwong.catnews.app.util.nicedateformatter.FakeNiceDateFormatter
 import uk.ryanwong.catnews.domain.model.newslist.NewsList
 
-class NewsListEntityMapperTest : FreeSpec() {
+class NewsListEntityMapperTest {
 
-    private lateinit var mockNiceDateFormatter: MockNiceDateFormatter
+    private lateinit var fakeNiceDateFormatter: FakeNiceDateFormatter
 
-    private fun setupNiceDateFormatter() {
-        mockNiceDateFormatter = MockNiceDateFormatter()
+    @Before
+    fun setupNiceDateFormatter() {
+        fakeNiceDateFormatter = FakeNiceDateFormatter()
     }
 
-    init {
-        "toDomainModel" - {
-            "Should return NewsList correctly if newsItemEntities contains one item" {
-                // Given
-                setupNiceDateFormatter()
-                mockNiceDateFormatter.mockGetNiceDateResponse = "2 days ago"
-                val title = "some-title"
-                val listId = 1
-                val newsItemEntities = listOf(NewsListEntityMapperTestData.mockNewsItemEntityStory)
+    @Test
+    fun `toDomainModel should return NewsList correctly if newsItemEntities contains one item`() {
+        setupNiceDateFormatter()
+        fakeNiceDateFormatter.getNiceDateResponse = "2 days ago"
+        val title = "some-title"
+        val listId = 1
+        val newsItemEntities = listOf(NewsListEntityMapperTestData.newsItemEntityStory)
 
-                // When
-                val newsList = NewsListEntity(
-                    listId = listId,
-                    title = title,
-                ).toDomainModel(
-                    newsItemEntities = newsItemEntities,
-                    niceDateFormatter = mockNiceDateFormatter,
-                )
+        val newsList = NewsListEntity(
+            listId = listId,
+            title = title,
+        ).toDomainModel(
+            newsItemEntities = newsItemEntities,
+            niceDateFormatter = fakeNiceDateFormatter,
+        )
 
-                // Then
-                newsList shouldBe NewsList(
-                    title = "some-title",
-                    newsItems = listOf(NewsListEntityMapperTestData.mockNewsItemStory),
-                )
-            }
+        newsList shouldBe NewsList(
+            title = "some-title",
+            newsItems = listOf(NewsListEntityMapperTestData.newsItemStory),
+        )
+    }
 
-            "Should convert and keep only known types from multiple newsItemEntities" {
-                // Given
-                setupNiceDateFormatter()
-                mockNiceDateFormatter.mockGetNiceDateResponse = "2 days ago"
-                val title = "some-title"
-                val listId = 1
-                val newsItemEntities = listOf(
-                    NewsListEntityMapperTestData.mockNewsItemEntityStory,
-                    NewsListEntityMapperTestData.mockNewsItemEntityWebLink,
-                    NewsListEntityMapperTestData.mockNewsItemEntityUnknown,
-                )
+    @Test
+    fun `toDomainModel should convert and keep only known types from multiple newsItemEntities`() {
+        setupNiceDateFormatter()
+        fakeNiceDateFormatter.getNiceDateResponse = "2 days ago"
+        val title = "some-title"
+        val listId = 1
+        val newsItemEntities = listOf(
+            NewsListEntityMapperTestData.newsItemEntityStory,
+            NewsListEntityMapperTestData.newsItemEntityWebLink,
+            NewsListEntityMapperTestData.newsItemEntityUnknown,
+        )
 
-                // When
-                val newsList = NewsListEntity(
-                    listId = listId,
-                    title = title,
-                ).toDomainModel(
-                    newsItemEntities = newsItemEntities,
-                    niceDateFormatter = mockNiceDateFormatter,
-                )
+        val newsList = NewsListEntity(
+            listId = listId,
+            title = title,
+        ).toDomainModel(
+            newsItemEntities = newsItemEntities,
+            niceDateFormatter = fakeNiceDateFormatter,
+        )
 
-                // Then
-                newsList shouldBe NewsList(
-                    title = "some-title",
-                    newsItems = listOf(
-                        NewsListEntityMapperTestData.mockNewsItemStory,
-                        NewsListEntityMapperTestData.mockNewsItemWebLink,
-                    ),
-                )
-            }
-        }
+        newsList shouldBe NewsList(
+            title = "some-title",
+            newsItems = listOf(
+                NewsListEntityMapperTestData.newsItemStory,
+                NewsListEntityMapperTestData.newsItemWebLink,
+            ),
+        )
     }
 }

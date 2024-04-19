@@ -12,7 +12,7 @@ import uk.ryanwong.catnews.newslist.data.remote.model.UrlDto
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 
-class MockNewsListService : NewsListService {
+class FakeNewsListService : NewsListService {
     override suspend fun getAllItems(): Result<NewsListDto> {
         val randomTimestamp1 = generateRandomPastDate(1)
         val randomTimestamp2 = generateRandomPastDate(2)

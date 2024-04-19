@@ -4,7 +4,6 @@
 
 package uk.ryanwong.catnews.newslist.data.remote
 
-import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.shouldBe
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
@@ -17,8 +16,9 @@ import io.ktor.serialization.kotlinx.json.json
 import io.ktor.utils.io.ByteReadChannel
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
+import org.junit.Test
 
-internal class NewsListServiceImplTest : FreeSpec() {
+internal class NewsListServiceImplTest {
 
     private lateinit var httpClient: HttpClient
     private lateinit var newsListService: NewsListService
@@ -46,60 +46,43 @@ internal class NewsListServiceImplTest : FreeSpec() {
         newsListService = NewsListServiceImpl(httpClient = httpClient)
     }
 
-    init {
+    @Test
+    fun `getAllItems should return NewsListDto if API request is successful`() = runTest {
+        setupDataSource(
+            status = HttpStatusCode.OK,
+            contentType = "application/json",
+            payload = NewsListServiceTestData.JSON_RESPONSE,
+        )
 
-        "getAllItems" - {
-            "Should return NewsListDto if API request is successful" {
-                runTest {
-                    // Given
-                    setupDataSource(
-                        status = HttpStatusCode.OK,
-                        contentType = "application/json",
-                        payload = NewsListServiceTestData.MOCK_JSON_RESPONSE,
-                    )
+        val newsListDto = newsListService.getAllItems()
 
-                    // When
-                    val newsListDto = newsListService.getAllItems()
+        newsListDto shouldBe Result.success(NewsListServiceTestData.newsListDto)
+    }
 
-                    // Then
-                    newsListDto shouldBe Result.success(NewsListServiceTestData.mockNewsListDto)
-                }
-            }
+    @Test
+    fun `getAllItems should return success with null DTO if API request is successful with empty body`() = runTest {
+        setupDataSource(
+            status = HttpStatusCode.OK,
+            contentType = "application/json",
+            payload = "",
+        )
 
-            "Should return success with null DTO if API request is successful with empty body" {
-                runTest {
-                    // Given
-                    setupDataSource(
-                        status = HttpStatusCode.OK,
-                        contentType = "application/json",
-                        payload = "",
-                    )
+        val newsListDto = newsListService.getAllItems()
 
-                    // When
-                    val newsListDto = newsListService.getAllItems()
+        newsListDto shouldBe Result.success(null)
+    }
 
-                    // Then
-                    newsListDto shouldBe Result.success(null)
-                }
-            }
+    @Test
+    fun `getAllItems should return failure if API request returns HTTP Error`() = runTest {
+        setupDataSource(
+            status = HttpStatusCode.BadGateway,
+            contentType = "text/plain",
+            payload = "Bad Gateway",
+        )
 
-            "Should return failure if API request returns HTTP Error" {
-                runTest {
-                    // Given
-                    setupDataSource(
-                        status = HttpStatusCode.BadGateway,
-                        contentType = "text/plain",
-                        payload = "Bad Gateway",
-                    )
+        val newsListDto = newsListService.getAllItems()
 
-                    // When
-                    val newsListDto = newsListService.getAllItems()
-
-                    // Then
-                    newsListDto.isFailure shouldBe true
-                    newsListDto.exceptionOrNull() shouldBe Exception("Bad Gateway")
-                }
-            }
-        }
+        newsListDto.isFailure shouldBe true
+        newsListDto.exceptionOrNull() shouldBe Exception("Bad Gateway")
     }
 }

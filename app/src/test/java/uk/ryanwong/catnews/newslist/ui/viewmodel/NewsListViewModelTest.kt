@@ -4,7 +4,6 @@
 
 package uk.ryanwong.catnews.newslist.ui.viewmodel
 
-import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -13,93 +12,80 @@ import kotlinx.coroutines.test.TestDispatcher
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
+import org.junit.Before
+import org.junit.Test
 import uk.ryanwong.catnews.R
-import uk.ryanwong.catnews.newslist.data.repository.MockNewsListRepository
+import uk.ryanwong.catnews.newslist.data.repository.FakeNewsListRepository
 import uk.ryanwong.catnews.newslist.ui.NewsListUIState
 import java.io.IOException
 
-@OptIn(ExperimentalCoroutinesApi::class)
-internal class NewsListViewModelTest : FreeSpec() {
+internal class NewsListViewModelTest {
 
     private lateinit var scope: TestScope
     private lateinit var dispatcher: TestDispatcher
     private lateinit var newsListViewModel: NewsListViewModel
-    private lateinit var mockNewsListRepository: MockNewsListRepository
+    private lateinit var fakeNewsListRepository: FakeNewsListRepository
 
-    private fun setupTest() {
+    @OptIn(ExperimentalCoroutinesApi::class)
+    @Before
+    fun setupTest() {
         dispatcher = UnconfinedTestDispatcher()
         scope = TestScope(dispatcher)
-        mockNewsListRepository = MockNewsListRepository()
+        fakeNewsListRepository = FakeNewsListRepository()
     }
 
     private fun setupViewModel() {
         newsListViewModel = NewsListViewModel(
-            newsListRepository = mockNewsListRepository,
+            newsListRepository = fakeNewsListRepository,
             dispatcher = dispatcher,
         )
     }
 
-    init {
-        // This view model calls refreshNewsList() at init(), so we do not have to explicitly run this in our tests
-        "refreshNewsList" - {
-            "Should be able to pass the correct URL to the uiState if able to get NewsList from newsListRepository" {
-                setupTest()
-                scope.runTest {
-                    // Given
-                    mockNewsListRepository.mockGetNewsListResponse =
-                        Result.success(NewsListViewModelTestData.mockNewsList)
+    // This view model calls refreshNewsList() at init(), so we do not have to explicitly run this in our tests
+    @Test
+    fun `refreshNewsList should be able to pass the correct URL to the uiState if able to get NewsList from newsListRepository`() {
+        scope.runTest {
+            fakeNewsListRepository.getNewsListResponse = Result.success(NewsListViewModelTestData.newsList)
 
-                    // When
-                    setupViewModel()
+            setupViewModel()
 
-                    // Then
-                    val uiState = newsListViewModel.uiState.first()
-                    uiState shouldBe NewsListUIState(
-                        newsList = listOf(NewsListViewModelTestData.mockNewsItem),
-                        isLoading = false,
-                        errorMessages = emptyList(),
-                    )
-                }
-            }
-
-            "Should append an error message to uiState if newsListRepository is not returning the NewsList requested" {
-                setupTest()
-                scope.runTest {
-                    // Given
-                    mockNewsListRepository.mockGetNewsListResponse = Result.failure(IOException())
-
-                    // When
-                    setupViewModel()
-
-                    // Then
-                    val uiState = newsListViewModel.uiState.first()
-                    uiState.newsList shouldBe emptyList()
-                    uiState.isLoading shouldBe false
-                    uiState.errorMessages shouldHaveSize 1 // error message id is a random number we cannot assert
-                    uiState.errorMessages[0].messageId shouldBe R.string.error_loading_news_list
-                }
-            }
+            val uiState = newsListViewModel.uiState.first()
+            uiState shouldBe NewsListUIState(
+                newsList = listOf(NewsListViewModelTestData.newsItem),
+                isLoading = false,
+                errorMessages = emptyList(),
+            )
         }
+    }
 
-        "errorShown" - {
-            "Should remove the error message from the list after calling" {
-                setupTest()
-                scope.runTest {
-                    // Given
-                    mockNewsListRepository.mockGetNewsListResponse = Result.failure(Exception())
-                    setupViewModel()
+    @Test
+    fun `refreshNewsList should append an error message to uiState if newsListRepository is not returning the NewsList requested`() {
+        scope.runTest {
+            fakeNewsListRepository.getNewsListResponse = Result.failure(IOException())
 
-                    val originalUiState = newsListViewModel.uiState.first()
-                    originalUiState.errorMessages shouldHaveSize 1
+            setupViewModel()
 
-                    // When
-                    newsListViewModel.errorShown(errorId = originalUiState.errorMessages[0].id)
+            val uiState = newsListViewModel.uiState.first()
+            uiState.newsList shouldBe emptyList()
+            uiState.isLoading shouldBe false
+            uiState.errorMessages shouldHaveSize 1 // error message id is a random number we cannot assert
+            uiState.errorMessages[0].messageId shouldBe R.string.error_loading_news_list
+        }
+    }
 
-                    // Then
-                    val uiState = newsListViewModel.uiState.first()
-                    uiState.errorMessages shouldHaveSize 0
-                }
-            }
+    @Test
+    fun `Should remove the error message from the list after calling`() {
+        scope.runTest {
+            fakeNewsListRepository.getNewsListResponse = Result.failure(Exception())
+            setupViewModel()
+
+            val originalUiState = newsListViewModel.uiState.first()
+            originalUiState.errorMessages shouldHaveSize 1
+
+            newsListViewModel.errorShown(errorId = originalUiState.errorMessages[0].id)
+
+            val uiState = newsListViewModel.uiState.first()
+            uiState.errorMessages shouldHaveSize 0
         }
     }
 }

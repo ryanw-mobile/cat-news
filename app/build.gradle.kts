@@ -184,7 +184,10 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     testImplementation(libs.junit)
-    testImplementation(libs.bundles.kotest)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.androidx.test.core.ktx)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.robolectric)
     with(libs.androidx.test) {
         androidTestImplementation(junit4)
         androidTestImplementation(rules)
@@ -232,10 +235,6 @@ configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
 
 tasks.named("preBuild") {
     dependsOn(tasks.named("ktlintFormat"))
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
 }
 
 koverReport {

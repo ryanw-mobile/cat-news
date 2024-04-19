@@ -8,63 +8,51 @@ import uk.ryanwong.catnews.storydetail.data.remote.model.ContentDto
 
 internal object ContentEntityTestData {
 
-    val mockContentDao1 by lazy {
-        ContentDto(
-            accessibilityText = "some-accessibility-text",
-            text = "some-text-1",
-            type = "paragraph",
-            url = "https://some.url/",
-        )
-    }
+    val contentDao1 = ContentDto(
+        accessibilityText = "some-accessibility-text",
+        text = "some-text-1",
+        type = "paragraph",
+        url = "https://some.url/",
+    )
 
-    val mockContentDao2 by lazy {
-        ContentDto(
-            accessibilityText = "some-accessibility-text",
-            text = "some-text-2",
-            type = "paragraph",
-            url = "https://some.url/",
-        )
-    }
+    val contentDao2 = ContentDto(
+        accessibilityText = "some-accessibility-text",
+        text = "some-text-2",
+        type = "paragraph",
+        url = "https://some.url/",
+    )
 
-    val mockContentDao3 by lazy {
-        ContentDto(
-            accessibilityText = "some-accessibility-text",
-            text = "some-text-3",
-            type = "paragraph",
-            url = "https://some.url/",
-        )
-    }
+    val contentDao3 = ContentDto(
+        accessibilityText = "some-accessibility-text",
+        text = "some-text-3",
+        type = "paragraph",
+        url = "https://some.url/",
+    )
 
-    val mockContentEntity1 by lazy {
-        ContentEntity(
-            sequenceId = 0,
-            storyId = 1,
-            type = "paragraph",
-            url = "https://some.url/",
-            accessibilityText = "some-accessibility-text",
-            text = "some-text-1",
-        )
-    }
+    val contentEntity1 = ContentEntity(
+        sequenceId = 0,
+        storyId = 1,
+        type = "paragraph",
+        url = "https://some.url/",
+        accessibilityText = "some-accessibility-text",
+        text = "some-text-1",
+    )
 
-    val mockContentEntity2 by lazy {
-        ContentEntity(
-            sequenceId = 0,
-            storyId = 1,
-            type = "paragraph",
-            url = "https://some.url/",
-            accessibilityText = "some-accessibility-text",
-            text = "some-text-2",
-        )
-    }
+    val contentEntity2 = ContentEntity(
+        sequenceId = 0,
+        storyId = 1,
+        type = "paragraph",
+        url = "https://some.url/",
+        accessibilityText = "some-accessibility-text",
+        text = "some-text-2",
+    )
 
-    val mockContentEntity3 by lazy {
-        ContentEntity(
-            sequenceId = 0,
-            storyId = 1,
-            type = "paragraph",
-            url = "https://some.url/",
-            accessibilityText = "some-accessibility-text",
-            text = "some-text-3",
-        )
-    }
+    val contentEntity3 = ContentEntity(
+        sequenceId = 0,
+        storyId = 1,
+        type = "paragraph",
+        url = "https://some.url/",
+        accessibilityText = "some-accessibility-text",
+        text = "some-text-3",
+    )
 }

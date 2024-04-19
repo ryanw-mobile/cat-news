@@ -14,37 +14,33 @@ import uk.ryanwong.catnews.newslist.data.remote.model.TeaserImageDto
 import uk.ryanwong.catnews.newslist.data.remote.model.UrlDto
 
 internal object NewsListRepositoryImplTestData {
-    private val mockNewsItemDto by lazy {
-        NewsItemDto(
-            creationDate = "2020-11-18T00:00:00Z",
-            headline = "some-headline",
-            id = 1,
-            modifiedDate = "2020-11-19T00:00:00Z",
-            teaserImage = TeaserImageDto(
-                links = LinksDto(
-                    url = UrlDto(
-                        href = "https://some.url/href",
-                        templated = true,
-                        type = "image/jpeg",
-                    ),
+    private val newsItemDto = NewsItemDto(
+        creationDate = "2020-11-18T00:00:00Z",
+        headline = "some-headline",
+        id = 1,
+        modifiedDate = "2020-11-19T00:00:00Z",
+        teaserImage = TeaserImageDto(
+            links = LinksDto(
+                url = UrlDto(
+                    href = "https://some.url/href",
+                    templated = true,
+                    type = "image/jpeg",
                 ),
-                accessibilityText = "some-accessibility-text",
             ),
-            teaserText = "some-teaser-text",
-            type = "story",
-            advertUrl = null,
-            weblinkUrl = null,
-        )
-    }
+            accessibilityText = "some-accessibility-text",
+        ),
+        teaserText = "some-teaser-text",
+        type = "story",
+        advertUrl = null,
+        weblinkUrl = null,
+    )
 
-    val mockNewsListDto by lazy {
-        NewsListDto(
-            title = "some-title",
-            news = listOf(mockNewsItemDto),
-        )
-    }
+    val newsListDto = NewsListDto(
+        title = "some-title",
+        news = listOf(newsItemDto),
+    )
 
-    fun getMockNewsItemEntity(listId: Int) = NewsItemEntity(
+    fun generateNewsItemEntity(listId: Int) = NewsItemEntity(
         listId = listId,
         newsId = 1,
         type = "story",
@@ -60,20 +56,18 @@ internal object NewsListRepositoryImplTestData {
         teaserImageAccessibilityText = "some-accessibility-text",
     )
 
-    val mockNewsList by lazy {
-        NewsList(
-            title = "some-title",
-            newsItems = listOf(
-                NewsItem.Story(
-                    newsId = 1,
-                    headline = "some-headline",
-                    teaserText = "some-teaser-text",
-                    modifiedDate = "2020-11-19T00:00:00Z",
-                    niceDate = "2 days ago",
-                    teaserImageUrl = "https://some.url/href",
-                    teaserImageAccessibilityText = "some-accessibility-text",
-                ),
+    val newsList = NewsList(
+        title = "some-title",
+        newsItems = listOf(
+            NewsItem.Story(
+                newsId = 1,
+                headline = "some-headline",
+                teaserText = "some-teaser-text",
+                modifiedDate = "2020-11-19T00:00:00Z",
+                niceDate = "2 days ago",
+                teaserImageUrl = "https://some.url/href",
+                teaserImageAccessibilityText = "some-accessibility-text",
             ),
-        )
-    }
+        ),
+    )
 }

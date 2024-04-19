@@ -5,7 +5,6 @@
 package uk.ryanwong.catnews.newslist.ui.viewmodel
 
 import androidx.lifecycle.SavedStateHandle
-import io.kotest.core.spec.style.FreeSpec
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
 import io.mockk.every
@@ -16,18 +15,20 @@ import kotlinx.coroutines.test.TestDispatcher
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
+import org.junit.Before
+import org.junit.Test
 import uk.ryanwong.catnews.R
-import uk.ryanwong.catnews.newslist.data.repository.MockNewsListRepository
+import uk.ryanwong.catnews.newslist.data.repository.FakeNewsListRepository
 import uk.ryanwong.catnews.weblink.ui.WebLinkUIState
 import uk.ryanwong.catnews.weblink.ui.viewmodel.WebLinkViewModel
 
 @OptIn(ExperimentalCoroutinesApi::class)
-internal class WebLinkViewModelTest : FreeSpec() {
+internal class WebLinkViewModelTest {
 
     private lateinit var scope: TestScope
     private lateinit var dispatcher: TestDispatcher
     private lateinit var webLinkViewModel: WebLinkViewModel
-    private lateinit var mockNewsListRepository: MockNewsListRepository
+    private lateinit var fakeNewsListRepository: FakeNewsListRepository
     private lateinit var mockStateHandle: SavedStateHandle
 
     /***
@@ -39,102 +40,83 @@ internal class WebLinkViewModelTest : FreeSpec() {
      * mocked before triggering its init()
      */
 
-    private fun setupTest() {
+    @Before
+    fun setupTest() {
         dispatcher = UnconfinedTestDispatcher()
         scope = TestScope(dispatcher)
         mockStateHandle = mockk()
-        mockNewsListRepository = MockNewsListRepository()
+        fakeNewsListRepository = FakeNewsListRepository()
     }
 
     private fun setupViewModel() {
         webLinkViewModel = WebLinkViewModel(
             stateHandle = mockStateHandle,
-            newsListRepository = mockNewsListRepository,
+            newsListRepository = fakeNewsListRepository,
             dispatcher = dispatcher,
         )
     }
 
-    init {
-        "init" - {
-            "Should be able to pass the stateHandle list_id to newsListRepository and make requests" {
-                setupTest()
-                scope.runTest {
-                    // Given
-                    every { mockStateHandle.get<Int>("list_id") } returns 521
-                    mockNewsListRepository.mockGetNewsItemResponse =
-                        Result.success(WebLinkViewModelTestData.mockNewsItemWebLink)
+    @Test
+    fun `init should be able to pass the stateHandle list_id to newsListRepository and make requests`() {
+        scope.runTest {
+            every { mockStateHandle.get<Int>("list_id") } returns 521
+            fakeNewsListRepository.getNewsItemResponse = Result.success(WebLinkViewModelTestData.newsItemWebLink)
 
-                    // When
-                    setupViewModel()
+            setupViewModel()
 
-                    // Then
-                    mockNewsListRepository.mockGetNewsItemNewsId shouldBe 521
-                }
-            }
+            fakeNewsListRepository.getNewsItemNewsId shouldBe 521
+        }
+    }
 
-            "Should be able to pass the correct URL to the uiState if able to get NewsItem from newsListRepository" {
-                setupTest()
-                scope.runTest {
-                    // Given
-                    every { mockStateHandle.get<Int>("list_id") } returns 2
-                    mockNewsListRepository.mockGetNewsItemResponse =
-                        Result.success(WebLinkViewModelTestData.mockNewsItemWebLink)
+    @Test
+    fun `init should be able to pass the correct URL to the uiState if able to get NewsItem from newsListRepository`() {
+        scope.runTest {
+            every { mockStateHandle.get<Int>("list_id") } returns 2
+            fakeNewsListRepository.getNewsItemResponse = Result.success(WebLinkViewModelTestData.newsItemWebLink)
 
-                    // When
-                    setupViewModel()
+            setupViewModel()
 
-                    // Then
-                    val uiState = webLinkViewModel.uiState.first()
-                    uiState shouldBe WebLinkUIState(
-                        url = "https://some.weblink.url/2",
-                        isLoading = false,
-                        errorMessages = emptyList(),
-                    )
-                }
-            }
+            val uiState = webLinkViewModel.uiState.first()
+            uiState shouldBe WebLinkUIState(
+                url = "https://some.weblink.url/2",
+                isLoading = false,
+                errorMessages = emptyList(),
+            )
+        }
+    }
 
-            "Should append an error message to uiState if newsListRepository is not returning the NewsItem requested" {
-                setupTest()
-                scope.runTest {
-                    // Given
-                    every { mockStateHandle.get<Int>("list_id") } returns 1
-                    mockNewsListRepository.mockGetNewsItemResponse =
-                        Result.success(WebLinkViewModelTestData.mockNewsItemStory)
+    @Test
+    fun `init should append an error message to uiState if newsListRepository is not returning the NewsItem requested`() {
+        scope.runTest {
+            every { mockStateHandle.get<Int>("list_id") } returns 1
+            fakeNewsListRepository.getNewsItemResponse = Result.failure(Exception("some-exception"))
 
-                    // When
-                    setupViewModel()
+            setupViewModel()
 
-                    // Then
-                    val uiState = webLinkViewModel.uiState.first()
-                    uiState.url shouldBe null
-                    uiState.isLoading shouldBe false
-                    uiState.errorMessages shouldHaveSize 1 // error message id is a random number we cannot assert
-                    uiState.errorMessages[0].messageId shouldBe R.string.error_loading_web_link
-                }
+            val uiState = webLinkViewModel.uiState.first()
+            with(uiState) {
+                url shouldBe null
+                isLoading shouldBe false
+                errorMessages shouldHaveSize 1 // error message id is a random number we cannot assert
+                errorMessages[0].messageId shouldBe R.string.error_loading_web_link
             }
         }
+    }
 
-        "errorShown" - {
-            "Should remove the error message from the list after calling" {
-                setupTest()
-                scope.runTest {
-                    // Given
-                    every { mockStateHandle.get<Int>("list_id") } returns 1
-                    mockNewsListRepository.mockGetNewsItemResponse =
-                        Result.success(WebLinkViewModelTestData.mockNewsItemStory)
-                    setupViewModel()
+    @Test
+    fun `Should remove the error message from the list after calling`() {
+        scope.runTest {
+            every { mockStateHandle.get<Int>("list_id") } returns 1
+            fakeNewsListRepository.getNewsItemResponse = Result.success(WebLinkViewModelTestData.newsItemStory)
+            setupViewModel()
 
-                    val originalUiState = webLinkViewModel.uiState.first()
-                    originalUiState.errorMessages shouldHaveSize 1
+            val originalUiState = webLinkViewModel.uiState.first()
+            originalUiState.errorMessages shouldHaveSize 1
 
-                    // When
-                    webLinkViewModel.errorShown(errorId = originalUiState.errorMessages[0].id)
+            webLinkViewModel.errorShown(errorId = originalUiState.errorMessages[0].id)
 
-                    // Then
-                    val uiState = webLinkViewModel.uiState.first()
-                    uiState.errorMessages shouldHaveSize 0
-                }
-            }
+            val uiState = webLinkViewModel.uiState.first()
+            uiState.errorMessages shouldHaveSize 0
         }
     }
 }

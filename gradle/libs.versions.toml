@@ -4,29 +4,31 @@ minsdk = "26"
 targetsdk = "34"
 compilesdk = "34"
 
-compose-webview = "0.33.6"
-androidx-activity-compose = "1.9.0"
-androidx-compose-bom = "2024.04.01"
-androidx-core-ktx = "1.13.0"
-androidx-lifecycle-runtime-compose = "2.7.0"
-androidx-navigation-compose = "2.7.7"
+composeWebview = "0.33.6"
+androidxActivityCompose = "1.9.0"
+androidxComposeBom = "2024.04.01"
+androidxCoreKtx = "1.13.0"
+androidxLifecycleRuntimeCompose = "2.7.0"
+androidxNavigationCompose = "2.7.7"
 coil = "2.6.0"
 coroutines = "1.8.0"
 espresso = "3.5.1"
 gradleplugin = "8.3.2"
 hilt = "2.51.1"
-hilt-navigation-compose = "1.2.0"
+hiltNavigationCompose = "1.2.0"
 junit = "4.13.2"
 kotest = "5.8.1"
-kotlinx-serialization-json = "1.6.3"
+kotlinxSerializationJson = "1.6.3"
 kover = "0.7.6"
 ktlint = "12.1.0"
 ktor = "2.3.10"
 leakcanary = "2.14"
 mockk = "1.13.10"
+robolectric = "4.12.1"
 room = "2.6.1"
-test-rules = "1.5.0"
-test-ext = "1.1.5"
+testRules = "1.5.0"
+testExt = "1.1.5"
+testCoreKtx = "1.5.0"
 timber = "5.0.1"
 kotlin = "1.9.23"
 # Compose compiler dependency: https://developer.android.com/jetpack/androidx/releases/compose-kotlin
@@ -35,10 +37,10 @@ compose-kotlin-compiler-extension = "1.5.12"
 devtoolsksp = "1.9.23-1.0.20"
 
 [libraries]
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
-androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle-runtime-compose" }
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidx-activity-compose" }
-androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidx-navigation-compose" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCoreKtx" }
+androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycleRuntimeCompose" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivityCompose" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigationCompose" }
 
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" } # use with ksp
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
@@ -46,12 +48,13 @@ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = 
 androidx-room-testing = { group = "androidx.room", name = "room-testing", version.ref = "room" }
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-test-junit4 = { group = "androidx.test.ext", name = "junit", version.ref = "test-ext" }
-androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "test-rules" }
+androidx-test-core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "testCoreKtx" }
+androidx-test-junit4 = { group = "androidx.test.ext", name = "junit", version.ref = "testExt" }
+androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "testRules" }
 androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
 androidx-test-espresso-idling-resource = { group = "androidx.test.espresso", name = "espresso-idling-resource", version.ref = "espresso" }
 
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidx-compose-bom" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
 androidx-compose-material = { group = "androidx.compose.material", name = "material" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
@@ -70,11 +73,9 @@ kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", vers
 
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
-kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
-
-kotest-runner-junit5 = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 kotest-assertions-core = { group = "io.kotest", name = "kotest-assertions-core", version.ref = "kotest" }
-kotest-property = { group = "io.kotest", name = "kotest-property", version.ref = "kotest" }
 
 ktor-client-android = { group = "io.ktor", name = "ktor-client-android", version.ref = "ktor" }
 ktor-client-serialization = { group = "io.ktor", name = "ktor-client-serialization", version.ref = "ktor" }
@@ -88,20 +89,21 @@ hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 mockk-agent-jvm = { group = "io.mockk", name = "mockk-agent-jvm", version.ref = "mockk" }
 mockk-android = { group = "io.mockk", name = "mockk-android", version.ref = "mockk" }
-compose-webview = { module = "io.github.kevinnzou:compose-webview", version.ref = "compose-webview" }
+compose-webview = { module = "io.github.kevinnzou:compose-webview", version.ref = "composeWebview" }
 leakcanary-android = { group = "com.squareup.leakcanary", name = "leakcanary-android", version.ref = "leakcanary" }
 ktlint-gradle = { group = "org.jlleitschuh.gradle", name = "ktlint-gradle", version.ref = "ktlint" }
+
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 
 [bundles]
 # Define bundles/groups of libraries
 coil = ["coil-kt", "coil-kt-compose"]
 room = ["androidx-room-ktx", "androidx-room-runtime"]
-kotest = ["kotest-runner-junit5", "kotest-assertions-core", "kotest-property"]
 ktor = ["ktor-client-android", "ktor-client-serialization", "ktor-client-cio", "ktor-client-content-negotiation", "ktor-client-logging-jvm", "ktor-serialization-kotlinx-json"]
 coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]
 
