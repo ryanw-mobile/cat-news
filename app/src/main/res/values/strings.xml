@@ -1,3 +1,7 @@
+<!--
+  ~ Copyright (c) 2024. Ryan Wong (hello@ryanwong.co.uk)
+  -->
+
 <resources>
     <string name="app_name">Cat News</string>
     <string name="nothing_to_show">Nothing to show. Please try again.</string>

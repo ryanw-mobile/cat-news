@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2024. Ryan Wong (hello@ryanwong.co.uk)
+  -->
+
 <resources>
 
     <style name="Theme.catnews" parent="android:Theme.Material.Light.NoActionBar">

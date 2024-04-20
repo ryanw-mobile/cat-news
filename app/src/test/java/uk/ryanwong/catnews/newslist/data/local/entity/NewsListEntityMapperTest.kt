@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2024. Ryan Wong (hello@ryanwong.co.uk)
+ */
+
 package uk.ryanwong.catnews.newslist.data.local.entity
 
 import io.kotest.matchers.shouldBe
