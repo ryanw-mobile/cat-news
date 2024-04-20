@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2024. Ryan Wong (hello@ryanwong.co.uk)
  */
 
 package uk.ryanwong.catnews.newslist.ui.viewmodel
@@ -19,8 +19,8 @@ import org.junit.Before
 import org.junit.Test
 import uk.ryanwong.catnews.R
 import uk.ryanwong.catnews.newslist.data.repository.FakeNewsListRepository
-import uk.ryanwong.catnews.weblink.ui.WebLinkUIState
-import uk.ryanwong.catnews.weblink.ui.viewmodel.WebLinkViewModel
+import uk.ryanwong.catnews.ui.screens.weblink.WebLinkUIState
+import uk.ryanwong.catnews.ui.viewmodel.WebLinkViewModel
 
 @OptIn(ExperimentalCoroutinesApi::class)
 internal class WebLinkViewModelTest {

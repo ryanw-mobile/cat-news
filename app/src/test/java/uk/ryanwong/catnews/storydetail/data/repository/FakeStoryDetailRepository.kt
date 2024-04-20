@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2024. Ryan Wong (hello@ryanwong.co.uk)
  */
 
 package uk.ryanwong.catnews.storydetail.data.repository
 
 import uk.ryanwong.catnews.domain.model.storydetail.Story
+import uk.ryanwong.catnews.domain.repository.interfaces.StoryDetailRepository
 
 internal class FakeStoryDetailRepository : StoryDetailRepository {
 

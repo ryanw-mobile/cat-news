@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2024. Ryan Wong (hello@ryanwong.co.uk)
  */
 
 package uk.ryanwong.catnews.newslist.data.remote
 
-import uk.ryanwong.catnews.newslist.data.remote.model.LinksDto
-import uk.ryanwong.catnews.newslist.data.remote.model.NewsItemDto
-import uk.ryanwong.catnews.newslist.data.remote.model.NewsListDto
-import uk.ryanwong.catnews.newslist.data.remote.model.TeaserImageDto
-import uk.ryanwong.catnews.newslist.data.remote.model.UrlDto
+import uk.ryanwong.catnews.data.dto.LinksDto
+import uk.ryanwong.catnews.data.dto.NewsItemDto
+import uk.ryanwong.catnews.data.dto.NewsListDto
+import uk.ryanwong.catnews.data.dto.TeaserImageDto
+import uk.ryanwong.catnews.data.dto.UrlDto
 
 internal object NewsListServiceTestData {
 

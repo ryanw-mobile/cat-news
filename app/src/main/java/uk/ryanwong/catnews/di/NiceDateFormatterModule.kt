@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2024. Ryan Wong (hello@ryanwong.co.uk)
  */
 
 package uk.ryanwong.catnews.di
@@ -8,8 +8,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import uk.ryanwong.catnews.app.util.nicedateformatter.NiceDateFormatter
-import uk.ryanwong.catnews.app.util.nicedateformatter.NiceDateFormatterImpl
+import uk.ryanwong.catnews.domain.util.nicedateformatter.NiceDateFormatter
+import uk.ryanwong.catnews.domain.util.nicedateformatter.NiceDateFormatterImpl
 import javax.inject.Singleton
 
 @Module

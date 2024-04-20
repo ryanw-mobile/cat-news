@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2024. Ryan Wong (hello@ryanwong.co.uk)
  */
 
 package uk.ryanwong.catnews.storydetail.data.remote
@@ -17,6 +17,8 @@ import io.ktor.utils.io.ByteReadChannel
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 import org.junit.Test
+import uk.ryanwong.catnews.data.datasource.remote.StoryServiceImpl
+import uk.ryanwong.catnews.data.datasource.remote.interfaces.StoryService
 
 internal class StoryServiceImplTest {
 

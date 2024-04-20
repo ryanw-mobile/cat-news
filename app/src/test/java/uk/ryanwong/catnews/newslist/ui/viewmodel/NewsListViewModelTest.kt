@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2024. Ryan Wong (hello@ryanwong.co.uk)
  */
 
 package uk.ryanwong.catnews.newslist.ui.viewmodel
@@ -16,7 +16,8 @@ import org.junit.Before
 import org.junit.Test
 import uk.ryanwong.catnews.R
 import uk.ryanwong.catnews.newslist.data.repository.FakeNewsListRepository
-import uk.ryanwong.catnews.newslist.ui.NewsListUIState
+import uk.ryanwong.catnews.ui.screens.newslist.NewsListUIState
+import uk.ryanwong.catnews.ui.viewmodel.NewsListViewModel
 import java.io.IOException
 
 internal class NewsListViewModelTest {

@@ -1,9 +1,10 @@
 /*
- * Copyright (c) 2023. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2024. Ryan Wong (hello@ryanwong.co.uk)
  */
 
 package uk.ryanwong.catnews.newslist.data.local.entity
 
+import uk.ryanwong.catnews.data.datasource.local.entity.NewsItemEntity
 import uk.ryanwong.catnews.domain.model.newslist.NewsItem
 
 internal object NewsListEntityMapperTestData {

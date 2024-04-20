@@ -1,8 +1,10 @@
 /*
- * Copyright (c) 2022. Ryan Wong (hello@ryanwong.co.uk)
+ * Copyright (c) 2024. Ryan Wong (hello@ryanwong.co.uk)
  */
 
 package uk.ryanwong.catnews.app.util.nicedateformatter
+
+import uk.ryanwong.catnews.domain.util.nicedateformatter.NiceDateFormatter
 
 class FakeNiceDateFormatter : NiceDateFormatter {
     var getNiceDateResponse: String? = null
