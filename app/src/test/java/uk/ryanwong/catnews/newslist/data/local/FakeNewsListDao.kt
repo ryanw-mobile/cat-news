@@ -4,8 +4,9 @@
 
 package uk.ryanwong.catnews.newslist.data.local
 
-import uk.ryanwong.catnews.newslist.data.local.entity.NewsItemEntity
-import uk.ryanwong.catnews.newslist.data.local.entity.NewsListEntity
+import uk.ryanwong.catnews.data.datasource.local.daos.NewsListDao
+import uk.ryanwong.catnews.data.datasource.local.entity.NewsItemEntity
+import uk.ryanwong.catnews.data.datasource.local.entity.NewsListEntity
 
 internal class FakeNewsListDao : NewsListDao {
 

@@ -4,6 +4,9 @@
 
 package uk.ryanwong.catnews.storydetail.data.local.entity
 
+import uk.ryanwong.catnews.data.datasource.local.entity.ContentEntity
+import uk.ryanwong.catnews.data.datasource.local.entity.StoryEntity
+
 internal object StoryEntityMapperTestData {
 
     val storyEntity = StoryEntity(

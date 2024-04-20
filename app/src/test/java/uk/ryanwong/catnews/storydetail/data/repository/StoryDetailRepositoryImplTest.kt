@@ -11,11 +11,13 @@ import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import uk.ryanwong.catnews.app.exception.RemoteSourceFailedWithNoCacheException
-import uk.ryanwong.catnews.app.exception.StoryNotFoundException
+import uk.ryanwong.catnews.data.datasource.local.entity.StoryEntity
+import uk.ryanwong.catnews.domain.exception.RemoteSourceFailedWithNoCacheException
+import uk.ryanwong.catnews.domain.exception.StoryNotFoundException
 import uk.ryanwong.catnews.domain.model.storydetail.Story
+import uk.ryanwong.catnews.domain.repository.interfaces.StoryDetailRepository
+import uk.ryanwong.catnews.repository.StoryDetailRepositoryImpl
 import uk.ryanwong.catnews.storydetail.data.local.FakeStoryDao
-import uk.ryanwong.catnews.storydetail.data.local.entity.StoryEntity
 import uk.ryanwong.catnews.storydetail.data.remote.FakeStoryService
 import java.net.ConnectException
 import java.net.UnknownHostException

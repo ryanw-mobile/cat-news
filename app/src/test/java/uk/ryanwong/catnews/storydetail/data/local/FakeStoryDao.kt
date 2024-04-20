@@ -4,8 +4,9 @@
 
 package uk.ryanwong.catnews.storydetail.data.local
 
-import uk.ryanwong.catnews.storydetail.data.local.entity.ContentEntity
-import uk.ryanwong.catnews.storydetail.data.local.entity.StoryEntity
+import uk.ryanwong.catnews.data.datasource.local.daos.StoryDao
+import uk.ryanwong.catnews.data.datasource.local.entity.ContentEntity
+import uk.ryanwong.catnews.data.datasource.local.entity.StoryEntity
 
 internal class FakeStoryDao : StoryDao {
 

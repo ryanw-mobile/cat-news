@@ -4,7 +4,8 @@
 
 package uk.ryanwong.catnews.storydetail.data.local.entity
 
-import uk.ryanwong.catnews.storydetail.data.remote.model.ContentDto
+import uk.ryanwong.catnews.data.datasource.local.entity.ContentEntity
+import uk.ryanwong.catnews.data.dto.ContentDto
 
 internal object ContentEntityTestData {
 

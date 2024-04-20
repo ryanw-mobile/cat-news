@@ -4,14 +4,14 @@
 
 package uk.ryanwong.catnews.newslist.data.repository
 
+import uk.ryanwong.catnews.data.datasource.local.entity.NewsItemEntity
+import uk.ryanwong.catnews.data.dto.LinksDto
+import uk.ryanwong.catnews.data.dto.NewsItemDto
+import uk.ryanwong.catnews.data.dto.NewsListDto
+import uk.ryanwong.catnews.data.dto.TeaserImageDto
+import uk.ryanwong.catnews.data.dto.UrlDto
 import uk.ryanwong.catnews.domain.model.newslist.NewsItem
 import uk.ryanwong.catnews.domain.model.newslist.NewsList
-import uk.ryanwong.catnews.newslist.data.local.entity.NewsItemEntity
-import uk.ryanwong.catnews.newslist.data.remote.model.LinksDto
-import uk.ryanwong.catnews.newslist.data.remote.model.NewsItemDto
-import uk.ryanwong.catnews.newslist.data.remote.model.NewsListDto
-import uk.ryanwong.catnews.newslist.data.remote.model.TeaserImageDto
-import uk.ryanwong.catnews.newslist.data.remote.model.UrlDto
 
 internal object NewsListRepositoryImplTestData {
     private val newsItemDto = NewsItemDto(

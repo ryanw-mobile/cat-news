@@ -17,6 +17,8 @@ import io.ktor.utils.io.ByteReadChannel
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 import org.junit.Test
+import uk.ryanwong.catnews.data.datasource.remote.StoryServiceImpl
+import uk.ryanwong.catnews.data.datasource.remote.interfaces.StoryService
 
 internal class StoryServiceImplTest {
 

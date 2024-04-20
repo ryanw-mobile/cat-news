@@ -5,6 +5,8 @@ import io.kotest.matchers.shouldBe
 import org.junit.Before
 import org.junit.Test
 import uk.ryanwong.catnews.app.util.nicedateformatter.FakeNiceDateFormatter
+import uk.ryanwong.catnews.data.datasource.local.entity.NewsItemEntity
+import uk.ryanwong.catnews.data.datasource.local.mappers.toDomainModel
 import uk.ryanwong.catnews.domain.model.newslist.NewsItem
 
 class NewsItemEntityMapperTest {

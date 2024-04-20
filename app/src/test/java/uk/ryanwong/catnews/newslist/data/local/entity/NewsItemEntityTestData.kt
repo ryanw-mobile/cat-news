@@ -4,10 +4,11 @@
 
 package uk.ryanwong.catnews.newslist.data.local.entity
 
-import uk.ryanwong.catnews.newslist.data.remote.model.LinksDto
-import uk.ryanwong.catnews.newslist.data.remote.model.NewsItemDto
-import uk.ryanwong.catnews.newslist.data.remote.model.TeaserImageDto
-import uk.ryanwong.catnews.newslist.data.remote.model.UrlDto
+import uk.ryanwong.catnews.data.datasource.local.entity.NewsItemEntity
+import uk.ryanwong.catnews.data.dto.LinksDto
+import uk.ryanwong.catnews.data.dto.NewsItemDto
+import uk.ryanwong.catnews.data.dto.TeaserImageDto
+import uk.ryanwong.catnews.data.dto.UrlDto
 
 internal object NewsItemEntityTestData {
 

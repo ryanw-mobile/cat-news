@@ -6,6 +6,7 @@ package uk.ryanwong.catnews.newslist.data.repository
 
 import uk.ryanwong.catnews.domain.model.newslist.NewsItem
 import uk.ryanwong.catnews.domain.model.newslist.NewsList
+import uk.ryanwong.catnews.domain.repository.interfaces.NewsListRepository
 
 internal class FakeNewsListRepository : NewsListRepository {
 

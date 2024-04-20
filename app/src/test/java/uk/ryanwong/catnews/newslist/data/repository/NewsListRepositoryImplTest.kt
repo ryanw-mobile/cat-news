@@ -11,13 +11,15 @@ import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import uk.ryanwong.catnews.app.exception.RemoteSourceFailedWithNoCacheException
 import uk.ryanwong.catnews.app.util.nicedateformatter.FakeNiceDateFormatter
+import uk.ryanwong.catnews.data.datasource.local.entity.NewsListEntity
+import uk.ryanwong.catnews.domain.exception.RemoteSourceFailedWithNoCacheException
 import uk.ryanwong.catnews.domain.model.newslist.NewsItem
 import uk.ryanwong.catnews.domain.model.newslist.NewsList
+import uk.ryanwong.catnews.domain.repository.interfaces.NewsListRepository
 import uk.ryanwong.catnews.newslist.data.local.FakeNewsListDao
-import uk.ryanwong.catnews.newslist.data.local.entity.NewsListEntity
 import uk.ryanwong.catnews.newslist.data.remote.FakeNewsListService
+import uk.ryanwong.catnews.repository.NewsListRepositoryImpl
 import java.net.ConnectException
 import java.net.UnknownHostException
 

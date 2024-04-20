@@ -17,9 +17,10 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
 import uk.ryanwong.catnews.R
-import uk.ryanwong.catnews.app.exception.StoryNotFoundException
+import uk.ryanwong.catnews.domain.exception.StoryNotFoundException
 import uk.ryanwong.catnews.storydetail.data.repository.FakeStoryDetailRepository
-import uk.ryanwong.catnews.storydetail.ui.StoryDetailUIState
+import uk.ryanwong.catnews.ui.screens.storydetail.StoryDetailUIState
+import uk.ryanwong.catnews.ui.viewmodel.StoryDetailViewModel
 
 internal class StoryDetailViewModelTest {
 

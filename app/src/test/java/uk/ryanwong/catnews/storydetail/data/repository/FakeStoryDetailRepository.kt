@@ -5,6 +5,7 @@
 package uk.ryanwong.catnews.storydetail.data.repository
 
 import uk.ryanwong.catnews.domain.model.storydetail.Story
+import uk.ryanwong.catnews.domain.repository.interfaces.StoryDetailRepository
 
 internal class FakeStoryDetailRepository : StoryDetailRepository {
 

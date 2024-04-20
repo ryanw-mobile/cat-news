@@ -19,8 +19,8 @@ import org.junit.Before
 import org.junit.Test
 import uk.ryanwong.catnews.R
 import uk.ryanwong.catnews.newslist.data.repository.FakeNewsListRepository
-import uk.ryanwong.catnews.weblink.ui.WebLinkUIState
-import uk.ryanwong.catnews.weblink.ui.viewmodel.WebLinkViewModel
+import uk.ryanwong.catnews.ui.screens.weblink.WebLinkUIState
+import uk.ryanwong.catnews.ui.viewmodel.WebLinkViewModel
 
 @OptIn(ExperimentalCoroutinesApi::class)
 internal class WebLinkViewModelTest {

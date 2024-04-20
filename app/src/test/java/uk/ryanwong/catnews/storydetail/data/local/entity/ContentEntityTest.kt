@@ -7,7 +7,8 @@ package uk.ryanwong.catnews.storydetail.data.local.entity
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
 import org.junit.Test
-import uk.ryanwong.catnews.storydetail.data.remote.model.ContentDto
+import uk.ryanwong.catnews.data.datasource.local.entity.ContentEntity
+import uk.ryanwong.catnews.data.dto.ContentDto
 
 internal class ContentEntityTest {
 

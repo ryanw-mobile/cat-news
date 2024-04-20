@@ -269,9 +269,12 @@ koverReport {
                 listOf(
                     "dagger.hilt.internal.aggregatedroot.codegen",
                     "hilt_aggregated_deps",
-                    "uk.ryanwong.catnews.app.ui",
-                    "uk.ryanwong.catnews.*.ui.screen",
-                    "uk.ryanwong.catnews.*.di",
+                    "uk.ryanwong.catnews.ui.preview",
+                    "uk.ryanwong.catnews.ui.navigation",
+                    "uk.ryanwong.catnews.ui.components",
+                    "uk.ryanwong.catnews.ui.screens",
+                    "uk.ryanwong.catnews.ui.theme",
+                    "uk.ryanwong.catnews.di",
                 ),
             )
         }

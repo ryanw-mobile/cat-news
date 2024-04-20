@@ -18,15 +18,16 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
-import uk.ryanwong.catnews.app.database.LocalDatabaseImpl
-import uk.ryanwong.catnews.newslist.data.local.entity.NewsItemEntity
-import uk.ryanwong.catnews.newslist.data.local.entity.NewsListEntity
+import uk.ryanwong.catnews.data.datasource.local.RoomLocalDatabase
+import uk.ryanwong.catnews.data.datasource.local.daos.NewsListDao
+import uk.ryanwong.catnews.data.datasource.local.entity.NewsItemEntity
+import uk.ryanwong.catnews.data.datasource.local.entity.NewsListEntity
 
 @ExperimentalCoroutinesApi
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [Build.VERSION_CODES.P])
 internal class NewsListDaoTest {
-    private lateinit var localDatabase: LocalDatabaseImpl
+    private lateinit var localDatabase: RoomLocalDatabase
     private lateinit var newsListDao: NewsListDao
 
     /**
@@ -36,7 +37,7 @@ internal class NewsListDaoTest {
     @Before
     fun setupDatabase() {
         val context = ApplicationProvider.getApplicationContext<Context>()
-        localDatabase = Room.inMemoryDatabaseBuilder(context, LocalDatabaseImpl::class.java)
+        localDatabase = Room.inMemoryDatabaseBuilder(context, RoomLocalDatabase::class.java)
             .build()
 
         newsListDao = localDatabase.newsListDao()

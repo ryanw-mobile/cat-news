@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".NewsApp"
+        android:name="uk.ryanwong.catnews.NewsApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -21,7 +21,7 @@
             tools:targetApi="q" />
 
         <activity
-            android:name="uk.ryanwong.catnews.app.MainActivity"
+            android:name="uk.ryanwong.catnews.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.catnews">
             <intent-filter>

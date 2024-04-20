@@ -4,13 +4,13 @@
 
 package uk.ryanwong.catnews.storydetail.data.repository
 
+import uk.ryanwong.catnews.data.datasource.local.entity.ContentEntity
+import uk.ryanwong.catnews.data.datasource.local.entity.StoryEntity
+import uk.ryanwong.catnews.data.dto.ContentDto
+import uk.ryanwong.catnews.data.dto.HeroImageDto
+import uk.ryanwong.catnews.data.dto.StoryDto
 import uk.ryanwong.catnews.domain.model.storydetail.Content
 import uk.ryanwong.catnews.domain.model.storydetail.Story
-import uk.ryanwong.catnews.storydetail.data.local.entity.ContentEntity
-import uk.ryanwong.catnews.storydetail.data.local.entity.StoryEntity
-import uk.ryanwong.catnews.storydetail.data.remote.model.ContentDto
-import uk.ryanwong.catnews.storydetail.data.remote.model.HeroImageDto
-import uk.ryanwong.catnews.storydetail.data.remote.model.StoryDto
 
 internal object StoryDetailRepositoryImplTestData {
     val storyDto = StoryDto(

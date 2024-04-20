@@ -4,9 +4,10 @@
 
 package uk.ryanwong.catnews.storydetail.data.local.entity
 
-import uk.ryanwong.catnews.storydetail.data.remote.model.ContentDto
-import uk.ryanwong.catnews.storydetail.data.remote.model.HeroImageDto
-import uk.ryanwong.catnews.storydetail.data.remote.model.StoryDto
+import uk.ryanwong.catnews.data.datasource.local.entity.StoryEntity
+import uk.ryanwong.catnews.data.dto.ContentDto
+import uk.ryanwong.catnews.data.dto.HeroImageDto
+import uk.ryanwong.catnews.data.dto.StoryDto
 
 internal object StoryEntityTestData {
 

@@ -4,6 +4,7 @@
 
 package uk.ryanwong.catnews.newslist.data.local.entity
 
+import uk.ryanwong.catnews.data.datasource.local.entity.NewsItemEntity
 import uk.ryanwong.catnews.domain.model.newslist.NewsItem
 
 internal object NewsItemEntityMapperTestData {

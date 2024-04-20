@@ -4,7 +4,8 @@
 
 package uk.ryanwong.catnews.storydetail.data.remote
 
-import uk.ryanwong.catnews.storydetail.data.remote.model.StoryDto
+import uk.ryanwong.catnews.data.datasource.remote.interfaces.StoryService
+import uk.ryanwong.catnews.data.dto.StoryDto
 
 internal class FakeStoryService : StoryService {
     var getStoryResponseException: Exception? = null
