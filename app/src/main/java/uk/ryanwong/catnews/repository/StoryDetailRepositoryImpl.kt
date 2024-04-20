@@ -11,7 +11,7 @@ import kotlinx.coroutines.withContext
 import uk.ryanwong.catnews.data.datasource.local.daos.StoryDao
 import uk.ryanwong.catnews.data.datasource.local.entity.ContentEntity
 import uk.ryanwong.catnews.data.datasource.local.entity.StoryEntity
-import uk.ryanwong.catnews.data.datasource.local.mappers.toDomainModel
+import uk.ryanwong.catnews.data.datasource.local.mappers.asDomainModel
 import uk.ryanwong.catnews.data.datasource.remote.interfaces.StoryService
 import uk.ryanwong.catnews.data.dto.StoryDto
 import uk.ryanwong.catnews.di.DispatcherModule
@@ -66,7 +66,7 @@ class StoryDetailRepositoryImpl(
         val storyEntity = storyDao.getStory(storyId = storyId)
         val contentEntities = storyDao.getContents(storyId = storyId)
 
-        return storyEntity?.toDomainModel(contentEntities = contentEntities)
+        return storyEntity?.asDomainModel(contentEntities = contentEntities)
     }
 
     private suspend fun updateLocalDatabase(storyDto: StoryDto) {

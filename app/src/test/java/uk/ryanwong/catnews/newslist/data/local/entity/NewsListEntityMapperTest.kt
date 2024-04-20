@@ -5,7 +5,7 @@ import org.junit.Before
 import org.junit.Test
 import uk.ryanwong.catnews.app.util.nicedateformatter.FakeNiceDateFormatter
 import uk.ryanwong.catnews.data.datasource.local.entity.NewsListEntity
-import uk.ryanwong.catnews.data.datasource.local.mappers.toDomainModel
+import uk.ryanwong.catnews.data.datasource.local.mappers.asDomainModel
 import uk.ryanwong.catnews.domain.model.newslist.NewsList
 
 class NewsListEntityMapperTest {
@@ -18,7 +18,7 @@ class NewsListEntityMapperTest {
     }
 
     @Test
-    fun `toDomainModel should return NewsList correctly if newsItemEntities contains one item`() {
+    fun `asDomainModel should return NewsList correctly if newsItemEntities contains one item`() {
         setupNiceDateFormatter()
         fakeNiceDateFormatter.getNiceDateResponse = "2 days ago"
         val title = "some-title"
@@ -28,7 +28,7 @@ class NewsListEntityMapperTest {
         val newsList = NewsListEntity(
             listId = listId,
             title = title,
-        ).toDomainModel(
+        ).asDomainModel(
             newsItemEntities = newsItemEntities,
             niceDateFormatter = fakeNiceDateFormatter,
         )
@@ -40,7 +40,7 @@ class NewsListEntityMapperTest {
     }
 
     @Test
-    fun `toDomainModel should convert and keep only known types from multiple newsItemEntities`() {
+    fun `asDomainModel should convert and keep only known types from multiple newsItemEntities`() {
         setupNiceDateFormatter()
         fakeNiceDateFormatter.getNiceDateResponse = "2 days ago"
         val title = "some-title"
@@ -54,7 +54,7 @@ class NewsListEntityMapperTest {
         val newsList = NewsListEntity(
             listId = listId,
             title = title,
-        ).toDomainModel(
+        ).asDomainModel(
             newsItemEntities = newsItemEntities,
             niceDateFormatter = fakeNiceDateFormatter,
         )

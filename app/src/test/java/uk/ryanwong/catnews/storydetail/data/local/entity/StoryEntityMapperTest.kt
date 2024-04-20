@@ -3,7 +3,7 @@ package uk.ryanwong.catnews.storydetail.data.local.entity
 import io.kotest.matchers.shouldBe
 import org.junit.Test
 import uk.ryanwong.catnews.data.datasource.local.entity.ContentEntity
-import uk.ryanwong.catnews.data.datasource.local.mappers.toDomainModel
+import uk.ryanwong.catnews.data.datasource.local.mappers.asDomainModel
 import uk.ryanwong.catnews.domain.model.storydetail.Content
 import uk.ryanwong.catnews.domain.model.storydetail.Story
 
@@ -14,7 +14,7 @@ internal class StoryEntityMapperTest {
         val storyEntity = StoryEntityMapperTestData.storyEntity
         val contentEntities = listOf<ContentEntity>()
 
-        val story = storyEntity.toDomainModel(contentEntities = contentEntities)
+        val story = storyEntity.asDomainModel(contentEntities = contentEntities)
 
         story shouldBe Story(
             id = 1,
@@ -31,7 +31,7 @@ internal class StoryEntityMapperTest {
         val storyEntity = StoryEntityMapperTestData.storyEntity.copy(headline = null)
         val contentEntities = listOf<ContentEntity>()
 
-        val story = storyEntity.toDomainModel(contentEntities = contentEntities)
+        val story = storyEntity.asDomainModel(contentEntities = contentEntities)
 
         story shouldBe Story(
             id = 1,
@@ -48,7 +48,7 @@ internal class StoryEntityMapperTest {
         val storyEntity = StoryEntityMapperTestData.storyEntity
         val contentEntities = listOf(StoryEntityMapperTestData.contentEntity)
 
-        val story = storyEntity.toDomainModel(contentEntities = contentEntities)
+        val story = storyEntity.asDomainModel(contentEntities = contentEntities)
 
         story shouldBe Story(
             id = 1,

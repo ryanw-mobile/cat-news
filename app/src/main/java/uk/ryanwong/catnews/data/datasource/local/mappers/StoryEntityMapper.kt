@@ -8,10 +8,10 @@ import uk.ryanwong.catnews.data.datasource.local.entity.ContentEntity
 import uk.ryanwong.catnews.data.datasource.local.entity.StoryEntity
 import uk.ryanwong.catnews.domain.model.storydetail.Story
 
-fun StoryEntity.toDomainModel(contentEntities: List<ContentEntity>): Story {
+fun StoryEntity.asDomainModel(contentEntities: List<ContentEntity>): Story {
     return Story(
         id = storyId,
-        contents = contentEntities.toDomainModel(),
+        contents = contentEntities.asDomainModel(),
         date = modifiedDate,
         headline = headline ?: "",
         heroImageAccessibilityText = heroImageAccessibilityText,

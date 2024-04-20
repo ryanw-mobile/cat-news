@@ -6,7 +6,7 @@ import org.junit.Before
 import org.junit.Test
 import uk.ryanwong.catnews.app.util.nicedateformatter.FakeNiceDateFormatter
 import uk.ryanwong.catnews.data.datasource.local.entity.NewsItemEntity
-import uk.ryanwong.catnews.data.datasource.local.mappers.toDomainModel
+import uk.ryanwong.catnews.data.datasource.local.mappers.asDomainModel
 import uk.ryanwong.catnews.domain.model.newslist.NewsItem
 
 class NewsItemEntityMapperTest {
@@ -19,17 +19,17 @@ class NewsItemEntityMapperTest {
     }
 
     @Test
-    fun `toDomainModel should return an empty list if newsItemEntities is empty`() {
+    fun `asDomainModel should return an empty list if newsItemEntities is empty`() {
         fakeNiceDateFormatter.getNiceDateResponse = "2 days ago"
         val newsItemEntities = listOf<NewsItemEntity>()
 
-        val newsItem = newsItemEntities.toDomainModel(niceDateFormatter = fakeNiceDateFormatter)
+        val newsItem = newsItemEntities.asDomainModel(niceDateFormatter = fakeNiceDateFormatter)
 
         newsItem shouldBe emptyList()
     }
 
     @Test
-    fun `toDomainModel should convert and keep only known types from multiple newsItemEntities`() {
+    fun `asDomainModel should convert and keep only known types from multiple newsItemEntities`() {
         fakeNiceDateFormatter.getNiceDateResponse = "2 days ago"
         val newsItemEntities = listOf(
             NewsItemEntityMapperTestData.newsItemEntity1,
@@ -37,7 +37,7 @@ class NewsItemEntityMapperTest {
             NewsItemEntityMapperTestData.newsItemEntity3,
         )
 
-        val newsItem = newsItemEntities.toDomainModel(niceDateFormatter = fakeNiceDateFormatter)
+        val newsItem = newsItemEntities.asDomainModel(niceDateFormatter = fakeNiceDateFormatter)
 
         newsItem shouldContainInOrder listOf(
             NewsItemEntityMapperTestData.newsItemStory,
@@ -46,11 +46,11 @@ class NewsItemEntityMapperTest {
     }
 
     @Test
-    fun `toDomainModel should fill headline with empty string if it comes as null`() {
+    fun `asDomainModel should fill headline with empty string if it comes as null`() {
         fakeNiceDateFormatter.getNiceDateResponse = "2 days ago"
         val newsItemEntities = listOf(NewsItemEntityMapperTestData.newsItemEntity1.copy(headline = null))
 
-        val newsItem = newsItemEntities.toDomainModel(niceDateFormatter = fakeNiceDateFormatter)
+        val newsItem = newsItemEntities.asDomainModel(niceDateFormatter = fakeNiceDateFormatter)
 
         newsItem shouldBe listOf(
             NewsItem.Story(
@@ -66,11 +66,11 @@ class NewsItemEntityMapperTest {
     }
 
     @Test
-    fun `toDomainModel should fill teaserText with empty string if it comes as null`() {
+    fun `asDomainModel should fill teaserText with empty string if it comes as null`() {
         fakeNiceDateFormatter.getNiceDateResponse = "2 days ago"
         val newsItemEntities = listOf(NewsItemEntityMapperTestData.newsItemEntity1.copy(teaserText = null))
 
-        val newsItem = newsItemEntities.toDomainModel(niceDateFormatter = fakeNiceDateFormatter)
+        val newsItem = newsItemEntities.asDomainModel(niceDateFormatter = fakeNiceDateFormatter)
 
         newsItem shouldBe listOf(
             NewsItem.Story(
@@ -86,14 +86,14 @@ class NewsItemEntityMapperTest {
     }
 
     @Test
-    fun `toDomainModel should fill teaserImageUrl with empty string if teaserImageHref comes as null`() {
+    fun `asDomainModel should fill teaserImageUrl with empty string if teaserImageHref comes as null`() {
         fakeNiceDateFormatter.getNiceDateResponse = "2 days ago"
         val newsItemEntities =
             listOf(
                 NewsItemEntityMapperTestData.newsItemEntity1.copy(teaserImageHref = null),
             )
 
-        val newsItem = newsItemEntities.toDomainModel(niceDateFormatter = fakeNiceDateFormatter)
+        val newsItem = newsItemEntities.asDomainModel(niceDateFormatter = fakeNiceDateFormatter)
 
         newsItem shouldBe listOf(
             NewsItem.Story(
@@ -109,12 +109,12 @@ class NewsItemEntityMapperTest {
     }
 
     @Test
-    fun `toDomainModel should keep url as null if it comes as null`() {
+    fun `asDomainModel should keep url as null if it comes as null`() {
         fakeNiceDateFormatter.getNiceDateResponse = "2 days ago"
         val newsItemEntities =
             listOf(NewsItemEntityMapperTestData.newsItemEntity1.copy(advertUrl = null))
 
-        val newsItem = newsItemEntities.toDomainModel(niceDateFormatter = fakeNiceDateFormatter)
+        val newsItem = newsItemEntities.asDomainModel(niceDateFormatter = fakeNiceDateFormatter)
 
         newsItem shouldBe listOf(
             NewsItem.Story(

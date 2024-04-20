@@ -11,7 +11,7 @@ import kotlinx.coroutines.withContext
 import uk.ryanwong.catnews.data.datasource.local.daos.NewsListDao
 import uk.ryanwong.catnews.data.datasource.local.entity.NewsItemEntity
 import uk.ryanwong.catnews.data.datasource.local.entity.NewsListEntity
-import uk.ryanwong.catnews.data.datasource.local.mappers.toDomainModel
+import uk.ryanwong.catnews.data.datasource.local.mappers.asDomainModel
 import uk.ryanwong.catnews.data.datasource.remote.interfaces.NewsListService
 import uk.ryanwong.catnews.data.dto.NewsListDto
 import uk.ryanwong.catnews.di.DispatcherModule
@@ -77,7 +77,7 @@ class NewsListRepositoryImpl(
 
                 newsItemEntity?.let {
                     val newsItemList =
-                        listOf(newsItemEntity).toDomainModel(
+                        listOf(newsItemEntity).asDomainModel(
                             niceDateFormatter = niceDateFormatter,
                         )
                     newsItemList.getOrNull(0)
@@ -90,7 +90,7 @@ class NewsListRepositoryImpl(
         return NewsListEntity(
             listId = listId,
             title = newsListDao.getNewsListTitle(listId = listId) ?: "",
-        ).toDomainModel(
+        ).asDomainModel(
             newsItemEntities = newsListDao.getNewsList(listId = listId),
             niceDateFormatter = niceDateFormatter,
         )

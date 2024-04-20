@@ -11,19 +11,19 @@ import uk.ryanwong.catnews.domain.model.newslist.NewsItem
 import uk.ryanwong.catnews.domain.model.newslist.NewsType
 import uk.ryanwong.catnews.domain.util.nicedateformatter.NiceDateFormatter
 
-fun List<NewsItemEntity>.toDomainModel(
+fun List<NewsItemEntity>.asDomainModel(
     niceDateFormatter: NiceDateFormatter,
     currentTimeMills: Long = getTimeMillis(),
 ): List<NewsItem> {
     return mapNotNull { newsItemEntity ->
-        newsItemEntity.toDomainModel(
+        newsItemEntity.asDomainModel(
             niceDateFormatter = niceDateFormatter,
             currentTimeMills = currentTimeMills,
         )
     }
 }
 
-fun NewsItemEntity.toDomainModel(
+fun NewsItemEntity.asDomainModel(
     niceDateFormatter: NiceDateFormatter,
     currentTimeMills: Long = getTimeMillis(),
 ): NewsItem? {

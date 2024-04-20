@@ -9,7 +9,7 @@ import uk.ryanwong.catnews.data.datasource.local.entity.ContentEntity
 import uk.ryanwong.catnews.domain.model.storydetail.Content
 import uk.ryanwong.catnews.domain.model.storydetail.StoryContentType
 
-fun ContentEntity.toDomainModel(): Content? {
+fun ContentEntity.asDomainModel(): Content? {
     val storyContentType = StoryContentType.parse(type)
 
     return when (storyContentType) {
@@ -29,15 +29,15 @@ fun ContentEntity.toDomainModel(): Content? {
         // Drop unknown types as we don't know how to show them.
         else -> {
             Timber.d(
-                "ContentEntity.toDomainModel(): unknown ContentEntity with type $storyContentType dropped",
+                "ContentEntity.asDomainModel(): unknown ContentEntity with type $storyContentType dropped",
             )
             null
         }
     }
 }
 
-fun List<ContentEntity>.toDomainModel(): List<Content> {
+fun List<ContentEntity>.asDomainModel(): List<Content> {
     return mapNotNull { contentEntity ->
-        contentEntity.toDomainModel()
+        contentEntity.asDomainModel()
     }
 }
