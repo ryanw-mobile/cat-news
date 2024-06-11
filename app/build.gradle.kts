@@ -241,46 +241,48 @@ tasks.named("preBuild") {
     dependsOn(tasks.named("ktlintFormat"))
 }
 
-koverReport {
-    // filters for all report types of all build variants
-    filters {
-        // exclusions for reports
-        excludes {
-            // excludes class by fully-qualified JVM class name, wildcards '*' and '?' are available
-            classes(
-                listOf(
-                    "uk.ryanwong.catnews.*.Hilt_*",
-                    "uk.ryanwong.catnews.*.*_Factory*",
-                    "uk.ryanwong.catnews.*.*_HiltModules*",
-                    "uk.ryanwong.catnews.*.*Module_*",
-                    "uk.ryanwong.catnews.*.*MembersInjector*",
-                    "uk.ryanwong.catnews.*.*_Impl*",
-                    "uk.ryanwong.catnews.ComposableSingletons*",
-                    "uk.ryanwong.catnews.BuildConfig*",
-                    "uk.ryanwong.catnews.*.Fake*",
-                    "uk.ryanwong.catnews.*.previewparameter*",
-                    "uk.ryanwong.catnews.app.ComposableSingletons*",
-                    "*Fragment",
-                    "*Fragment\$*",
-                    "*Activity",
-                    "*Activity\$*",
-                    "*.BuildConfig",
-                    "*.DebugUtil",
-                ),
-            )
-            // excludes all classes located in specified package and it subpackages, wildcards '*' and '?' are available
-            packages(
-                listOf(
-                    "dagger.hilt.internal.aggregatedroot.codegen",
-                    "hilt_aggregated_deps",
-                    "uk.ryanwong.catnews.ui.preview",
-                    "uk.ryanwong.catnews.ui.navigation",
-                    "uk.ryanwong.catnews.ui.components",
-                    "uk.ryanwong.catnews.ui.screens",
-                    "uk.ryanwong.catnews.ui.theme",
-                    "uk.ryanwong.catnews.di",
-                ),
-            )
+kover {
+    reports {
+        // filters for all report types of all build variants
+        filters {
+            // exclusions for reports
+            excludes {
+                // excludes class by fully-qualified JVM class name, wildcards '*' and '?' are available
+                classes(
+                    listOf(
+                        "uk.ryanwong.catnews.*.Hilt_*",
+                        "uk.ryanwong.catnews.*.*_Factory*",
+                        "uk.ryanwong.catnews.*.*_HiltModules*",
+                        "uk.ryanwong.catnews.*.*Module_*",
+                        "uk.ryanwong.catnews.*.*MembersInjector*",
+                        "uk.ryanwong.catnews.*.*_Impl*",
+                        "uk.ryanwong.catnews.ComposableSingletons*",
+                        "uk.ryanwong.catnews.BuildConfig*",
+                        "uk.ryanwong.catnews.*.Fake*",
+                        "uk.ryanwong.catnews.*.previewparameter*",
+                        "uk.ryanwong.catnews.app.ComposableSingletons*",
+                        "*Fragment",
+                        "*Fragment\$*",
+                        "*Activity",
+                        "*Activity\$*",
+                        "*.BuildConfig",
+                        "*.DebugUtil",
+                    ),
+                )
+                // excludes all classes located in specified package and it subpackages, wildcards '*' and '?' are available
+                packages(
+                    listOf(
+                        "dagger.hilt.internal.aggregatedroot.codegen",
+                        "hilt_aggregated_deps",
+                        "uk.ryanwong.catnews.ui.preview",
+                        "uk.ryanwong.catnews.ui.navigation",
+                        "uk.ryanwong.catnews.ui.components",
+                        "uk.ryanwong.catnews.ui.screens",
+                        "uk.ryanwong.catnews.ui.theme",
+                        "uk.ryanwong.catnews.di",
+                    ),
+                )
+            }
         }
     }
 }
