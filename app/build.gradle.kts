@@ -17,6 +17,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.devtools.ksp)
     alias(libs.plugins.gradle.ktlint)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -142,9 +143,6 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.kotlin.compiler.extension.get()
     }
     testOptions {
         animationsDisabled = true
