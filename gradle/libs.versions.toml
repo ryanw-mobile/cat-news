@@ -31,8 +31,6 @@ testExt = "1.1.5"
 testCoreKtx = "1.5.0"
 timber = "5.0.1"
 kotlin = "2.0.0"
-# Compose compiler dependency: https://developer.android.com/jetpack/androidx/releases/compose-kotlin
-compose-kotlin-compiler-extension = "1.5.14"
 # ksp is linked to Kotlin version https://github.com/google/ksp/releases
 devtoolsksp = "2.0.0-1.0.22"
 
@@ -60,9 +58,6 @@ androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "u
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-
-# Not actually being called. For renovate only
-androidx-compose-compiler = { group = "androidx.compose.compiler", name = "compiler", version.ref = "compose-kotlin-compiler-extension" }
 
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 
@@ -116,3 +111,4 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 android-library = { id = "com.android.library", version.ref = "gradleplugin" }
 gradle-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "devtoolsksp" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
