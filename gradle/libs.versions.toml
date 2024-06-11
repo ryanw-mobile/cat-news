@@ -30,11 +30,11 @@ testRules = "1.5.0"
 testExt = "1.1.5"
 testCoreKtx = "1.5.0"
 timber = "5.0.1"
-kotlin = "1.9.24"
+kotlin = "2.0.0"
 # Compose compiler dependency: https://developer.android.com/jetpack/androidx/releases/compose-kotlin
 compose-kotlin-compiler-extension = "1.5.14"
 # ksp is linked to Kotlin version https://github.com/google/ksp/releases
-devtoolsksp = "1.9.24-1.0.20"
+devtoolsksp = "2.0.0-1.0.22"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCoreKtx" }
