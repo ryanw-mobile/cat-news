@@ -1,4 +1,4 @@
-# Cat News ![Gradle Build](https://github.com/ryanw-mobile/cat-news/actions/workflows/main_build.yml/badge.svg) [![codecov](https://codecov.io/github/ryanw-mobile/cat-news/graph/badge.svg?token=UG926FRXVG)](https://codecov.io/github/ryanw-mobile/cat-news)
+# Cat News ![Gradle Build](https://github.com/ryanw-mobile/cat-news/actions/workflows/main_build.yml/badge.svg) [![codecov](https://codecov.io/github/ryanw-mobile/cat-news/graph/badge.svg?token=UG926FRXVG)](https://codecov.io/github/ryanw-mobile/cat-news) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/27aac48312f4451dba86b91d646c473e)](https://app.codacy.com/gh/ryanw-mobile/cat-news/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 <p align="center">
   <img src="screenshot_20240309_1.png" width="200" />
