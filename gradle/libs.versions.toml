@@ -28,7 +28,7 @@ robolectric = "4.12.2"
 room = "2.6.1"
 testRules = "1.6.0"
 testExt = "1.2.1"
-testCoreKtx = "1.6.0"
+testCoreKtx = "1.6.1"
 timber = "5.0.1"
 kotlin = "2.0.0"
 # ksp is linked to Kotlin version https://github.com/google/ksp/releases
