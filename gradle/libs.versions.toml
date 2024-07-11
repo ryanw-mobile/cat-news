@@ -32,7 +32,7 @@ testCoreKtx = "1.6.1"
 timber = "5.0.1"
 kotlin = "2.0.0"
 # ksp is linked to Kotlin version https://github.com/google/ksp/releases
-devtoolsksp = "2.0.0-1.0.22"
+devtoolsksp = "2.0.0-1.0.23"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCoreKtx" }
